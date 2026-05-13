@@ -1,0 +1,2 @@
+totalActiveHours,avgDailyHours,productivityScore,idlePercent,keystrokes,mouseClicks,cpuAvg,ramUsed_gb,sessionsToday,uptimeMinutes,typingSpeed_keysPerMin,activeTypingMinutes
+1.5,1.5,100,0,111,16,100,,1,6,,3

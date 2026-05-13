@@ -1,0 +1,1402 @@
+[
+  {
+    "timestamp": 1778495251873,
+    "download": 28,
+    "upload": 20,
+    "totalRx": 2356,
+    "totalTx": 1324
+  },
+  {
+    "timestamp": 1778495265655,
+    "download": 3,
+    "upload": 3,
+    "totalRx": 2356,
+    "totalTx": 1324
+  },
+  {
+    "timestamp": 1778495280936,
+    "download": 28,
+    "upload": 33,
+    "totalRx": 2357,
+    "totalTx": 1325
+  },
+  {
+    "timestamp": 1778495295701,
+    "download": 4,
+    "upload": 2,
+    "totalRx": 2357,
+    "totalTx": 1325
+  },
+  {
+    "timestamp": 1778495310625,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 2357,
+    "totalTx": 1325
+  },
+  {
+    "timestamp": 1778495325797,
+    "download": 9,
+    "upload": 4,
+    "totalRx": 2357,
+    "totalTx": 1325
+  },
+  {
+    "timestamp": 1778495340646,
+    "download": 5,
+    "upload": 3,
+    "totalRx": 2357,
+    "totalTx": 1325
+  },
+  {
+    "timestamp": 1778495358106,
+    "download": 6,
+    "upload": 19,
+    "totalRx": 2357,
+    "totalTx": 1325
+  },
+  {
+    "timestamp": 1778495371905,
+    "download": 13,
+    "upload": 33,
+    "totalRx": 2357,
+    "totalTx": 1326
+  },
+  {
+    "timestamp": 1778495386727,
+    "download": 26,
+    "upload": 34,
+    "totalRx": 2358,
+    "totalTx": 1326
+  },
+  {
+    "timestamp": 1778495401046,
+    "download": 7,
+    "upload": 4,
+    "totalRx": 2358,
+    "totalTx": 1327
+  },
+  {
+    "timestamp": 1778495415880,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 2358,
+    "totalTx": 1327
+  },
+  {
+    "timestamp": 1778495431053,
+    "download": 9,
+    "upload": 47,
+    "totalRx": 2358,
+    "totalTx": 1327
+  },
+  {
+    "timestamp": 1778495446718,
+    "download": 14,
+    "upload": 22,
+    "totalRx": 2358,
+    "totalTx": 1328
+  },
+  {
+    "timestamp": 1778495461469,
+    "download": 25,
+    "upload": 19,
+    "totalRx": 2358,
+    "totalTx": 1328
+  },
+  {
+    "timestamp": 1778495475912,
+    "download": 10,
+    "upload": 21,
+    "totalRx": 2359,
+    "totalTx": 1328
+  },
+  {
+    "timestamp": 1778495490849,
+    "download": 4,
+    "upload": 7,
+    "totalRx": 2359,
+    "totalTx": 1328
+  },
+  {
+    "timestamp": 1778495506003,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 2359,
+    "totalTx": 1328
+  },
+  {
+    "timestamp": 1778495521134,
+    "download": 11,
+    "upload": 51,
+    "totalRx": 2359,
+    "totalTx": 1329
+  },
+  {
+    "timestamp": 1778495536682,
+    "download": 393,
+    "upload": 17,
+    "totalRx": 2365,
+    "totalTx": 1329
+  },
+  {
+    "timestamp": 1778495551940,
+    "download": 156,
+    "upload": 23,
+    "totalRx": 2368,
+    "totalTx": 1330
+  },
+  {
+    "timestamp": 1778495566927,
+    "download": 439,
+    "upload": 19,
+    "totalRx": 2374,
+    "totalTx": 1330
+  },
+  {
+    "timestamp": 1778495582756,
+    "download": 1776,
+    "upload": 36,
+    "totalRx": 2403,
+    "totalTx": 1331
+  },
+  {
+    "timestamp": 1778495598456,
+    "download": 408,
+    "upload": 15,
+    "totalRx": 2410,
+    "totalTx": 1331
+  },
+  {
+    "timestamp": 1778495611608,
+    "download": 662,
+    "upload": 23,
+    "totalRx": 2419,
+    "totalTx": 1331
+  },
+  {
+    "timestamp": 1778495627437,
+    "download": 494,
+    "upload": 18,
+    "totalRx": 2427,
+    "totalTx": 1331
+  },
+  {
+    "timestamp": 1778495641153,
+    "download": 406,
+    "upload": 43,
+    "totalRx": 2432,
+    "totalTx": 1332
+  },
+  {
+    "timestamp": 1778495656408,
+    "download": 43,
+    "upload": 32,
+    "totalRx": 2433,
+    "totalTx": 1333
+  },
+  {
+    "timestamp": 1778495671182,
+    "download": 27,
+    "upload": 29,
+    "totalRx": 2433,
+    "totalTx": 1333
+  },
+  {
+    "timestamp": 1778495686598,
+    "download": 14,
+    "upload": 18,
+    "totalRx": 2434,
+    "totalTx": 1333
+  },
+  {
+    "timestamp": 1778495701081,
+    "download": 3,
+    "upload": 27,
+    "totalRx": 2434,
+    "totalTx": 1334
+  },
+  {
+    "timestamp": 1778495716022,
+    "download": 4,
+    "upload": 29,
+    "totalRx": 2434,
+    "totalTx": 1334
+  },
+  {
+    "timestamp": 1778495731177,
+    "download": 10,
+    "upload": 21,
+    "totalRx": 2434,
+    "totalTx": 1334
+  },
+  {
+    "timestamp": 1778495746045,
+    "download": 7,
+    "upload": 35,
+    "totalRx": 2434,
+    "totalTx": 1335
+  },
+  {
+    "timestamp": 1778495761769,
+    "download": 6,
+    "upload": 40,
+    "totalRx": 2434,
+    "totalTx": 1336
+  },
+  {
+    "timestamp": 1778495777138,
+    "download": 12,
+    "upload": 18,
+    "totalRx": 2434,
+    "totalTx": 1336
+  },
+  {
+    "timestamp": 1778495795220,
+    "download": 10,
+    "upload": 52,
+    "totalRx": 2434,
+    "totalTx": 1337
+  },
+  {
+    "timestamp": 1778495806956,
+    "download": 3,
+    "upload": 9,
+    "totalRx": 2434,
+    "totalTx": 1337
+  },
+  {
+    "timestamp": 1778495821211,
+    "download": 33,
+    "upload": 8,
+    "totalRx": 2435,
+    "totalTx": 1337
+  },
+  {
+    "timestamp": 1778495836015,
+    "download": 8,
+    "upload": 83,
+    "totalRx": 2435,
+    "totalTx": 1338
+  },
+  {
+    "timestamp": 1778495850912,
+    "download": 4,
+    "upload": 5,
+    "totalRx": 2435,
+    "totalTx": 1338
+  },
+  {
+    "timestamp": 1778495866053,
+    "download": 4,
+    "upload": 3,
+    "totalRx": 2435,
+    "totalTx": 1339
+  },
+  {
+    "timestamp": 1778495881040,
+    "download": 5,
+    "upload": 15,
+    "totalRx": 2435,
+    "totalTx": 1339
+  },
+  {
+    "timestamp": 1778495896146,
+    "download": 8,
+    "upload": 3,
+    "totalRx": 2435,
+    "totalTx": 1339
+  },
+  {
+    "timestamp": 1778495911118,
+    "download": 4,
+    "upload": 8,
+    "totalRx": 2435,
+    "totalTx": 1339
+  },
+  {
+    "timestamp": 1778495927434,
+    "download": 14,
+    "upload": 6,
+    "totalRx": 2436,
+    "totalTx": 1339
+  },
+  {
+    "timestamp": 1778495941143,
+    "download": 2,
+    "upload": 7,
+    "totalRx": 2436,
+    "totalTx": 1339
+  },
+  {
+    "timestamp": 1778495956077,
+    "download": 4,
+    "upload": 19,
+    "totalRx": 2436,
+    "totalTx": 1339
+  },
+  {
+    "timestamp": 1778495970993,
+    "download": 6,
+    "upload": 12,
+    "totalRx": 2436,
+    "totalTx": 1340
+  },
+  {
+    "timestamp": 1778495986206,
+    "download": 5,
+    "upload": 4,
+    "totalRx": 2436,
+    "totalTx": 1340
+  },
+  {
+    "timestamp": 1778496001213,
+    "download": 3,
+    "upload": 13,
+    "totalRx": 2436,
+    "totalTx": 1340
+  },
+  {
+    "timestamp": 1778496016150,
+    "download": 4,
+    "upload": 12,
+    "totalRx": 2436,
+    "totalTx": 1340
+  },
+  {
+    "timestamp": 1778496031944,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 2436,
+    "totalTx": 1340
+  },
+  {
+    "timestamp": 1778496046782,
+    "download": 5,
+    "upload": 7,
+    "totalRx": 2436,
+    "totalTx": 1340
+  },
+  {
+    "timestamp": 1778496062523,
+    "download": 2,
+    "upload": 6,
+    "totalRx": 2436,
+    "totalTx": 1340
+  },
+  {
+    "timestamp": 1778496076690,
+    "download": 12,
+    "upload": 64,
+    "totalRx": 2436,
+    "totalTx": 1341
+  },
+  {
+    "timestamp": 1778496092044,
+    "download": 28,
+    "upload": 44,
+    "totalRx": 2437,
+    "totalTx": 1342
+  },
+  {
+    "timestamp": 1778496106222,
+    "download": 27,
+    "upload": 30,
+    "totalRx": 2437,
+    "totalTx": 1342
+  },
+  {
+    "timestamp": 1778496121957,
+    "download": 8,
+    "upload": 47,
+    "totalRx": 2437,
+    "totalTx": 1343
+  },
+  {
+    "timestamp": 1778496136763,
+    "download": 33,
+    "upload": 77,
+    "totalRx": 2438,
+    "totalTx": 1344
+  },
+  {
+    "timestamp": 1778496151631,
+    "download": 26,
+    "upload": 29,
+    "totalRx": 2438,
+    "totalTx": 1345
+  },
+  {
+    "timestamp": 1778496166242,
+    "download": 4,
+    "upload": 2,
+    "totalRx": 2438,
+    "totalTx": 1345
+  },
+  {
+    "timestamp": 1778496181193,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 2438,
+    "totalTx": 1345
+  },
+  {
+    "timestamp": 1778496196371,
+    "download": 20,
+    "upload": 32,
+    "totalRx": 2439,
+    "totalTx": 1345
+  },
+  {
+    "timestamp": 1778496212263,
+    "download": 25,
+    "upload": 38,
+    "totalRx": 2439,
+    "totalTx": 1346
+  },
+  {
+    "timestamp": 1778496226298,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 2439,
+    "totalTx": 1346
+  },
+  {
+    "timestamp": 1778496241220,
+    "download": 5,
+    "upload": 8,
+    "totalRx": 2439,
+    "totalTx": 1346
+  },
+  {
+    "timestamp": 1778496256226,
+    "download": 6,
+    "upload": 3,
+    "totalRx": 2439,
+    "totalTx": 1346
+  },
+  {
+    "timestamp": 1778496271247,
+    "download": 6,
+    "upload": 34,
+    "totalRx": 2439,
+    "totalTx": 1347
+  },
+  {
+    "timestamp": 1778496286978,
+    "download": 98,
+    "upload": 58,
+    "totalRx": 2441,
+    "totalTx": 1348
+  },
+  {
+    "timestamp": 1778496301338,
+    "download": 149,
+    "upload": 25,
+    "totalRx": 2443,
+    "totalTx": 1348
+  },
+  {
+    "timestamp": 1778496316400,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 2443,
+    "totalTx": 1348
+  },
+  {
+    "timestamp": 1778496334129,
+    "download": 18,
+    "upload": 10,
+    "totalRx": 2444,
+    "totalTx": 1348
+  },
+  {
+    "timestamp": 1778496347336,
+    "download": 35,
+    "upload": 42,
+    "totalRx": 2444,
+    "totalTx": 1349
+  },
+  {
+    "timestamp": 1778496361436,
+    "download": 7,
+    "upload": 25,
+    "totalRx": 2444,
+    "totalTx": 1349
+  },
+  {
+    "timestamp": 1778496376481,
+    "download": 43,
+    "upload": 60,
+    "totalRx": 2445,
+    "totalTx": 1350
+  },
+  {
+    "timestamp": 1778496392199,
+    "download": 414,
+    "upload": 20,
+    "totalRx": 2451,
+    "totalTx": 1350
+  },
+  {
+    "timestamp": 1778496408284,
+    "download": 127,
+    "upload": 27,
+    "totalRx": 2454,
+    "totalTx": 1351
+  },
+  {
+    "timestamp": 1778496422607,
+    "download": 1294,
+    "upload": 38,
+    "totalRx": 2472,
+    "totalTx": 1351
+  },
+  {
+    "timestamp": 1778496437623,
+    "download": 1332,
+    "upload": 54,
+    "totalRx": 2493,
+    "totalTx": 1352
+  },
+  {
+    "timestamp": 1778496452414,
+    "download": 29,
+    "upload": 11,
+    "totalRx": 2493,
+    "totalTx": 1352
+  },
+  {
+    "timestamp": 1778496467042,
+    "download": 21,
+    "upload": 6,
+    "totalRx": 2494,
+    "totalTx": 1352
+  },
+  {
+    "timestamp": 1778496481527,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 2494,
+    "totalTx": 1352
+  },
+  {
+    "timestamp": 1778496497102,
+    "download": 5,
+    "upload": 3,
+    "totalRx": 2494,
+    "totalTx": 1352
+  },
+  {
+    "timestamp": 1778496511481,
+    "download": 6,
+    "upload": 3,
+    "totalRx": 2494,
+    "totalTx": 1352
+  },
+  {
+    "timestamp": 1778496528520,
+    "download": 72,
+    "upload": 32,
+    "totalRx": 2495,
+    "totalTx": 1353
+  },
+  {
+    "timestamp": 1778496542328,
+    "download": 268,
+    "upload": 21,
+    "totalRx": 2499,
+    "totalTx": 1353
+  },
+  {
+    "timestamp": 1778496556600,
+    "download": 63,
+    "upload": 4,
+    "totalRx": 2500,
+    "totalTx": 1353
+  },
+  {
+    "timestamp": 1778496571610,
+    "download": 220,
+    "upload": 48,
+    "totalRx": 2503,
+    "totalTx": 1354
+  },
+  {
+    "timestamp": 1778496586548,
+    "download": 328,
+    "upload": 13,
+    "totalRx": 2508,
+    "totalTx": 1354
+  },
+  {
+    "timestamp": 1778496602031,
+    "download": 307,
+    "upload": 11,
+    "totalRx": 2513,
+    "totalTx": 1354
+  },
+  {
+    "timestamp": 1778496617314,
+    "download": 123,
+    "upload": 4,
+    "totalRx": 2515,
+    "totalTx": 1355
+  },
+  {
+    "timestamp": 1778496631864,
+    "download": 319,
+    "upload": 12,
+    "totalRx": 2520,
+    "totalTx": 1355
+  },
+  {
+    "timestamp": 1778496646875,
+    "download": 120,
+    "upload": 73,
+    "totalRx": 2522,
+    "totalTx": 1356
+  },
+  {
+    "timestamp": 1778496661467,
+    "download": 64,
+    "upload": 40,
+    "totalRx": 2523,
+    "totalTx": 1356
+  },
+  {
+    "timestamp": 1778496676392,
+    "download": 70,
+    "upload": 28,
+    "totalRx": 2524,
+    "totalTx": 1357
+  },
+  {
+    "timestamp": 1778496694933,
+    "download": 106,
+    "upload": 36,
+    "totalRx": 2526,
+    "totalTx": 1358
+  },
+  {
+    "timestamp": 1778496707717,
+    "download": 87,
+    "upload": 68,
+    "totalRx": 2527,
+    "totalTx": 1358
+  },
+  {
+    "timestamp": 1778496722018,
+    "download": 116,
+    "upload": 76,
+    "totalRx": 2529,
+    "totalTx": 1360
+  },
+  {
+    "timestamp": 1778496737041,
+    "download": 96,
+    "upload": 27,
+    "totalRx": 2530,
+    "totalTx": 1360
+  },
+  {
+    "timestamp": 1778496751603,
+    "download": 10,
+    "upload": 6,
+    "totalRx": 2530,
+    "totalTx": 1360
+  },
+  {
+    "timestamp": 1778496766590,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 2530,
+    "totalTx": 1360
+  },
+  {
+    "timestamp": 1778496781440,
+    "download": 5,
+    "upload": 4,
+    "totalRx": 2530,
+    "totalTx": 1360
+  },
+  {
+    "timestamp": 1778496796634,
+    "download": 17,
+    "upload": 7,
+    "totalRx": 2531,
+    "totalTx": 1360
+  },
+  {
+    "timestamp": 1778496811556,
+    "download": 12,
+    "upload": 6,
+    "totalRx": 2531,
+    "totalTx": 1360
+  },
+  {
+    "timestamp": 1778496826684,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 2531,
+    "totalTx": 1360
+  },
+  {
+    "timestamp": 1778496841579,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 2531,
+    "totalTx": 1360
+  },
+  {
+    "timestamp": 1778496856618,
+    "download": 5,
+    "upload": 4,
+    "totalRx": 2531,
+    "totalTx": 1360
+  },
+  {
+    "timestamp": 1778496871645,
+    "download": 8,
+    "upload": 5,
+    "totalRx": 2531,
+    "totalTx": 1360
+  },
+  {
+    "timestamp": 1778496886620,
+    "download": 4,
+    "upload": 2,
+    "totalRx": 2531,
+    "totalTx": 1361
+  },
+  {
+    "timestamp": 1778496901501,
+    "download": 5,
+    "upload": 4,
+    "totalRx": 2531,
+    "totalTx": 1361
+  },
+  {
+    "timestamp": 1778496916504,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 2531,
+    "totalTx": 1361
+  },
+  {
+    "timestamp": 1778496931700,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 2531,
+    "totalTx": 1361
+  },
+  {
+    "timestamp": 1778496946696,
+    "download": 4,
+    "upload": 3,
+    "totalRx": 2531,
+    "totalTx": 1361
+  },
+  {
+    "timestamp": 1778496961593,
+    "download": 52,
+    "upload": 6,
+    "totalRx": 2532,
+    "totalTx": 1361
+  },
+  {
+    "timestamp": 1778496976583,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 2532,
+    "totalTx": 1361
+  },
+  {
+    "timestamp": 1778496991589,
+    "download": 8,
+    "upload": 32,
+    "totalRx": 2532,
+    "totalTx": 1361
+  },
+  {
+    "timestamp": 1778497006691,
+    "download": 11,
+    "upload": 49,
+    "totalRx": 2532,
+    "totalTx": 1362
+  },
+  {
+    "timestamp": 1778497021539,
+    "download": 5,
+    "upload": 6,
+    "totalRx": 2532,
+    "totalTx": 1362
+  },
+  {
+    "timestamp": 1778497036626,
+    "download": 7,
+    "upload": 37,
+    "totalRx": 2533,
+    "totalTx": 1363
+  },
+  {
+    "timestamp": 1778497052051,
+    "download": 11,
+    "upload": 72,
+    "totalRx": 2533,
+    "totalTx": 1364
+  },
+  {
+    "timestamp": 1778497066917,
+    "download": 8,
+    "upload": 90,
+    "totalRx": 2533,
+    "totalTx": 1365
+  },
+  {
+    "timestamp": 1778497082275,
+    "download": 6,
+    "upload": 79,
+    "totalRx": 2533,
+    "totalTx": 1366
+  },
+  {
+    "timestamp": 1778497097280,
+    "download": 74,
+    "upload": 30,
+    "totalRx": 2534,
+    "totalTx": 1367
+  },
+  {
+    "timestamp": 1778497111799,
+    "download": 8,
+    "upload": 89,
+    "totalRx": 2534,
+    "totalTx": 1368
+  },
+  {
+    "timestamp": 1778497127890,
+    "download": 53,
+    "upload": 129,
+    "totalRx": 2535,
+    "totalTx": 1370
+  },
+  {
+    "timestamp": 1778497141732,
+    "download": 26,
+    "upload": 16,
+    "totalRx": 2535,
+    "totalTx": 1371
+  },
+  {
+    "timestamp": 1778497156791,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 2536,
+    "totalTx": 1371
+  },
+  {
+    "timestamp": 1778497171639,
+    "download": 4,
+    "upload": 3,
+    "totalRx": 2536,
+    "totalTx": 1371
+  },
+  {
+    "timestamp": 1778497186681,
+    "download": 5,
+    "upload": 48,
+    "totalRx": 2536,
+    "totalTx": 1371
+  },
+  {
+    "timestamp": 1778497201716,
+    "download": 7,
+    "upload": 2,
+    "totalRx": 2536,
+    "totalTx": 1371
+  },
+  {
+    "timestamp": 1778497216777,
+    "download": 4,
+    "upload": 2,
+    "totalRx": 2536,
+    "totalTx": 1371
+  },
+  {
+    "timestamp": 1778497231641,
+    "download": 6,
+    "upload": 2,
+    "totalRx": 2536,
+    "totalTx": 1371
+  },
+  {
+    "timestamp": 1778497247204,
+    "download": 5,
+    "upload": 115,
+    "totalRx": 2536,
+    "totalTx": 1373
+  },
+  {
+    "timestamp": 1778497261742,
+    "download": 63,
+    "upload": 24,
+    "totalRx": 2537,
+    "totalTx": 1374
+  },
+  {
+    "timestamp": 1778497276774,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 2537,
+    "totalTx": 1374
+  },
+  {
+    "timestamp": 1778497291972,
+    "download": 115,
+    "upload": 51,
+    "totalRx": 2539,
+    "totalTx": 1374
+  },
+  {
+    "timestamp": 1778497309432,
+    "download": 10,
+    "upload": 4,
+    "totalRx": 2539,
+    "totalTx": 1375
+  },
+  {
+    "timestamp": 1778497321966,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 2539,
+    "totalTx": 1375
+  },
+  {
+    "timestamp": 1778497337255,
+    "download": 5,
+    "upload": 3,
+    "totalRx": 2539,
+    "totalTx": 1375
+  },
+  {
+    "timestamp": 1778497351746,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 2539,
+    "totalTx": 1375
+  },
+  {
+    "timestamp": 1778497366699,
+    "download": 5,
+    "upload": 46,
+    "totalRx": 2539,
+    "totalTx": 1375
+  },
+  {
+    "timestamp": 1778497381831,
+    "download": 9,
+    "upload": 1,
+    "totalRx": 2539,
+    "totalTx": 1375
+  },
+  {
+    "timestamp": 1778497396688,
+    "download": 3,
+    "upload": 66,
+    "totalRx": 2539,
+    "totalTx": 1376
+  },
+  {
+    "timestamp": 1778497411666,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 2539,
+    "totalTx": 1376
+  },
+  {
+    "timestamp": 1778497426755,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 2539,
+    "totalTx": 1376
+  },
+  {
+    "timestamp": 1778497441755,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 2539,
+    "totalTx": 1376
+  },
+  {
+    "timestamp": 1778497456753,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 2539,
+    "totalTx": 1376
+  },
+  {
+    "timestamp": 1778497471871,
+    "download": 14,
+    "upload": 8,
+    "totalRx": 2540,
+    "totalTx": 1377
+  },
+  {
+    "timestamp": 1778497486831,
+    "download": 2,
+    "upload": 7,
+    "totalRx": 2540,
+    "totalTx": 1377
+  },
+  {
+    "timestamp": 1778497501729,
+    "download": 14,
+    "upload": 45,
+    "totalRx": 2540,
+    "totalTx": 1377
+  },
+  {
+    "timestamp": 1778497516830,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 2540,
+    "totalTx": 1377
+  },
+  {
+    "timestamp": 1778497532083,
+    "download": 11,
+    "upload": 4,
+    "totalRx": 2540,
+    "totalTx": 1377
+  },
+  {
+    "timestamp": 1778497547084,
+    "download": 4,
+    "upload": 3,
+    "totalRx": 2540,
+    "totalTx": 1378
+  },
+  {
+    "timestamp": 1778497561969,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 2540,
+    "totalTx": 1378
+  },
+  {
+    "timestamp": 1778497577084,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 2540,
+    "totalTx": 1378
+  },
+  {
+    "timestamp": 1778497592412,
+    "download": 13,
+    "upload": 11,
+    "totalRx": 2540,
+    "totalTx": 1378
+  },
+  {
+    "timestamp": 1778497606959,
+    "download": 2,
+    "upload": 4,
+    "totalRx": 2540,
+    "totalTx": 1378
+  },
+  {
+    "timestamp": 1778497621933,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 2541,
+    "totalTx": 1378
+  },
+  {
+    "timestamp": 1778497637146,
+    "download": 16,
+    "upload": 30,
+    "totalRx": 2541,
+    "totalTx": 1378
+  },
+  {
+    "timestamp": 1778497651845,
+    "download": 5,
+    "upload": 6,
+    "totalRx": 2541,
+    "totalTx": 1378
+  },
+  {
+    "timestamp": 1778497666937,
+    "download": 3,
+    "upload": 5,
+    "totalRx": 2541,
+    "totalTx": 1378
+  },
+  {
+    "timestamp": 1778497681950,
+    "download": 6,
+    "upload": 5,
+    "totalRx": 2541,
+    "totalTx": 1379
+  },
+  {
+    "timestamp": 1778497697006,
+    "download": 8,
+    "upload": 7,
+    "totalRx": 2541,
+    "totalTx": 1379
+  },
+  {
+    "timestamp": 1778497712169,
+    "download": 6,
+    "upload": 5,
+    "totalRx": 2541,
+    "totalTx": 1379
+  },
+  {
+    "timestamp": 1778497726958,
+    "download": 10,
+    "upload": 7,
+    "totalRx": 2541,
+    "totalTx": 1379
+  },
+  {
+    "timestamp": 1778497742109,
+    "download": 14,
+    "upload": 31,
+    "totalRx": 2542,
+    "totalTx": 1379
+  },
+  {
+    "timestamp": 1778497757129,
+    "download": 15,
+    "upload": 22,
+    "totalRx": 2542,
+    "totalTx": 1380
+  },
+  {
+    "timestamp": 1778497772134,
+    "download": 27,
+    "upload": 52,
+    "totalRx": 2542,
+    "totalTx": 1380
+  },
+  {
+    "timestamp": 1778497787091,
+    "download": 101,
+    "upload": 19,
+    "totalRx": 2544,
+    "totalTx": 1381
+  },
+  {
+    "timestamp": 1778497802495,
+    "download": 2,
+    "upload": 8,
+    "totalRx": 2544,
+    "totalTx": 1381
+  },
+  {
+    "timestamp": 1778497817474,
+    "download": 8,
+    "upload": 116,
+    "totalRx": 2544,
+    "totalTx": 1383
+  },
+  {
+    "timestamp": 1778497832742,
+    "download": 183,
+    "upload": 19,
+    "totalRx": 2547,
+    "totalTx": 1383
+  },
+  {
+    "timestamp": 1778497847963,
+    "download": 3,
+    "upload": 12,
+    "totalRx": 2547,
+    "totalTx": 1383
+  },
+  {
+    "timestamp": 1778497862243,
+    "download": 4,
+    "upload": 10,
+    "totalRx": 2547,
+    "totalTx": 1383
+  },
+  {
+    "timestamp": 1778497877049,
+    "download": 3,
+    "upload": 13,
+    "totalRx": 2547,
+    "totalTx": 1383
+  },
+  {
+    "timestamp": 1778497892069,
+    "download": 4,
+    "upload": 3,
+    "totalRx": 2547,
+    "totalTx": 1384
+  },
+  {
+    "timestamp": 1778497906960,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 2547,
+    "totalTx": 1384
+  },
+  {
+    "timestamp": 1778497922093,
+    "download": 4,
+    "upload": 56,
+    "totalRx": 2547,
+    "totalTx": 1384
+  },
+  {
+    "timestamp": 1778497937261,
+    "download": 10,
+    "upload": 3,
+    "totalRx": 2547,
+    "totalTx": 1384
+  },
+  {
+    "timestamp": 1778497952249,
+    "download": 20,
+    "upload": 8,
+    "totalRx": 2548,
+    "totalTx": 1385
+  },
+  {
+    "timestamp": 1778497967246,
+    "download": 10,
+    "upload": 3,
+    "totalRx": 2548,
+    "totalTx": 1385
+  },
+  {
+    "timestamp": 1778497982228,
+    "download": 3,
+    "upload": 8,
+    "totalRx": 2548,
+    "totalTx": 1385
+  },
+  {
+    "timestamp": 1778497997336,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 2548,
+    "totalTx": 1385
+  },
+  {
+    "timestamp": 1778498012365,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 2548,
+    "totalTx": 1385
+  },
+  {
+    "timestamp": 1778498028646,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 2548,
+    "totalTx": 1385
+  },
+  {
+    "timestamp": 1778498042380,
+    "download": 12,
+    "upload": 20,
+    "totalRx": 2548,
+    "totalTx": 1385
+  },
+  {
+    "timestamp": 1778498057657,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 2548,
+    "totalTx": 1385
+  },
+  {
+    "timestamp": 1778498072389,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 2548,
+    "totalTx": 1385
+  },
+  {
+    "timestamp": 1778498087310,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 2548,
+    "totalTx": 1385
+  },
+  {
+    "timestamp": 1778498102439,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 2548,
+    "totalTx": 1385
+  },
+  {
+    "timestamp": 1778498117529,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 2548,
+    "totalTx": 1385
+  },
+  {
+    "timestamp": 1778498132396,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 2548,
+    "totalTx": 1385
+  },
+  {
+    "timestamp": 1778498147094,
+    "download": 5,
+    "upload": 13,
+    "totalRx": 2548,
+    "totalTx": 1385
+  },
+  {
+    "timestamp": 1778498162024,
+    "download": 52,
+    "upload": 143,
+    "totalRx": 2549,
+    "totalTx": 1388
+  },
+  {
+    "timestamp": 1778498177806,
+    "download": 4,
+    "upload": 3,
+    "totalRx": 2549,
+    "totalTx": 1388
+  },
+  {
+    "timestamp": 1778498192388,
+    "download": 7,
+    "upload": 19,
+    "totalRx": 2549,
+    "totalTx": 1388
+  },
+  {
+    "timestamp": 1778498207099,
+    "download": 7,
+    "upload": 10,
+    "totalRx": 2549,
+    "totalTx": 1388
+  },
+  {
+    "timestamp": 1778498222120,
+    "download": 6,
+    "upload": 7,
+    "totalRx": 2549,
+    "totalTx": 1388
+  },
+  {
+    "timestamp": 1778498237131,
+    "download": 5,
+    "upload": 5,
+    "totalRx": 2549,
+    "totalTx": 1388
+  }
+]

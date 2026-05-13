@@ -1,0 +1,1402 @@
+[
+  {
+    "timestamp": 1778661922782,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 199,
+    "totalTx": 6
+  },
+  {
+    "timestamp": 1778661937746,
+    "download": 6,
+    "upload": 35,
+    "totalRx": 199,
+    "totalTx": 7
+  },
+  {
+    "timestamp": 1778661953002,
+    "download": 13,
+    "upload": 132,
+    "totalRx": 200,
+    "totalTx": 9
+  },
+  {
+    "timestamp": 1778661967759,
+    "download": 14,
+    "upload": 353,
+    "totalRx": 200,
+    "totalTx": 14
+  },
+  {
+    "timestamp": 1778661982826,
+    "download": 20,
+    "upload": 450,
+    "totalRx": 200,
+    "totalTx": 21
+  },
+  {
+    "timestamp": 1778661997855,
+    "download": 8,
+    "upload": 157,
+    "totalRx": 200,
+    "totalTx": 24
+  },
+  {
+    "timestamp": 1778662012936,
+    "download": 7,
+    "upload": 203,
+    "totalRx": 200,
+    "totalTx": 27
+  },
+  {
+    "timestamp": 1778662028292,
+    "download": 10,
+    "upload": 142,
+    "totalRx": 200,
+    "totalTx": 29
+  },
+  {
+    "timestamp": 1778662042904,
+    "download": 10,
+    "upload": 319,
+    "totalRx": 201,
+    "totalTx": 34
+  },
+  {
+    "timestamp": 1778662057791,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 201,
+    "totalTx": 34
+  },
+  {
+    "timestamp": 1778662072890,
+    "download": 9,
+    "upload": 2,
+    "totalRx": 201,
+    "totalTx": 34
+  },
+  {
+    "timestamp": 1778662087794,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 201,
+    "totalTx": 34
+  },
+  {
+    "timestamp": 1778662102899,
+    "download": 9,
+    "upload": 300,
+    "totalRx": 201,
+    "totalTx": 39
+  },
+  {
+    "timestamp": 1778662117843,
+    "download": 8,
+    "upload": 261,
+    "totalRx": 201,
+    "totalTx": 43
+  },
+  {
+    "timestamp": 1778662132825,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 201,
+    "totalTx": 43
+  },
+  {
+    "timestamp": 1778662147930,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 201,
+    "totalTx": 43
+  },
+  {
+    "timestamp": 1778662162858,
+    "download": 14,
+    "upload": 35,
+    "totalRx": 201,
+    "totalTx": 43
+  },
+  {
+    "timestamp": 1778662177838,
+    "download": 16,
+    "upload": 16,
+    "totalRx": 202,
+    "totalTx": 43
+  },
+  {
+    "timestamp": 1778662192993,
+    "download": 6,
+    "upload": 14,
+    "totalRx": 202,
+    "totalTx": 44
+  },
+  {
+    "timestamp": 1778662207863,
+    "download": 9,
+    "upload": 355,
+    "totalRx": 202,
+    "totalTx": 49
+  },
+  {
+    "timestamp": 1778662222974,
+    "download": 8,
+    "upload": 80,
+    "totalRx": 202,
+    "totalTx": 50
+  },
+  {
+    "timestamp": 1778662238093,
+    "download": 14,
+    "upload": 117,
+    "totalRx": 202,
+    "totalTx": 52
+  },
+  {
+    "timestamp": 1778662252858,
+    "download": 6,
+    "upload": 130,
+    "totalRx": 202,
+    "totalTx": 54
+  },
+  {
+    "timestamp": 1778662268017,
+    "download": 21,
+    "upload": 569,
+    "totalRx": 203,
+    "totalTx": 63
+  },
+  {
+    "timestamp": 1778662282900,
+    "download": 17,
+    "upload": 488,
+    "totalRx": 203,
+    "totalTx": 70
+  },
+  {
+    "timestamp": 1778662299604,
+    "download": 7,
+    "upload": 163,
+    "totalRx": 203,
+    "totalTx": 73
+  },
+  {
+    "timestamp": 1778662312964,
+    "download": 7,
+    "upload": 146,
+    "totalRx": 203,
+    "totalTx": 75
+  },
+  {
+    "timestamp": 1778662327941,
+    "download": 8,
+    "upload": 172,
+    "totalRx": 203,
+    "totalTx": 78
+  },
+  {
+    "timestamp": 1778662342999,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 203,
+    "totalTx": 78
+  },
+  {
+    "timestamp": 1778662358023,
+    "download": 1,
+    "upload": 2,
+    "totalRx": 203,
+    "totalTx": 78
+  },
+  {
+    "timestamp": 1778662373039,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 203,
+    "totalTx": 78
+  },
+  {
+    "timestamp": 1778662387945,
+    "download": 4,
+    "upload": 3,
+    "totalRx": 203,
+    "totalTx": 78
+  },
+  {
+    "timestamp": 1778662403051,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 203,
+    "totalTx": 78
+  },
+  {
+    "timestamp": 1778662417980,
+    "download": 7,
+    "upload": 37,
+    "totalRx": 204,
+    "totalTx": 78
+  },
+  {
+    "timestamp": 1778662433104,
+    "download": 16,
+    "upload": 9,
+    "totalRx": 204,
+    "totalTx": 79
+  },
+  {
+    "timestamp": 1778662448021,
+    "download": 4,
+    "upload": 6,
+    "totalRx": 204,
+    "totalTx": 79
+  },
+  {
+    "timestamp": 1778662463128,
+    "download": 10,
+    "upload": 18,
+    "totalRx": 204,
+    "totalTx": 79
+  },
+  {
+    "timestamp": 1778662478007,
+    "download": 3,
+    "upload": 10,
+    "totalRx": 204,
+    "totalTx": 79
+  },
+  {
+    "timestamp": 1778662492963,
+    "download": 14,
+    "upload": 49,
+    "totalRx": 204,
+    "totalTx": 80
+  },
+  {
+    "timestamp": 1778662507992,
+    "download": 7,
+    "upload": 200,
+    "totalRx": 204,
+    "totalTx": 83
+  },
+  {
+    "timestamp": 1778662523078,
+    "download": 13,
+    "upload": 558,
+    "totalRx": 205,
+    "totalTx": 91
+  },
+  {
+    "timestamp": 1778662538022,
+    "download": 8,
+    "upload": 167,
+    "totalRx": 205,
+    "totalTx": 94
+  },
+  {
+    "timestamp": 1778662553099,
+    "download": 7,
+    "upload": 129,
+    "totalRx": 205,
+    "totalTx": 96
+  },
+  {
+    "timestamp": 1778662567989,
+    "download": 6,
+    "upload": 253,
+    "totalRx": 205,
+    "totalTx": 100
+  },
+  {
+    "timestamp": 1778662583061,
+    "download": 5,
+    "upload": 0,
+    "totalRx": 205,
+    "totalTx": 100
+  },
+  {
+    "timestamp": 1778662598016,
+    "download": 7,
+    "upload": 3,
+    "totalRx": 205,
+    "totalTx": 100
+  },
+  {
+    "timestamp": 1778662613062,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 205,
+    "totalTx": 100
+  },
+  {
+    "timestamp": 1778662628050,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 205,
+    "totalTx": 100
+  },
+  {
+    "timestamp": 1778662643101,
+    "download": 6,
+    "upload": 130,
+    "totalRx": 205,
+    "totalTx": 102
+  },
+  {
+    "timestamp": 1778662658257,
+    "download": 11,
+    "upload": 164,
+    "totalRx": 205,
+    "totalTx": 105
+  },
+  {
+    "timestamp": 1778662673089,
+    "download": 8,
+    "upload": 245,
+    "totalRx": 206,
+    "totalTx": 108
+  },
+  {
+    "timestamp": 1778662688145,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 206,
+    "totalTx": 108
+  },
+  {
+    "timestamp": 1778662703124,
+    "download": 5,
+    "upload": 48,
+    "totalRx": 206,
+    "totalTx": 109
+  },
+  {
+    "timestamp": 1778662718133,
+    "download": 8,
+    "upload": 188,
+    "totalRx": 206,
+    "totalTx": 112
+  },
+  {
+    "timestamp": 1778662733149,
+    "download": 18,
+    "upload": 142,
+    "totalRx": 206,
+    "totalTx": 114
+  },
+  {
+    "timestamp": 1778662748128,
+    "download": 14,
+    "upload": 327,
+    "totalRx": 206,
+    "totalTx": 119
+  },
+  {
+    "timestamp": 1778662763165,
+    "download": 7,
+    "upload": 221,
+    "totalRx": 206,
+    "totalTx": 123
+  },
+  {
+    "timestamp": 1778662778360,
+    "download": 5,
+    "upload": 140,
+    "totalRx": 206,
+    "totalTx": 125
+  },
+  {
+    "timestamp": 1778662793180,
+    "download": 7,
+    "upload": 129,
+    "totalRx": 207,
+    "totalTx": 127
+  },
+  {
+    "timestamp": 1778662808284,
+    "download": 9,
+    "upload": 173,
+    "totalRx": 207,
+    "totalTx": 129
+  },
+  {
+    "timestamp": 1778662823177,
+    "download": 6,
+    "upload": 5,
+    "totalRx": 207,
+    "totalTx": 129
+  },
+  {
+    "timestamp": 1778662838132,
+    "download": 6,
+    "upload": 4,
+    "totalRx": 207,
+    "totalTx": 129
+  },
+  {
+    "timestamp": 1778662853146,
+    "download": 4,
+    "upload": 6,
+    "totalRx": 207,
+    "totalTx": 130
+  },
+  {
+    "timestamp": 1778662868164,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 207,
+    "totalTx": 130
+  },
+  {
+    "timestamp": 1778662883186,
+    "download": 2,
+    "upload": 0,
+    "totalRx": 207,
+    "totalTx": 130
+  },
+  {
+    "timestamp": 1778662898298,
+    "download": 5,
+    "upload": 103,
+    "totalRx": 207,
+    "totalTx": 131
+  },
+  {
+    "timestamp": 1778662913432,
+    "download": 5,
+    "upload": 98,
+    "totalRx": 207,
+    "totalTx": 133
+  },
+  {
+    "timestamp": 1778662928228,
+    "download": 10,
+    "upload": 339,
+    "totalRx": 207,
+    "totalTx": 138
+  },
+  {
+    "timestamp": 1778662943214,
+    "download": 6,
+    "upload": 41,
+    "totalRx": 207,
+    "totalTx": 138
+  },
+  {
+    "timestamp": 1778662958357,
+    "download": 2,
+    "upload": 35,
+    "totalRx": 207,
+    "totalTx": 139
+  },
+  {
+    "timestamp": 1778662973242,
+    "download": 5,
+    "upload": 148,
+    "totalRx": 207,
+    "totalTx": 141
+  },
+  {
+    "timestamp": 1778662988249,
+    "download": 5,
+    "upload": 5,
+    "totalRx": 208,
+    "totalTx": 141
+  },
+  {
+    "timestamp": 1778663003519,
+    "download": 6,
+    "upload": 12,
+    "totalRx": 208,
+    "totalTx": 142
+  },
+  {
+    "timestamp": 1778663018238,
+    "download": 11,
+    "upload": 15,
+    "totalRx": 208,
+    "totalTx": 142
+  },
+  {
+    "timestamp": 1778663033227,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 208,
+    "totalTx": 142
+  },
+  {
+    "timestamp": 1778663048265,
+    "download": 3,
+    "upload": 3,
+    "totalRx": 208,
+    "totalTx": 142
+  },
+  {
+    "timestamp": 1778663063294,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 208,
+    "totalTx": 142
+  },
+  {
+    "timestamp": 1778663078322,
+    "download": 11,
+    "upload": 23,
+    "totalRx": 208,
+    "totalTx": 142
+  },
+  {
+    "timestamp": 1778663093318,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 208,
+    "totalTx": 142
+  },
+  {
+    "timestamp": 1778663108303,
+    "download": 5,
+    "upload": 8,
+    "totalRx": 208,
+    "totalTx": 142
+  },
+  {
+    "timestamp": 1778663123283,
+    "download": 8,
+    "upload": 58,
+    "totalRx": 208,
+    "totalTx": 143
+  },
+  {
+    "timestamp": 1778663138317,
+    "download": 7,
+    "upload": 4,
+    "totalRx": 208,
+    "totalTx": 143
+  },
+  {
+    "timestamp": 1778663153306,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 208,
+    "totalTx": 143
+  },
+  {
+    "timestamp": 1778663168319,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 209,
+    "totalTx": 143
+  },
+  {
+    "timestamp": 1778663183349,
+    "download": 13,
+    "upload": 3,
+    "totalRx": 209,
+    "totalTx": 143
+  },
+  {
+    "timestamp": 1778663198424,
+    "download": 3,
+    "upload": 4,
+    "totalRx": 209,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663213344,
+    "download": 20,
+    "upload": 3,
+    "totalRx": 209,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663228343,
+    "download": 2,
+    "upload": 4,
+    "totalRx": 209,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663243370,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 209,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663258361,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 209,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663275355,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 209,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663288428,
+    "download": 5,
+    "upload": 3,
+    "totalRx": 209,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663303422,
+    "download": 2,
+    "upload": 0,
+    "totalRx": 209,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663318357,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 209,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663333372,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 209,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663349869,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 209,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663363374,
+    "download": 24,
+    "upload": 7,
+    "totalRx": 210,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663378372,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 210,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663393390,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 210,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663408413,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 210,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663423409,
+    "download": 4,
+    "upload": 1,
+    "totalRx": 210,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663438436,
+    "download": 5,
+    "upload": 2,
+    "totalRx": 210,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663453454,
+    "download": 14,
+    "upload": 2,
+    "totalRx": 210,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663468436,
+    "download": 3,
+    "upload": 3,
+    "totalRx": 210,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663483451,
+    "download": 10,
+    "upload": 1,
+    "totalRx": 210,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663498445,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 210,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663513443,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 210,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663528495,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 211,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663543489,
+    "download": 6,
+    "upload": 3,
+    "totalRx": 211,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663558494,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 211,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663573498,
+    "download": 1,
+    "upload": 0,
+    "totalRx": 211,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663588525,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 211,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663603503,
+    "download": 3,
+    "upload": 1,
+    "totalRx": 211,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663619247,
+    "download": 5,
+    "upload": 4,
+    "totalRx": 211,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663633715,
+    "download": 11,
+    "upload": 7,
+    "totalRx": 211,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663648588,
+    "download": 6,
+    "upload": 2,
+    "totalRx": 211,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663663901,
+    "download": 44,
+    "upload": 3,
+    "totalRx": 212,
+    "totalTx": 144
+  },
+  {
+    "timestamp": 1778663678814,
+    "download": 61,
+    "upload": 4,
+    "totalRx": 213,
+    "totalTx": 145
+  },
+  {
+    "timestamp": 1778663693660,
+    "download": 6,
+    "upload": 2,
+    "totalRx": 213,
+    "totalTx": 145
+  },
+  {
+    "timestamp": 1778663708600,
+    "download": 12,
+    "upload": 3,
+    "totalRx": 213,
+    "totalTx": 145
+  },
+  {
+    "timestamp": 1778663723617,
+    "download": 40,
+    "upload": 3,
+    "totalRx": 214,
+    "totalTx": 145
+  },
+  {
+    "timestamp": 1778663738674,
+    "download": 68,
+    "upload": 9,
+    "totalRx": 215,
+    "totalTx": 145
+  },
+  {
+    "timestamp": 1778663753659,
+    "download": 40,
+    "upload": 3,
+    "totalRx": 215,
+    "totalTx": 145
+  },
+  {
+    "timestamp": 1778663768630,
+    "download": 20,
+    "upload": 5,
+    "totalRx": 216,
+    "totalTx": 145
+  },
+  {
+    "timestamp": 1778663784285,
+    "download": 44,
+    "upload": 3,
+    "totalRx": 216,
+    "totalTx": 145
+  },
+  {
+    "timestamp": 1778663798722,
+    "download": 123,
+    "upload": 5,
+    "totalRx": 218,
+    "totalTx": 145
+  },
+  {
+    "timestamp": 1778663813641,
+    "download": 867,
+    "upload": 18,
+    "totalRx": 231,
+    "totalTx": 145
+  },
+  {
+    "timestamp": 1778663828665,
+    "download": 462,
+    "upload": 11,
+    "totalRx": 238,
+    "totalTx": 145
+  },
+  {
+    "timestamp": 1778663843685,
+    "download": 595,
+    "upload": 12,
+    "totalRx": 248,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778663858665,
+    "download": 367,
+    "upload": 8,
+    "totalRx": 253,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778663873673,
+    "download": 52,
+    "upload": 2,
+    "totalRx": 254,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778663889071,
+    "download": 189,
+    "upload": 6,
+    "totalRx": 257,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778663903910,
+    "download": 38,
+    "upload": 6,
+    "totalRx": 258,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778663918736,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 258,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778663933764,
+    "download": 2,
+    "upload": 0,
+    "totalRx": 258,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778663948695,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 258,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778663963758,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 258,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778663979008,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 258,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778663994346,
+    "download": 48,
+    "upload": 8,
+    "totalRx": 258,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778664008797,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 259,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778664024009,
+    "download": 4,
+    "upload": 1,
+    "totalRx": 259,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778664038930,
+    "download": 5,
+    "upload": 2,
+    "totalRx": 259,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778664053916,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 259,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778664068973,
+    "download": 3,
+    "upload": 3,
+    "totalRx": 259,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778664084058,
+    "download": 2,
+    "upload": 0,
+    "totalRx": 259,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778664099160,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 259,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778664115083,
+    "download": 2,
+    "upload": 0,
+    "totalRx": 259,
+    "totalTx": 146
+  },
+  {
+    "timestamp": 1778664129180,
+    "download": 8,
+    "upload": 10,
+    "totalRx": 259,
+    "totalTx": 147
+  },
+  {
+    "timestamp": 1778664144154,
+    "download": 201,
+    "upload": 29,
+    "totalRx": 262,
+    "totalTx": 147
+  },
+  {
+    "timestamp": 1778664158966,
+    "download": 246,
+    "upload": 262,
+    "totalRx": 266,
+    "totalTx": 151
+  },
+  {
+    "timestamp": 1778664174893,
+    "download": 10,
+    "upload": 40,
+    "totalRx": 266,
+    "totalTx": 152
+  },
+  {
+    "timestamp": 1778664189406,
+    "download": 284,
+    "upload": 243,
+    "totalRx": 270,
+    "totalTx": 155
+  },
+  {
+    "timestamp": 1778664205944,
+    "download": 1577,
+    "upload": 290,
+    "totalRx": 297,
+    "totalTx": 160
+  },
+  {
+    "timestamp": 1778664219751,
+    "download": 533,
+    "upload": 92,
+    "totalRx": 304,
+    "totalTx": 161
+  },
+  {
+    "timestamp": 1778664234578,
+    "download": 15,
+    "upload": 73,
+    "totalRx": 305,
+    "totalTx": 163
+  },
+  {
+    "timestamp": 1778664251414,
+    "download": 34,
+    "upload": 211,
+    "totalRx": 305,
+    "totalTx": 166
+  },
+  {
+    "timestamp": 1778664264584,
+    "download": 98,
+    "upload": 17,
+    "totalRx": 306,
+    "totalTx": 166
+  },
+  {
+    "timestamp": 1778664279090,
+    "download": 14,
+    "upload": 7,
+    "totalRx": 307,
+    "totalTx": 166
+  },
+  {
+    "timestamp": 1778664294375,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 307,
+    "totalTx": 167
+  },
+  {
+    "timestamp": 1778664309383,
+    "download": 2,
+    "upload": 2,
+    "totalRx": 307,
+    "totalTx": 167
+  },
+  {
+    "timestamp": 1778664325205,
+    "download": 10,
+    "upload": 7,
+    "totalRx": 307,
+    "totalTx": 167
+  },
+  {
+    "timestamp": 1778664341190,
+    "download": 7,
+    "upload": 7,
+    "totalRx": 307,
+    "totalTx": 167
+  },
+  {
+    "timestamp": 1778664355004,
+    "download": 6,
+    "upload": 3,
+    "totalRx": 307,
+    "totalTx": 167
+  },
+  {
+    "timestamp": 1778664370002,
+    "download": 14,
+    "upload": 353,
+    "totalRx": 307,
+    "totalTx": 172
+  },
+  {
+    "timestamp": 1778664384598,
+    "download": 15,
+    "upload": 80,
+    "totalRx": 308,
+    "totalTx": 173
+  },
+  {
+    "timestamp": 1778664399503,
+    "download": 33,
+    "upload": 86,
+    "totalRx": 308,
+    "totalTx": 175
+  },
+  {
+    "timestamp": 1778664415221,
+    "download": 9,
+    "upload": 91,
+    "totalRx": 308,
+    "totalTx": 176
+  },
+  {
+    "timestamp": 1778664429947,
+    "download": 15,
+    "upload": 376,
+    "totalRx": 308,
+    "totalTx": 182
+  },
+  {
+    "timestamp": 1778664444213,
+    "download": 12,
+    "upload": 45,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664458894,
+    "download": 6,
+    "upload": 4,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664473956,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664488954,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664503976,
+    "download": 2,
+    "upload": 0,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664518975,
+    "download": 4,
+    "upload": 3,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664533965,
+    "download": 1,
+    "upload": 0,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664548958,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664563969,
+    "download": 2,
+    "upload": 0,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664578943,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664593946,
+    "download": 3,
+    "upload": 0,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664608976,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664624029,
+    "download": 3,
+    "upload": 2,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664639113,
+    "download": 8,
+    "upload": 5,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664654105,
+    "download": 5,
+    "upload": 3,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664669139,
+    "download": 4,
+    "upload": 4,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664684395,
+    "download": 5,
+    "upload": 5,
+    "totalRx": 309,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664699109,
+    "download": 14,
+    "upload": 13,
+    "totalRx": 310,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664714306,
+    "download": 16,
+    "upload": 2,
+    "totalRx": 310,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664729097,
+    "download": 5,
+    "upload": 4,
+    "totalRx": 310,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664746026,
+    "download": 14,
+    "upload": 3,
+    "totalRx": 310,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664759104,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 310,
+    "totalTx": 183
+  },
+  {
+    "timestamp": 1778664774346,
+    "download": 21,
+    "upload": 9,
+    "totalRx": 311,
+    "totalTx": 184
+  },
+  {
+    "timestamp": 1778664789100,
+    "download": 4,
+    "upload": 188,
+    "totalRx": 311,
+    "totalTx": 186
+  },
+  {
+    "timestamp": 1778664804135,
+    "download": 6,
+    "upload": 277,
+    "totalRx": 311,
+    "totalTx": 191
+  },
+  {
+    "timestamp": 1778664819136,
+    "download": 1,
+    "upload": 2,
+    "totalRx": 311,
+    "totalTx": 191
+  },
+  {
+    "timestamp": 1778664834344,
+    "download": 2,
+    "upload": 1,
+    "totalRx": 311,
+    "totalTx": 191
+  },
+  {
+    "timestamp": 1778664849172,
+    "download": 17,
+    "upload": 7,
+    "totalRx": 311,
+    "totalTx": 191
+  },
+  {
+    "timestamp": 1778664864142,
+    "download": 4,
+    "upload": 1,
+    "totalRx": 311,
+    "totalTx": 191
+  },
+  {
+    "timestamp": 1778664879126,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 311,
+    "totalTx": 191
+  },
+  {
+    "timestamp": 1778664894190,
+    "download": 1,
+    "upload": 1,
+    "totalRx": 311,
+    "totalTx": 191
+  },
+  {
+    "timestamp": 1778664909162,
+    "download": 7,
+    "upload": 11,
+    "totalRx": 311,
+    "totalTx": 191
+  }
+]

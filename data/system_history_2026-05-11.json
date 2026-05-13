@@ -1,0 +1,2702 @@
+[
+  {
+    "time": "03:32 pm",
+    "cpu": 25,
+    "ram": 92,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778493749619
+  },
+  {
+    "time": "03:32 pm",
+    "cpu": 52,
+    "ram": 93,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778493764636
+  },
+  {
+    "time": "03:32 pm",
+    "cpu": 28,
+    "ram": 94,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778493779662
+  },
+  {
+    "time": "03:33 pm",
+    "cpu": 36,
+    "ram": 88,
+    "netDl": 5,
+    "netUl": 4,
+    "idle": 0,
+    "timestamp": 1778493794709
+  },
+  {
+    "time": "03:33 pm",
+    "cpu": 25,
+    "ram": 91,
+    "netDl": 3,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778493809612
+  },
+  {
+    "time": "03:33 pm",
+    "cpu": 19,
+    "ram": 91,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 6,
+    "timestamp": 1778493824641
+  },
+  {
+    "time": "03:33 pm",
+    "cpu": 30,
+    "ram": 92,
+    "netDl": 1,
+    "netUl": 0,
+    "idle": 0,
+    "timestamp": 1778493839668
+  },
+  {
+    "time": "03:34 pm",
+    "cpu": 22,
+    "ram": 91,
+    "netDl": 62,
+    "netUl": 28,
+    "idle": 0,
+    "timestamp": 1778493854787
+  },
+  {
+    "time": "03:34 pm",
+    "cpu": 100,
+    "ram": 96,
+    "netDl": 366,
+    "netUl": 118,
+    "idle": 6,
+    "timestamp": 1778493875871
+  },
+  {
+    "time": "03:34 pm",
+    "cpu": 35,
+    "ram": 87,
+    "netDl": 18,
+    "netUl": 13,
+    "idle": 1,
+    "timestamp": 1778493884741
+  },
+  {
+    "time": "03:34 pm",
+    "cpu": 25,
+    "ram": 92,
+    "netDl": 8,
+    "netUl": 23,
+    "idle": 0,
+    "timestamp": 1778493899712
+  },
+  {
+    "time": "03:35 pm",
+    "cpu": 22,
+    "ram": 93,
+    "netDl": 3,
+    "netUl": 2,
+    "idle": 0,
+    "timestamp": 1778493914675
+  },
+  {
+    "time": "03:35 pm",
+    "cpu": 30,
+    "ram": 92,
+    "netDl": 99,
+    "netUl": 50,
+    "idle": 3,
+    "timestamp": 1778493929704
+  },
+  {
+    "time": "03:35 pm",
+    "cpu": 20,
+    "ram": 91,
+    "netDl": 22,
+    "netUl": 11,
+    "idle": 0,
+    "timestamp": 1778493944703
+  },
+  {
+    "time": "03:36 pm",
+    "cpu": 42,
+    "ram": 92,
+    "netDl": 17,
+    "netUl": 13,
+    "idle": 0,
+    "timestamp": 1778493960267
+  },
+  {
+    "time": "03:36 pm",
+    "cpu": 35,
+    "ram": 90,
+    "netDl": 28,
+    "netUl": 19,
+    "idle": 0,
+    "timestamp": 1778493974738
+  },
+  {
+    "time": "03:36 pm",
+    "cpu": 21,
+    "ram": 89,
+    "netDl": 6,
+    "netUl": 4,
+    "idle": 4,
+    "timestamp": 1778493989719
+  },
+  {
+    "time": "03:36 pm",
+    "cpu": 22,
+    "ram": 92,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 19,
+    "timestamp": 1778494004738
+  },
+  {
+    "time": "03:36 pm",
+    "cpu": 22,
+    "ram": 91,
+    "netDl": 88,
+    "netUl": 3,
+    "idle": 0,
+    "timestamp": 1778494019820
+  },
+  {
+    "time": "03:37 pm",
+    "cpu": 24,
+    "ram": 91,
+    "netDl": 74,
+    "netUl": 3,
+    "idle": 9,
+    "timestamp": 1778494034743
+  },
+  {
+    "time": "03:37 pm",
+    "cpu": 11,
+    "ram": 91,
+    "netDl": 36,
+    "netUl": 4,
+    "idle": 2,
+    "timestamp": 1778494049739
+  },
+  {
+    "time": "03:37 pm",
+    "cpu": 18,
+    "ram": 90,
+    "netDl": 3,
+    "netUl": 1,
+    "idle": 17,
+    "timestamp": 1778494064738
+  },
+  {
+    "time": "03:37 pm",
+    "cpu": 24,
+    "ram": 92,
+    "netDl": 17,
+    "netUl": 3,
+    "idle": 32,
+    "timestamp": 1778494079768
+  },
+  {
+    "time": "03:38 pm",
+    "cpu": 16,
+    "ram": 94,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 47,
+    "timestamp": 1778494094741
+  },
+  {
+    "time": "03:38 pm",
+    "cpu": 12,
+    "ram": 91,
+    "netDl": 6,
+    "netUl": 4,
+    "idle": 62,
+    "timestamp": 1778494109780
+  },
+  {
+    "time": "03:38 pm",
+    "cpu": 20,
+    "ram": 92,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 77,
+    "timestamp": 1778494124748
+  },
+  {
+    "time": "03:38 pm",
+    "cpu": 21,
+    "ram": 93,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 92,
+    "timestamp": 1778494139711
+  },
+  {
+    "time": "03:39 pm",
+    "cpu": 19,
+    "ram": 85,
+    "netDl": 4,
+    "netUl": 1,
+    "idle": 108,
+    "timestamp": 1778494154824
+  },
+  {
+    "time": "03:39 pm",
+    "cpu": 15,
+    "ram": 87,
+    "netDl": 6,
+    "netUl": 4,
+    "idle": 123,
+    "timestamp": 1778494169730
+  },
+  {
+    "time": "03:39 pm",
+    "cpu": 14,
+    "ram": 86,
+    "netDl": 3,
+    "netUl": 2,
+    "idle": 138,
+    "timestamp": 1778494184738
+  },
+  {
+    "time": "03:39 pm",
+    "cpu": 13,
+    "ram": 90,
+    "netDl": 1,
+    "netUl": 0,
+    "idle": 153,
+    "timestamp": 1778494199796
+  },
+  {
+    "time": "03:40 pm",
+    "cpu": 15,
+    "ram": 92,
+    "netDl": 4,
+    "netUl": 1,
+    "idle": 168,
+    "timestamp": 1778494214813
+  },
+  {
+    "time": "03:40 pm",
+    "cpu": 12,
+    "ram": 91,
+    "netDl": 13,
+    "netUl": 2,
+    "idle": 183,
+    "timestamp": 1778494229800
+  },
+  {
+    "time": "03:40 pm",
+    "cpu": 13,
+    "ram": 91,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 198,
+    "timestamp": 1778494244789
+  },
+  {
+    "time": "03:40 pm",
+    "cpu": 15,
+    "ram": 92,
+    "netDl": 8,
+    "netUl": 1,
+    "idle": 213,
+    "timestamp": 1778494259814
+  },
+  {
+    "time": "03:41 pm",
+    "cpu": 16,
+    "ram": 89,
+    "netDl": 3,
+    "netUl": 2,
+    "idle": 228,
+    "timestamp": 1778494274805
+  },
+  {
+    "time": "03:41 pm",
+    "cpu": 27,
+    "ram": 92,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 243,
+    "timestamp": 1778494289994
+  },
+  {
+    "time": "03:41 pm",
+    "cpu": 37,
+    "ram": 87,
+    "netDl": 8,
+    "netUl": 2,
+    "idle": 258,
+    "timestamp": 1778494305292
+  },
+  {
+    "time": "03:42 pm",
+    "cpu": 29,
+    "ram": 91,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 273,
+    "timestamp": 1778494320607
+  },
+  {
+    "time": "03:42 pm",
+    "cpu": 34,
+    "ram": 93,
+    "netDl": 5,
+    "netUl": 2,
+    "idle": 288,
+    "timestamp": 1778494335459
+  },
+  {
+    "time": "03:42 pm",
+    "cpu": 5,
+    "ram": 92,
+    "netDl": 1,
+    "netUl": 0,
+    "idle": 303,
+    "timestamp": 1778494350817
+  },
+  {
+    "time": "03:42 pm",
+    "cpu": 18,
+    "ram": 92,
+    "netDl": 6,
+    "netUl": 3,
+    "idle": 318,
+    "timestamp": 1778494364855
+  },
+  {
+    "time": "03:43 pm",
+    "cpu": 11,
+    "ram": 93,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 333,
+    "timestamp": 1778494381274
+  },
+  {
+    "time": "03:43 pm",
+    "cpu": 16,
+    "ram": 92,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 348,
+    "timestamp": 1778494395937
+  },
+  {
+    "time": "03:43 pm",
+    "cpu": 17,
+    "ram": 93,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 368,
+    "timestamp": 1778494415675
+  },
+  {
+    "time": "03:43 pm",
+    "cpu": 17,
+    "ram": 93,
+    "netDl": 3,
+    "netUl": 1,
+    "idle": 378,
+    "timestamp": 1778494425758
+  },
+  {
+    "time": "03:44 pm",
+    "cpu": 15,
+    "ram": 94,
+    "netDl": 1,
+    "netUl": 0,
+    "idle": 393,
+    "timestamp": 1778494440835
+  },
+  {
+    "time": "03:44 pm",
+    "cpu": 19,
+    "ram": 86,
+    "netDl": 1,
+    "netUl": 0,
+    "idle": 408,
+    "timestamp": 1778494456176
+  },
+  {
+    "time": "03:44 pm",
+    "cpu": 26,
+    "ram": 91,
+    "netDl": 4,
+    "netUl": 1,
+    "idle": 3,
+    "timestamp": 1778494470186
+  },
+  {
+    "time": "03:44 pm",
+    "cpu": 26,
+    "ram": 91,
+    "netDl": 3,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778494485169
+  },
+  {
+    "time": "03:45 pm",
+    "cpu": 51,
+    "ram": 92,
+    "netDl": 2,
+    "netUl": 0,
+    "idle": 0,
+    "timestamp": 1778494500120
+  },
+  {
+    "time": "03:45 pm",
+    "cpu": 23,
+    "ram": 87,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 5,
+    "timestamp": 1778494515127
+  },
+  {
+    "time": "03:45 pm",
+    "cpu": 26,
+    "ram": 87,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 7,
+    "timestamp": 1778494530107
+  },
+  {
+    "time": "03:45 pm",
+    "cpu": 32,
+    "ram": 91,
+    "netDl": 16,
+    "netUl": 31,
+    "idle": 0,
+    "timestamp": 1778494545199
+  },
+  {
+    "time": "03:46 pm",
+    "cpu": 42,
+    "ram": 92,
+    "netDl": 15,
+    "netUl": 31,
+    "idle": 1,
+    "timestamp": 1778494560376
+  },
+  {
+    "time": "03:46 pm",
+    "cpu": 47,
+    "ram": 85,
+    "netDl": 3,
+    "netUl": 4,
+    "idle": 16,
+    "timestamp": 1778494575695
+  },
+  {
+    "time": "03:46 pm",
+    "cpu": 26,
+    "ram": 85,
+    "netDl": 2,
+    "netUl": 2,
+    "idle": 31,
+    "timestamp": 1778494590364
+  },
+  {
+    "time": "03:46 pm",
+    "cpu": 40,
+    "ram": 89,
+    "netDl": 13,
+    "netUl": 5,
+    "idle": 0,
+    "timestamp": 1778494605409
+  },
+  {
+    "time": "03:47 pm",
+    "cpu": 34,
+    "ram": 88,
+    "netDl": 2,
+    "netUl": 0,
+    "idle": 14,
+    "timestamp": 1778494620353
+  },
+  {
+    "time": "03:47 pm",
+    "cpu": 35,
+    "ram": 89,
+    "netDl": 7,
+    "netUl": 86,
+    "idle": 2,
+    "timestamp": 1778494635256
+  },
+  {
+    "time": "03:47 pm",
+    "cpu": 32,
+    "ram": 91,
+    "netDl": 13,
+    "netUl": 23,
+    "idle": 0,
+    "timestamp": 1778494650342
+  },
+  {
+    "time": "03:47 pm",
+    "cpu": 30,
+    "ram": 91,
+    "netDl": 7,
+    "netUl": 15,
+    "idle": 2,
+    "timestamp": 1778494665224
+  },
+  {
+    "time": "03:48 pm",
+    "cpu": 21,
+    "ram": 92,
+    "netDl": 2,
+    "netUl": 3,
+    "idle": 0,
+    "timestamp": 1778494680405
+  },
+  {
+    "time": "03:48 pm",
+    "cpu": 25,
+    "ram": 93,
+    "netDl": 3,
+    "netUl": 4,
+    "idle": 0,
+    "timestamp": 1778494695440
+  },
+  {
+    "time": "03:48 pm",
+    "cpu": 27,
+    "ram": 94,
+    "netDl": 2,
+    "netUl": 3,
+    "idle": 1,
+    "timestamp": 1778494710354
+  },
+  {
+    "time": "03:48 pm",
+    "cpu": 36,
+    "ram": 91,
+    "netDl": 6,
+    "netUl": 6,
+    "idle": 0,
+    "timestamp": 1778494725312
+  },
+  {
+    "time": "03:49 pm",
+    "cpu": 32,
+    "ram": 92,
+    "netDl": 9,
+    "netUl": 16,
+    "idle": 0,
+    "timestamp": 1778494740386
+  },
+  {
+    "time": "03:49 pm",
+    "cpu": 32,
+    "ram": 91,
+    "netDl": 4,
+    "netUl": 9,
+    "idle": 0,
+    "timestamp": 1778494755385
+  },
+  {
+    "time": "03:49 pm",
+    "cpu": 18,
+    "ram": 91,
+    "netDl": 3,
+    "netUl": 7,
+    "idle": 0,
+    "timestamp": 1778494770473
+  },
+  {
+    "time": "03:49 pm",
+    "cpu": 30,
+    "ram": 91,
+    "netDl": 11,
+    "netUl": 15,
+    "idle": 0,
+    "timestamp": 1778494785419
+  },
+  {
+    "time": "03:50 pm",
+    "cpu": 17,
+    "ram": 91,
+    "netDl": 6,
+    "netUl": 10,
+    "idle": 0,
+    "timestamp": 1778494800448
+  },
+  {
+    "time": "03:50 pm",
+    "cpu": 28,
+    "ram": 89,
+    "netDl": 8,
+    "netUl": 17,
+    "idle": 0,
+    "timestamp": 1778494815518
+  },
+  {
+    "time": "03:50 pm",
+    "cpu": 35,
+    "ram": 91,
+    "netDl": 7,
+    "netUl": 13,
+    "idle": 0,
+    "timestamp": 1778494830429
+  },
+  {
+    "time": "03:50 pm",
+    "cpu": 25,
+    "ram": 92,
+    "netDl": 4,
+    "netUl": 7,
+    "idle": 0,
+    "timestamp": 1778494845330
+  },
+  {
+    "time": "03:51 pm",
+    "cpu": 33,
+    "ram": 90,
+    "netDl": 15,
+    "netUl": 17,
+    "idle": 1,
+    "timestamp": 1778494860503
+  },
+  {
+    "time": "03:51 pm",
+    "cpu": 26,
+    "ram": 92,
+    "netDl": 4,
+    "netUl": 10,
+    "idle": 1,
+    "timestamp": 1778494875408
+  },
+  {
+    "time": "03:51 pm",
+    "cpu": 59,
+    "ram": 91,
+    "netDl": 50,
+    "netUl": 35,
+    "idle": 0,
+    "timestamp": 1778494890867
+  },
+  {
+    "time": "03:51 pm",
+    "cpu": 63,
+    "ram": 85,
+    "netDl": 16,
+    "netUl": 10,
+    "idle": 0,
+    "timestamp": 1778494905887
+  },
+  {
+    "time": "03:52 pm",
+    "cpu": 14,
+    "ram": 87,
+    "netDl": 9,
+    "netUl": 2,
+    "idle": 1,
+    "timestamp": 1778494920413
+  },
+  {
+    "time": "03:52 pm",
+    "cpu": 26,
+    "ram": 92,
+    "netDl": 14,
+    "netUl": 2,
+    "idle": 0,
+    "timestamp": 1778494935475
+  },
+  {
+    "time": "03:52 pm",
+    "cpu": 21,
+    "ram": 91,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 1,
+    "timestamp": 1778494950587
+  },
+  {
+    "time": "03:52 pm",
+    "cpu": 73,
+    "ram": 92,
+    "netDl": 23,
+    "netUl": 134,
+    "idle": 0,
+    "timestamp": 1778494966260
+  },
+  {
+    "time": "03:53 pm",
+    "cpu": 26,
+    "ram": 80,
+    "netDl": 4,
+    "netUl": 6,
+    "idle": 1,
+    "timestamp": 1778494980475
+  },
+  {
+    "time": "03:53 pm",
+    "cpu": 42,
+    "ram": 89,
+    "netDl": 10,
+    "netUl": 11,
+    "idle": 0,
+    "timestamp": 1778494995393
+  },
+  {
+    "time": "03:53 pm",
+    "cpu": 49,
+    "ram": 90,
+    "netDl": 24,
+    "netUl": 37,
+    "idle": 1,
+    "timestamp": 1778495010812
+  },
+  {
+    "time": "03:53 pm",
+    "cpu": 30,
+    "ram": 90,
+    "netDl": 5,
+    "netUl": 19,
+    "idle": 2,
+    "timestamp": 1778495025524
+  },
+  {
+    "time": "03:54 pm",
+    "cpu": 14,
+    "ram": 90,
+    "netDl": 15,
+    "netUl": 14,
+    "idle": 0,
+    "timestamp": 1778495040544
+  },
+  {
+    "time": "03:54 pm",
+    "cpu": 24,
+    "ram": 87,
+    "netDl": 4,
+    "netUl": 8,
+    "idle": 4,
+    "timestamp": 1778495055538
+  },
+  {
+    "time": "03:54 pm",
+    "cpu": 40,
+    "ram": 91,
+    "netDl": 17,
+    "netUl": 25,
+    "idle": 0,
+    "timestamp": 1778495070894
+  },
+  {
+    "time": "03:54 pm",
+    "cpu": 29,
+    "ram": 88,
+    "netDl": 9,
+    "netUl": 37,
+    "idle": 0,
+    "timestamp": 1778495085606
+  },
+  {
+    "time": "03:55 pm",
+    "cpu": 46,
+    "ram": 89,
+    "netDl": 5,
+    "netUl": 1,
+    "idle": 6,
+    "timestamp": 1778495100650
+  },
+  {
+    "time": "03:55 pm",
+    "cpu": 25,
+    "ram": 93,
+    "netDl": 9,
+    "netUl": 14,
+    "idle": 1,
+    "timestamp": 1778495115780
+  },
+  {
+    "time": "03:55 pm",
+    "cpu": 33,
+    "ram": 91,
+    "netDl": 103,
+    "netUl": 4,
+    "idle": 0,
+    "timestamp": 1778495131321
+  },
+  {
+    "time": "03:55 pm",
+    "cpu": 40,
+    "ram": 92,
+    "netDl": 180,
+    "netUl": 6,
+    "idle": 0,
+    "timestamp": 1778495145781
+  },
+  {
+    "time": "03:56 pm",
+    "cpu": 55,
+    "ram": 90,
+    "netDl": 67,
+    "netUl": 44,
+    "idle": 1,
+    "timestamp": 1778495160775
+  },
+  {
+    "time": "03:56 pm",
+    "cpu": 85,
+    "ram": 92,
+    "netDl": 183,
+    "netUl": 103,
+    "idle": 2,
+    "timestamp": 1778495176677
+  },
+  {
+    "time": "03:56 pm",
+    "cpu": 19,
+    "ram": 90,
+    "netDl": 14,
+    "netUl": 19,
+    "idle": 9,
+    "timestamp": 1778495190563
+  },
+  {
+    "time": "03:56 pm",
+    "cpu": 42,
+    "ram": 88,
+    "netDl": 26,
+    "netUl": 22,
+    "idle": 6,
+    "timestamp": 1778495206075
+  },
+  {
+    "time": "03:57 pm",
+    "cpu": 11,
+    "ram": 90,
+    "netDl": 9,
+    "netUl": 5,
+    "idle": 16,
+    "timestamp": 1778495220579
+  },
+  {
+    "time": "03:57 pm",
+    "cpu": 13,
+    "ram": 90,
+    "netDl": 6,
+    "netUl": 3,
+    "idle": 31,
+    "timestamp": 1778495235586
+  },
+  {
+    "time": "03:57 pm",
+    "cpu": 59,
+    "ram": 94,
+    "netDl": 28,
+    "netUl": 20,
+    "idle": 0,
+    "timestamp": 1778495251873
+  },
+  {
+    "time": "03:57 pm",
+    "cpu": 37,
+    "ram": 86,
+    "netDl": 3,
+    "netUl": 3,
+    "idle": 1,
+    "timestamp": 1778495265655
+  },
+  {
+    "time": "03:58 pm",
+    "cpu": 28,
+    "ram": 90,
+    "netDl": 28,
+    "netUl": 33,
+    "idle": 0,
+    "timestamp": 1778495280936
+  },
+  {
+    "time": "03:58 pm",
+    "cpu": 19,
+    "ram": 90,
+    "netDl": 4,
+    "netUl": 2,
+    "idle": 0,
+    "timestamp": 1778495295701
+  },
+  {
+    "time": "03:58 pm",
+    "cpu": 22,
+    "ram": 89,
+    "netDl": 3,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778495310625
+  },
+  {
+    "time": "03:58 pm",
+    "cpu": 41,
+    "ram": 86,
+    "netDl": 9,
+    "netUl": 4,
+    "idle": 0,
+    "timestamp": 1778495325797
+  },
+  {
+    "time": "03:59 pm",
+    "cpu": 17,
+    "ram": 88,
+    "netDl": 5,
+    "netUl": 3,
+    "idle": 0,
+    "timestamp": 1778495340646
+  },
+  {
+    "time": "03:59 pm",
+    "cpu": 49,
+    "ram": 87,
+    "netDl": 6,
+    "netUl": 19,
+    "idle": 1,
+    "timestamp": 1778495358106
+  },
+  {
+    "time": "03:59 pm",
+    "cpu": 83,
+    "ram": 94,
+    "netDl": 13,
+    "netUl": 33,
+    "idle": 0,
+    "timestamp": 1778495371905
+  },
+  {
+    "time": "03:59 pm",
+    "cpu": 77,
+    "ram": 93,
+    "netDl": 26,
+    "netUl": 34,
+    "idle": 1,
+    "timestamp": 1778495386727
+  },
+  {
+    "time": "04:00 pm",
+    "cpu": 27,
+    "ram": 92,
+    "netDl": 7,
+    "netUl": 4,
+    "idle": 0,
+    "timestamp": 1778495401046
+  },
+  {
+    "time": "04:00 pm",
+    "cpu": 28,
+    "ram": 93,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778495415880
+  },
+  {
+    "time": "04:00 pm",
+    "cpu": 48,
+    "ram": 89,
+    "netDl": 9,
+    "netUl": 47,
+    "idle": 0,
+    "timestamp": 1778495431053
+  },
+  {
+    "time": "04:00 pm",
+    "cpu": 36,
+    "ram": 94,
+    "netDl": 14,
+    "netUl": 22,
+    "idle": 1,
+    "timestamp": 1778495446718
+  },
+  {
+    "time": "04:01 pm",
+    "cpu": 14,
+    "ram": 89,
+    "netDl": 25,
+    "netUl": 19,
+    "idle": 4,
+    "timestamp": 1778495461469
+  },
+  {
+    "time": "04:01 pm",
+    "cpu": 21,
+    "ram": 92,
+    "netDl": 10,
+    "netUl": 21,
+    "idle": 19,
+    "timestamp": 1778495475912
+  },
+  {
+    "time": "04:01 pm",
+    "cpu": 22,
+    "ram": 94,
+    "netDl": 4,
+    "netUl": 7,
+    "idle": 34,
+    "timestamp": 1778495490849
+  },
+  {
+    "time": "04:01 pm",
+    "cpu": 23,
+    "ram": 88,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 49,
+    "timestamp": 1778495506003
+  },
+  {
+    "time": "04:02 pm",
+    "cpu": 49,
+    "ram": 92,
+    "netDl": 11,
+    "netUl": 51,
+    "idle": 0,
+    "timestamp": 1778495521134
+  },
+  {
+    "time": "04:02 pm",
+    "cpu": 53,
+    "ram": 91,
+    "netDl": 393,
+    "netUl": 17,
+    "idle": 0,
+    "timestamp": 1778495536682
+  },
+  {
+    "time": "04:02 pm",
+    "cpu": 68,
+    "ram": 91,
+    "netDl": 156,
+    "netUl": 23,
+    "idle": 2,
+    "timestamp": 1778495551940
+  },
+  {
+    "time": "04:02 pm",
+    "cpu": 68,
+    "ram": 89,
+    "netDl": 439,
+    "netUl": 19,
+    "idle": 2,
+    "timestamp": 1778495566927
+  },
+  {
+    "time": "04:03 pm",
+    "cpu": 100,
+    "ram": 92,
+    "netDl": 1776,
+    "netUl": 36,
+    "idle": 7,
+    "timestamp": 1778495582756
+  },
+  {
+    "time": "04:03 pm",
+    "cpu": 99,
+    "ram": 93,
+    "netDl": 408,
+    "netUl": 15,
+    "idle": 2,
+    "timestamp": 1778495598456
+  },
+  {
+    "time": "04:03 pm",
+    "cpu": 93,
+    "ram": 90,
+    "netDl": 662,
+    "netUl": 23,
+    "idle": 2,
+    "timestamp": 1778495611608
+  },
+  {
+    "time": "04:03 pm",
+    "cpu": 98,
+    "ram": 94,
+    "netDl": 494,
+    "netUl": 18,
+    "idle": 0,
+    "timestamp": 1778495627437
+  },
+  {
+    "time": "04:04 pm",
+    "cpu": 69,
+    "ram": 94,
+    "netDl": 406,
+    "netUl": 43,
+    "idle": 0,
+    "timestamp": 1778495641153
+  },
+  {
+    "time": "04:04 pm",
+    "cpu": 75,
+    "ram": 92,
+    "netDl": 43,
+    "netUl": 32,
+    "idle": 6,
+    "timestamp": 1778495656408
+  },
+  {
+    "time": "04:04 pm",
+    "cpu": 63,
+    "ram": 92,
+    "netDl": 27,
+    "netUl": 29,
+    "idle": 21,
+    "timestamp": 1778495671182
+  },
+  {
+    "time": "04:04 pm",
+    "cpu": 78,
+    "ram": 89,
+    "netDl": 14,
+    "netUl": 18,
+    "idle": 0,
+    "timestamp": 1778495686598
+  },
+  {
+    "time": "04:05 pm",
+    "cpu": 54,
+    "ram": 92,
+    "netDl": 3,
+    "netUl": 27,
+    "idle": 0,
+    "timestamp": 1778495701081
+  },
+  {
+    "time": "04:05 pm",
+    "cpu": 58,
+    "ram": 92,
+    "netDl": 4,
+    "netUl": 29,
+    "idle": 0,
+    "timestamp": 1778495716022
+  },
+  {
+    "time": "04:05 pm",
+    "cpu": 0,
+    "ram": 89,
+    "netDl": 10,
+    "netUl": 21,
+    "idle": 0,
+    "timestamp": 1778495731177
+  },
+  {
+    "time": "04:05 pm",
+    "cpu": 67,
+    "ram": 91,
+    "netDl": 7,
+    "netUl": 35,
+    "idle": 1,
+    "timestamp": 1778495746045
+  },
+  {
+    "time": "04:06 pm",
+    "cpu": 49,
+    "ram": 92,
+    "netDl": 6,
+    "netUl": 40,
+    "idle": 3,
+    "timestamp": 1778495761769
+  },
+  {
+    "time": "04:06 pm",
+    "cpu": 59,
+    "ram": 95,
+    "netDl": 12,
+    "netUl": 18,
+    "idle": 0,
+    "timestamp": 1778495777138
+  },
+  {
+    "time": "04:06 pm",
+    "cpu": 100,
+    "ram": 94,
+    "netDl": 10,
+    "netUl": 52,
+    "idle": 0,
+    "timestamp": 1778495795220
+  },
+  {
+    "time": "04:06 pm",
+    "cpu": 81,
+    "ram": 94,
+    "netDl": 3,
+    "netUl": 9,
+    "idle": 0,
+    "timestamp": 1778495806952
+  },
+  {
+    "time": "04:07 pm",
+    "cpu": 61,
+    "ram": 92,
+    "netDl": 33,
+    "netUl": 8,
+    "idle": 7,
+    "timestamp": 1778495821211
+  },
+  {
+    "time": "04:07 pm",
+    "cpu": 38,
+    "ram": 94,
+    "netDl": 8,
+    "netUl": 83,
+    "idle": 0,
+    "timestamp": 1778495836015
+  },
+  {
+    "time": "04:07 pm",
+    "cpu": 21,
+    "ram": 90,
+    "netDl": 4,
+    "netUl": 5,
+    "idle": 1,
+    "timestamp": 1778495850912
+  },
+  {
+    "time": "04:07 pm",
+    "cpu": 31,
+    "ram": 90,
+    "netDl": 4,
+    "netUl": 3,
+    "idle": 0,
+    "timestamp": 1778495866053
+  },
+  {
+    "time": "04:08 pm",
+    "cpu": 48,
+    "ram": 90,
+    "netDl": 5,
+    "netUl": 15,
+    "idle": 1,
+    "timestamp": 1778495881040
+  },
+  {
+    "time": "04:08 pm",
+    "cpu": 42,
+    "ram": 91,
+    "netDl": 8,
+    "netUl": 3,
+    "idle": 2,
+    "timestamp": 1778495896146
+  },
+  {
+    "time": "04:08 pm",
+    "cpu": 69,
+    "ram": 95,
+    "netDl": 4,
+    "netUl": 8,
+    "idle": 0,
+    "timestamp": 1778495911118
+  },
+  {
+    "time": "04:08 pm",
+    "cpu": 70,
+    "ram": 91,
+    "netDl": 14,
+    "netUl": 6,
+    "idle": 0,
+    "timestamp": 1778495927434
+  },
+  {
+    "time": "04:09 pm",
+    "cpu": 45,
+    "ram": 93,
+    "netDl": 2,
+    "netUl": 7,
+    "idle": 0,
+    "timestamp": 1778495941143
+  },
+  {
+    "time": "04:09 pm",
+    "cpu": 53,
+    "ram": 90,
+    "netDl": 4,
+    "netUl": 19,
+    "idle": 0,
+    "timestamp": 1778495956077
+  },
+  {
+    "time": "04:09 pm",
+    "cpu": 38,
+    "ram": 92,
+    "netDl": 6,
+    "netUl": 12,
+    "idle": 6,
+    "timestamp": 1778495970993
+  },
+  {
+    "time": "04:09 pm",
+    "cpu": 58,
+    "ram": 94,
+    "netDl": 5,
+    "netUl": 4,
+    "idle": 0,
+    "timestamp": 1778495986206
+  },
+  {
+    "time": "04:10 pm",
+    "cpu": 42,
+    "ram": 93,
+    "netDl": 3,
+    "netUl": 13,
+    "idle": 0,
+    "timestamp": 1778496001213
+  },
+  {
+    "time": "04:10 pm",
+    "cpu": 46,
+    "ram": 92,
+    "netDl": 4,
+    "netUl": 12,
+    "idle": 0,
+    "timestamp": 1778496016150
+  },
+  {
+    "time": "04:10 pm",
+    "cpu": 0,
+    "ram": 93,
+    "netDl": 3,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778496031943
+  },
+  {
+    "time": "04:10 pm",
+    "cpu": 55,
+    "ram": 92,
+    "netDl": 5,
+    "netUl": 7,
+    "idle": 0,
+    "timestamp": 1778496046782
+  },
+  {
+    "time": "04:11 pm",
+    "cpu": 80,
+    "ram": 96,
+    "netDl": 2,
+    "netUl": 6,
+    "idle": 0,
+    "timestamp": 1778496062523
+  },
+  {
+    "time": "04:11 pm",
+    "cpu": 63,
+    "ram": 93,
+    "netDl": 12,
+    "netUl": 64,
+    "idle": 0,
+    "timestamp": 1778496076690
+  },
+  {
+    "time": "04:11 pm",
+    "cpu": 52,
+    "ram": 94,
+    "netDl": 28,
+    "netUl": 44,
+    "idle": 11,
+    "timestamp": 1778496092044
+  },
+  {
+    "time": "04:11 pm",
+    "cpu": 38,
+    "ram": 90,
+    "netDl": 27,
+    "netUl": 30,
+    "idle": 0,
+    "timestamp": 1778496106222
+  },
+  {
+    "time": "04:12 pm",
+    "cpu": 100,
+    "ram": 92,
+    "netDl": 8,
+    "netUl": 47,
+    "idle": 0,
+    "timestamp": 1778496121957
+  },
+  {
+    "time": "04:12 pm",
+    "cpu": 64,
+    "ram": 91,
+    "netDl": 33,
+    "netUl": 77,
+    "idle": 0,
+    "timestamp": 1778496136763
+  },
+  {
+    "time": "04:12 pm",
+    "cpu": 79,
+    "ram": 93,
+    "netDl": 26,
+    "netUl": 29,
+    "idle": 1,
+    "timestamp": 1778496151631
+  },
+  {
+    "time": "04:12 pm",
+    "cpu": 27,
+    "ram": 94,
+    "netDl": 4,
+    "netUl": 2,
+    "idle": 0,
+    "timestamp": 1778496166242
+  },
+  {
+    "time": "04:13 pm",
+    "cpu": 22,
+    "ram": 94,
+    "netDl": 3,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778496181193
+  },
+  {
+    "time": "04:13 pm",
+    "cpu": 52,
+    "ram": 94,
+    "netDl": 20,
+    "netUl": 32,
+    "idle": 0,
+    "timestamp": 1778496196371
+  },
+  {
+    "time": "04:13 pm",
+    "cpu": 100,
+    "ram": 92,
+    "netDl": 25,
+    "netUl": 38,
+    "idle": 0,
+    "timestamp": 1778496212263
+  },
+  {
+    "time": "04:13 pm",
+    "cpu": 40,
+    "ram": 93,
+    "netDl": 3,
+    "netUl": 2,
+    "idle": 1,
+    "timestamp": 1778496226298
+  },
+  {
+    "time": "04:14 pm",
+    "cpu": 35,
+    "ram": 94,
+    "netDl": 5,
+    "netUl": 8,
+    "idle": 1,
+    "timestamp": 1778496241220
+  },
+  {
+    "time": "04:14 pm",
+    "cpu": 27,
+    "ram": 92,
+    "netDl": 6,
+    "netUl": 3,
+    "idle": 16,
+    "timestamp": 1778496256226
+  },
+  {
+    "time": "04:14 pm",
+    "cpu": 55,
+    "ram": 93,
+    "netDl": 6,
+    "netUl": 34,
+    "idle": 3,
+    "timestamp": 1778496271247
+  },
+  {
+    "time": "04:14 pm",
+    "cpu": 35,
+    "ram": 93,
+    "netDl": 98,
+    "netUl": 58,
+    "idle": 0,
+    "timestamp": 1778496286978
+  },
+  {
+    "time": "04:15 pm",
+    "cpu": 35,
+    "ram": 94,
+    "netDl": 149,
+    "netUl": 25,
+    "idle": 0,
+    "timestamp": 1778496301338
+  },
+  {
+    "time": "04:15 pm",
+    "cpu": 25,
+    "ram": 93,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778496316400
+  },
+  {
+    "time": "04:15 pm",
+    "cpu": 74,
+    "ram": 95,
+    "netDl": 18,
+    "netUl": 10,
+    "idle": 0,
+    "timestamp": 1778496334129
+  },
+  {
+    "time": "04:15 pm",
+    "cpu": 47,
+    "ram": 93,
+    "netDl": 35,
+    "netUl": 42,
+    "idle": 0,
+    "timestamp": 1778496347336
+  },
+  {
+    "time": "04:16 pm",
+    "cpu": 46,
+    "ram": 93,
+    "netDl": 7,
+    "netUl": 25,
+    "idle": 0,
+    "timestamp": 1778496361436
+  },
+  {
+    "time": "04:16 pm",
+    "cpu": 53,
+    "ram": 93,
+    "netDl": 43,
+    "netUl": 60,
+    "idle": 0,
+    "timestamp": 1778496376481
+  },
+  {
+    "time": "04:16 pm",
+    "cpu": 54,
+    "ram": 95,
+    "netDl": 414,
+    "netUl": 20,
+    "idle": 0,
+    "timestamp": 1778496392199
+  },
+  {
+    "time": "04:16 pm",
+    "cpu": 75,
+    "ram": 95,
+    "netDl": 127,
+    "netUl": 27,
+    "idle": 1,
+    "timestamp": 1778496408284
+  },
+  {
+    "time": "04:17 pm",
+    "cpu": 92,
+    "ram": 94,
+    "netDl": 1294,
+    "netUl": 38,
+    "idle": 0,
+    "timestamp": 1778496422606
+  },
+  {
+    "time": "04:17 pm",
+    "cpu": 92,
+    "ram": 94,
+    "netDl": 1332,
+    "netUl": 54,
+    "idle": 4,
+    "timestamp": 1778496437623
+  },
+  {
+    "time": "04:17 pm",
+    "cpu": 92,
+    "ram": 95,
+    "netDl": 29,
+    "netUl": 11,
+    "idle": 19,
+    "timestamp": 1778496452414
+  },
+  {
+    "time": "04:17 pm",
+    "cpu": 57,
+    "ram": 93,
+    "netDl": 21,
+    "netUl": 6,
+    "idle": 34,
+    "timestamp": 1778496467042
+  },
+  {
+    "time": "04:18 pm",
+    "cpu": 60,
+    "ram": 93,
+    "netDl": 3,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778496481527
+  },
+  {
+    "time": "04:18 pm",
+    "cpu": 58,
+    "ram": 93,
+    "netDl": 5,
+    "netUl": 3,
+    "idle": 3,
+    "timestamp": 1778496497102
+  },
+  {
+    "time": "04:18 pm",
+    "cpu": 62,
+    "ram": 95,
+    "netDl": 6,
+    "netUl": 3,
+    "idle": 8,
+    "timestamp": 1778496511481
+  },
+  {
+    "time": "04:18 pm",
+    "cpu": 66,
+    "ram": 94,
+    "netDl": 72,
+    "netUl": 32,
+    "idle": 1,
+    "timestamp": 1778496528520
+  },
+  {
+    "time": "04:19 pm",
+    "cpu": 61,
+    "ram": 92,
+    "netDl": 268,
+    "netUl": 21,
+    "idle": 5,
+    "timestamp": 1778496542328
+  },
+  {
+    "time": "04:19 pm",
+    "cpu": 48,
+    "ram": 92,
+    "netDl": 63,
+    "netUl": 4,
+    "idle": 11,
+    "timestamp": 1778496556600
+  },
+  {
+    "time": "04:19 pm",
+    "cpu": 52,
+    "ram": 94,
+    "netDl": 220,
+    "netUl": 48,
+    "idle": 3,
+    "timestamp": 1778496571610
+  },
+  {
+    "time": "04:19 pm",
+    "cpu": 57,
+    "ram": 91,
+    "netDl": 328,
+    "netUl": 13,
+    "idle": 9,
+    "timestamp": 1778496586548
+  },
+  {
+    "time": "04:20 pm",
+    "cpu": 52,
+    "ram": 93,
+    "netDl": 307,
+    "netUl": 11,
+    "idle": 1,
+    "timestamp": 1778496602031
+  },
+  {
+    "time": "04:20 pm",
+    "cpu": 56,
+    "ram": 91,
+    "netDl": 123,
+    "netUl": 4,
+    "idle": 16,
+    "timestamp": 1778496617314
+  },
+  {
+    "time": "04:20 pm",
+    "cpu": 70,
+    "ram": 93,
+    "netDl": 319,
+    "netUl": 12,
+    "idle": 3,
+    "timestamp": 1778496631864
+  },
+  {
+    "time": "04:20 pm",
+    "cpu": 58,
+    "ram": 92,
+    "netDl": 120,
+    "netUl": 73,
+    "idle": 0,
+    "timestamp": 1778496646875
+  },
+  {
+    "time": "04:21 pm",
+    "cpu": 39,
+    "ram": 90,
+    "netDl": 64,
+    "netUl": 40,
+    "idle": 9,
+    "timestamp": 1778496661467
+  },
+  {
+    "time": "04:21 pm",
+    "cpu": 34,
+    "ram": 90,
+    "netDl": 70,
+    "netUl": 28,
+    "idle": 1,
+    "timestamp": 1778496676392
+  },
+  {
+    "time": "04:21 pm",
+    "cpu": 99,
+    "ram": 95,
+    "netDl": 106,
+    "netUl": 36,
+    "idle": 0,
+    "timestamp": 1778496694933
+  },
+  {
+    "time": "04:21 pm",
+    "cpu": 82,
+    "ram": 92,
+    "netDl": 87,
+    "netUl": 68,
+    "idle": 1,
+    "timestamp": 1778496707717
+  },
+  {
+    "time": "04:22 pm",
+    "cpu": 55,
+    "ram": 88,
+    "netDl": 116,
+    "netUl": 76,
+    "idle": 0,
+    "timestamp": 1778496722018
+  },
+  {
+    "time": "04:22 pm",
+    "cpu": 49,
+    "ram": 93,
+    "netDl": 96,
+    "netUl": 27,
+    "idle": 1,
+    "timestamp": 1778496737041
+  },
+  {
+    "time": "04:22 pm",
+    "cpu": 65,
+    "ram": 92,
+    "netDl": 10,
+    "netUl": 6,
+    "idle": 1,
+    "timestamp": 1778496751603
+  },
+  {
+    "time": "04:22 pm",
+    "cpu": 39,
+    "ram": 89,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778496766590
+  },
+  {
+    "time": "04:23 pm",
+    "cpu": 19,
+    "ram": 92,
+    "netDl": 5,
+    "netUl": 4,
+    "idle": 0,
+    "timestamp": 1778496781440
+  },
+  {
+    "time": "04:23 pm",
+    "cpu": 33,
+    "ram": 93,
+    "netDl": 17,
+    "netUl": 7,
+    "idle": 0,
+    "timestamp": 1778496796634
+  },
+  {
+    "time": "04:23 pm",
+    "cpu": 54,
+    "ram": 93,
+    "netDl": 12,
+    "netUl": 6,
+    "idle": 2,
+    "timestamp": 1778496811556
+  },
+  {
+    "time": "04:23 pm",
+    "cpu": 38,
+    "ram": 92,
+    "netDl": 3,
+    "netUl": 2,
+    "idle": 0,
+    "timestamp": 1778496826684
+  },
+  {
+    "time": "04:24 pm",
+    "cpu": 27,
+    "ram": 93,
+    "netDl": 3,
+    "netUl": 1,
+    "idle": 1,
+    "timestamp": 1778496841579
+  },
+  {
+    "time": "04:24 pm",
+    "cpu": 40,
+    "ram": 92,
+    "netDl": 5,
+    "netUl": 4,
+    "idle": 0,
+    "timestamp": 1778496856618
+  },
+  {
+    "time": "04:24 pm",
+    "cpu": 48,
+    "ram": 93,
+    "netDl": 8,
+    "netUl": 5,
+    "idle": 0,
+    "timestamp": 1778496871645
+  },
+  {
+    "time": "04:24 pm",
+    "cpu": 32,
+    "ram": 92,
+    "netDl": 4,
+    "netUl": 2,
+    "idle": 0,
+    "timestamp": 1778496886620
+  },
+  {
+    "time": "04:25 pm",
+    "cpu": 38,
+    "ram": 92,
+    "netDl": 5,
+    "netUl": 4,
+    "idle": 0,
+    "timestamp": 1778496901501
+  },
+  {
+    "time": "04:25 pm",
+    "cpu": 26,
+    "ram": 93,
+    "netDl": 1,
+    "netUl": 1,
+    "idle": 6,
+    "timestamp": 1778496916504
+  },
+  {
+    "time": "04:25 pm",
+    "cpu": 22,
+    "ram": 92,
+    "netDl": 3,
+    "netUl": 1,
+    "idle": 21,
+    "timestamp": 1778496931700
+  },
+  {
+    "time": "04:25 pm",
+    "cpu": 38,
+    "ram": 87,
+    "netDl": 4,
+    "netUl": 3,
+    "idle": 0,
+    "timestamp": 1778496946696
+  },
+  {
+    "time": "04:26 pm",
+    "cpu": 32,
+    "ram": 89,
+    "netDl": 52,
+    "netUl": 6,
+    "idle": 0,
+    "timestamp": 1778496961593
+  },
+  {
+    "time": "04:26 pm",
+    "cpu": 25,
+    "ram": 91,
+    "netDl": 2,
+    "netUl": 2,
+    "idle": 0,
+    "timestamp": 1778496976583
+  },
+  {
+    "time": "04:26 pm",
+    "cpu": 47,
+    "ram": 92,
+    "netDl": 8,
+    "netUl": 32,
+    "idle": 6,
+    "timestamp": 1778496991589
+  },
+  {
+    "time": "04:26 pm",
+    "cpu": 33,
+    "ram": 93,
+    "netDl": 11,
+    "netUl": 49,
+    "idle": 0,
+    "timestamp": 1778497006691
+  },
+  {
+    "time": "04:27 pm",
+    "cpu": 21,
+    "ram": 93,
+    "netDl": 5,
+    "netUl": 6,
+    "idle": 0,
+    "timestamp": 1778497021539
+  },
+  {
+    "time": "04:27 pm",
+    "cpu": 21,
+    "ram": 94,
+    "netDl": 7,
+    "netUl": 37,
+    "idle": 6,
+    "timestamp": 1778497036626
+  },
+  {
+    "time": "04:27 pm",
+    "cpu": 42,
+    "ram": 93,
+    "netDl": 11,
+    "netUl": 72,
+    "idle": 0,
+    "timestamp": 1778497052050
+  },
+  {
+    "time": "04:27 pm",
+    "cpu": 42,
+    "ram": 91,
+    "netDl": 8,
+    "netUl": 90,
+    "idle": 0,
+    "timestamp": 1778497066917
+  },
+  {
+    "time": "04:28 pm",
+    "cpu": 55,
+    "ram": 90,
+    "netDl": 6,
+    "netUl": 79,
+    "idle": 0,
+    "timestamp": 1778497082275
+  },
+  {
+    "time": "04:28 pm",
+    "cpu": 62,
+    "ram": 90,
+    "netDl": 74,
+    "netUl": 30,
+    "idle": 0,
+    "timestamp": 1778497097280
+  },
+  {
+    "time": "04:28 pm",
+    "cpu": 45,
+    "ram": 94,
+    "netDl": 8,
+    "netUl": 89,
+    "idle": 0,
+    "timestamp": 1778497111799
+  },
+  {
+    "time": "04:28 pm",
+    "cpu": 46,
+    "ram": 93,
+    "netDl": 53,
+    "netUl": 129,
+    "idle": 0,
+    "timestamp": 1778497127890
+  },
+  {
+    "time": "04:29 pm",
+    "cpu": 31,
+    "ram": 89,
+    "netDl": 26,
+    "netUl": 16,
+    "idle": 0,
+    "timestamp": 1778497141732
+  },
+  {
+    "time": "04:29 pm",
+    "cpu": 36,
+    "ram": 92,
+    "netDl": 3,
+    "netUl": 2,
+    "idle": 0,
+    "timestamp": 1778497156790
+  },
+  {
+    "time": "04:29 pm",
+    "cpu": 45,
+    "ram": 89,
+    "netDl": 4,
+    "netUl": 3,
+    "idle": 0,
+    "timestamp": 1778497171639
+  },
+  {
+    "time": "04:29 pm",
+    "cpu": 34,
+    "ram": 91,
+    "netDl": 5,
+    "netUl": 48,
+    "idle": 2,
+    "timestamp": 1778497186681
+  },
+  {
+    "time": "04:30 pm",
+    "cpu": 18,
+    "ram": 92,
+    "netDl": 7,
+    "netUl": 2,
+    "idle": 2,
+    "timestamp": 1778497201716
+  },
+  {
+    "time": "04:30 pm",
+    "cpu": 34,
+    "ram": 94,
+    "netDl": 4,
+    "netUl": 2,
+    "idle": 2,
+    "timestamp": 1778497216777
+  },
+  {
+    "time": "04:30 pm",
+    "cpu": 63,
+    "ram": 93,
+    "netDl": 6,
+    "netUl": 2,
+    "idle": 1,
+    "timestamp": 1778497231641
+  },
+  {
+    "time": "04:30 pm",
+    "cpu": 42,
+    "ram": 91,
+    "netDl": 5,
+    "netUl": 115,
+    "idle": 1,
+    "timestamp": 1778497247204
+  },
+  {
+    "time": "04:31 pm",
+    "cpu": 43,
+    "ram": 93,
+    "netDl": 63,
+    "netUl": 24,
+    "idle": 0,
+    "timestamp": 1778497261742
+  },
+  {
+    "time": "04:31 pm",
+    "cpu": 30,
+    "ram": 92,
+    "netDl": 2,
+    "netUl": 2,
+    "idle": 0,
+    "timestamp": 1778497276774
+  },
+  {
+    "time": "04:31 pm",
+    "cpu": 61,
+    "ram": 94,
+    "netDl": 115,
+    "netUl": 51,
+    "idle": 2,
+    "timestamp": 1778497291972
+  },
+  {
+    "time": "04:31 pm",
+    "cpu": 38,
+    "ram": 93,
+    "netDl": 10,
+    "netUl": 4,
+    "idle": 0,
+    "timestamp": 1778497309432
+  },
+  {
+    "time": "04:32 pm",
+    "cpu": 46,
+    "ram": 94,
+    "netDl": 1,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778497321966
+  },
+  {
+    "time": "04:32 pm",
+    "cpu": 41,
+    "ram": 90,
+    "netDl": 5,
+    "netUl": 3,
+    "idle": 0,
+    "timestamp": 1778497337255
+  },
+  {
+    "time": "04:32 pm",
+    "cpu": 49,
+    "ram": 94,
+    "netDl": 2,
+    "netUl": 2,
+    "idle": 0,
+    "timestamp": 1778497351746
+  },
+  {
+    "time": "04:32 pm",
+    "cpu": 23,
+    "ram": 90,
+    "netDl": 5,
+    "netUl": 46,
+    "idle": 12,
+    "timestamp": 1778497366699
+  },
+  {
+    "time": "04:33 pm",
+    "cpu": 33,
+    "ram": 93,
+    "netDl": 9,
+    "netUl": 1,
+    "idle": 27,
+    "timestamp": 1778497381831
+  },
+  {
+    "time": "04:33 pm",
+    "cpu": 31,
+    "ram": 90,
+    "netDl": 3,
+    "netUl": 66,
+    "idle": 42,
+    "timestamp": 1778497396688
+  },
+  {
+    "time": "04:33 pm",
+    "cpu": 31,
+    "ram": 91,
+    "netDl": 3,
+    "netUl": 1,
+    "idle": 57,
+    "timestamp": 1778497411666
+  },
+  {
+    "time": "04:33 pm",
+    "cpu": 21,
+    "ram": 92,
+    "netDl": 2,
+    "netUl": 2,
+    "idle": 72,
+    "timestamp": 1778497426755
+  },
+  {
+    "time": "04:34 pm",
+    "cpu": 38,
+    "ram": 90,
+    "netDl": 1,
+    "netUl": 1,
+    "idle": 2,
+    "timestamp": 1778497441755
+  },
+  {
+    "time": "04:34 pm",
+    "cpu": 22,
+    "ram": 91,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 4,
+    "timestamp": 1778497456753
+  },
+  {
+    "time": "04:34 pm",
+    "cpu": 58,
+    "ram": 94,
+    "netDl": 14,
+    "netUl": 8,
+    "idle": 0,
+    "timestamp": 1778497471871
+  },
+  {
+    "time": "04:34 pm",
+    "cpu": 33,
+    "ram": 94,
+    "netDl": 2,
+    "netUl": 7,
+    "idle": 0,
+    "timestamp": 1778497486831
+  },
+  {
+    "time": "04:35 pm",
+    "cpu": 23,
+    "ram": 91,
+    "netDl": 14,
+    "netUl": 45,
+    "idle": 13,
+    "timestamp": 1778497501729
+  },
+  {
+    "time": "04:35 pm",
+    "cpu": 23,
+    "ram": 93,
+    "netDl": 3,
+    "netUl": 1,
+    "idle": 1,
+    "timestamp": 1778497516830
+  },
+  {
+    "time": "04:35 pm",
+    "cpu": 30,
+    "ram": 93,
+    "netDl": 11,
+    "netUl": 4,
+    "idle": 9,
+    "timestamp": 1778497532083
+  },
+  {
+    "time": "04:35 pm",
+    "cpu": 18,
+    "ram": 94,
+    "netDl": 4,
+    "netUl": 3,
+    "idle": 0,
+    "timestamp": 1778497547084
+  },
+  {
+    "time": "04:36 pm",
+    "cpu": 32,
+    "ram": 93,
+    "netDl": 3,
+    "netUl": 2,
+    "idle": 0,
+    "timestamp": 1778497561969
+  },
+  {
+    "time": "04:36 pm",
+    "cpu": 15,
+    "ram": 92,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778497577084
+  },
+  {
+    "time": "04:36 pm",
+    "cpu": 50,
+    "ram": 94,
+    "netDl": 13,
+    "netUl": 11,
+    "idle": 0,
+    "timestamp": 1778497592412
+  },
+  {
+    "time": "04:36 pm",
+    "cpu": 18,
+    "ram": 92,
+    "netDl": 2,
+    "netUl": 4,
+    "idle": 0,
+    "timestamp": 1778497606959
+  },
+  {
+    "time": "04:37 pm",
+    "cpu": 44,
+    "ram": 94,
+    "netDl": 2,
+    "netUl": 2,
+    "idle": 0,
+    "timestamp": 1778497621933
+  },
+  {
+    "time": "04:37 pm",
+    "cpu": 33,
+    "ram": 93,
+    "netDl": 16,
+    "netUl": 30,
+    "idle": 0,
+    "timestamp": 1778497637146
+  },
+  {
+    "time": "04:37 pm",
+    "cpu": 48,
+    "ram": 94,
+    "netDl": 5,
+    "netUl": 6,
+    "idle": 2,
+    "timestamp": 1778497651845
+  },
+  {
+    "time": "04:37 pm",
+    "cpu": 22,
+    "ram": 93,
+    "netDl": 3,
+    "netUl": 5,
+    "idle": 5,
+    "timestamp": 1778497666937
+  },
+  {
+    "time": "04:38 pm",
+    "cpu": 48,
+    "ram": 94,
+    "netDl": 6,
+    "netUl": 5,
+    "idle": 0,
+    "timestamp": 1778497681950
+  },
+  {
+    "time": "04:38 pm",
+    "cpu": 29,
+    "ram": 89,
+    "netDl": 8,
+    "netUl": 7,
+    "idle": 0,
+    "timestamp": 1778497697006
+  },
+  {
+    "time": "04:38 pm",
+    "cpu": 57,
+    "ram": 94,
+    "netDl": 6,
+    "netUl": 5,
+    "idle": 1,
+    "timestamp": 1778497712169
+  },
+  {
+    "time": "04:38 pm",
+    "cpu": 20,
+    "ram": 92,
+    "netDl": 10,
+    "netUl": 7,
+    "idle": 1,
+    "timestamp": 1778497726958
+  },
+  {
+    "time": "04:39 pm",
+    "cpu": 40,
+    "ram": 91,
+    "netDl": 14,
+    "netUl": 31,
+    "idle": 1,
+    "timestamp": 1778497742109
+  },
+  {
+    "time": "04:39 pm",
+    "cpu": 27,
+    "ram": 92,
+    "netDl": 15,
+    "netUl": 22,
+    "idle": 0,
+    "timestamp": 1778497757128
+  },
+  {
+    "time": "04:39 pm",
+    "cpu": 60,
+    "ram": 91,
+    "netDl": 27,
+    "netUl": 52,
+    "idle": 0,
+    "timestamp": 1778497772134
+  },
+  {
+    "time": "04:39 pm",
+    "cpu": 27,
+    "ram": 92,
+    "netDl": 101,
+    "netUl": 19,
+    "idle": 1,
+    "timestamp": 1778497787091
+  },
+  {
+    "time": "04:40 pm",
+    "cpu": 49,
+    "ram": 94,
+    "netDl": 2,
+    "netUl": 8,
+    "idle": 0,
+    "timestamp": 1778497802495
+  },
+  {
+    "time": "04:40 pm",
+    "cpu": 28,
+    "ram": 91,
+    "netDl": 8,
+    "netUl": 116,
+    "idle": 0,
+    "timestamp": 1778497817474
+  },
+  {
+    "time": "04:40 pm",
+    "cpu": 80,
+    "ram": 97,
+    "netDl": 183,
+    "netUl": 19,
+    "idle": 0,
+    "timestamp": 1778497832742
+  },
+  {
+    "time": "04:40 pm",
+    "cpu": 33,
+    "ram": 96,
+    "netDl": 3,
+    "netUl": 12,
+    "idle": 0,
+    "timestamp": 1778497847963
+  },
+  {
+    "time": "04:41 pm",
+    "cpu": 57,
+    "ram": 92,
+    "netDl": 4,
+    "netUl": 10,
+    "idle": 1,
+    "timestamp": 1778497862243
+  },
+  {
+    "time": "04:41 pm",
+    "cpu": 22,
+    "ram": 91,
+    "netDl": 3,
+    "netUl": 13,
+    "idle": 1,
+    "timestamp": 1778497877049
+  },
+  {
+    "time": "04:41 pm",
+    "cpu": 41,
+    "ram": 92,
+    "netDl": 4,
+    "netUl": 3,
+    "idle": 4,
+    "timestamp": 1778497892069
+  },
+  {
+    "time": "04:41 pm",
+    "cpu": 10,
+    "ram": 91,
+    "netDl": 1,
+    "netUl": 1,
+    "idle": 5,
+    "timestamp": 1778497906960
+  },
+  {
+    "time": "04:42 pm",
+    "cpu": 39,
+    "ram": 94,
+    "netDl": 4,
+    "netUl": 56,
+    "idle": 0,
+    "timestamp": 1778497922093
+  },
+  {
+    "time": "04:42 pm",
+    "cpu": 30,
+    "ram": 92,
+    "netDl": 10,
+    "netUl": 3,
+    "idle": 0,
+    "timestamp": 1778497937261
+  },
+  {
+    "time": "04:42 pm",
+    "cpu": 63,
+    "ram": 94,
+    "netDl": 20,
+    "netUl": 8,
+    "idle": 0,
+    "timestamp": 1778497952249
+  },
+  {
+    "time": "04:42 pm",
+    "cpu": 33,
+    "ram": 90,
+    "netDl": 10,
+    "netUl": 3,
+    "idle": 15,
+    "timestamp": 1778497967246
+  },
+  {
+    "time": "04:43 pm",
+    "cpu": 44,
+    "ram": 91,
+    "netDl": 3,
+    "netUl": 8,
+    "idle": 30,
+    "timestamp": 1778497982228
+  },
+  {
+    "time": "04:43 pm",
+    "cpu": 36,
+    "ram": 93,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 45,
+    "timestamp": 1778497997336
+  },
+  {
+    "time": "04:43 pm",
+    "cpu": 56,
+    "ram": 93,
+    "netDl": 2,
+    "netUl": 2,
+    "idle": 60,
+    "timestamp": 1778498012365
+  },
+  {
+    "time": "04:43 pm",
+    "cpu": 45,
+    "ram": 95,
+    "netDl": 1,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778498028646
+  },
+  {
+    "time": "04:44 pm",
+    "cpu": 61,
+    "ram": 91,
+    "netDl": 12,
+    "netUl": 20,
+    "idle": 0,
+    "timestamp": 1778498042380
+  },
+  {
+    "time": "04:44 pm",
+    "cpu": 42,
+    "ram": 95,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 0,
+    "timestamp": 1778498057657
+  },
+  {
+    "time": "04:44 pm",
+    "cpu": 67,
+    "ram": 89,
+    "netDl": 3,
+    "netUl": 2,
+    "idle": 15,
+    "timestamp": 1778498072389
+  },
+  {
+    "time": "04:44 pm",
+    "cpu": 42,
+    "ram": 90,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 30,
+    "timestamp": 1778498087310
+  },
+  {
+    "time": "04:45 pm",
+    "cpu": 59,
+    "ram": 92,
+    "netDl": 1,
+    "netUl": 1,
+    "idle": 45,
+    "timestamp": 1778498102439
+  },
+  {
+    "time": "04:45 pm",
+    "cpu": 60,
+    "ram": 90,
+    "netDl": 2,
+    "netUl": 2,
+    "idle": 60,
+    "timestamp": 1778498117529
+  },
+  {
+    "time": "04:45 pm",
+    "cpu": 73,
+    "ram": 91,
+    "netDl": 2,
+    "netUl": 1,
+    "idle": 75,
+    "timestamp": 1778498132396
+  },
+  {
+    "time": "04:45 pm",
+    "cpu": 43,
+    "ram": 92,
+    "netDl": 5,
+    "netUl": 13,
+    "idle": 1,
+    "timestamp": 1778498147094
+  },
+  {
+    "time": "04:46 pm",
+    "cpu": 54,
+    "ram": 93,
+    "netDl": 52,
+    "netUl": 143,
+    "idle": 0,
+    "timestamp": 1778498162024
+  },
+  {
+    "time": "04:46 pm",
+    "cpu": 43,
+    "ram": 95,
+    "netDl": 4,
+    "netUl": 3,
+    "idle": 0,
+    "timestamp": 1778498177806
+  },
+  {
+    "time": "04:46 pm",
+    "cpu": 51,
+    "ram": 94,
+    "netDl": 7,
+    "netUl": 19,
+    "idle": 1,
+    "timestamp": 1778498192388
+  },
+  {
+    "time": "04:46 pm",
+    "cpu": 24,
+    "ram": 94,
+    "netDl": 7,
+    "netUl": 10,
+    "idle": 0,
+    "timestamp": 1778498207099
+  },
+  {
+    "time": "04:47 pm",
+    "cpu": 28,
+    "ram": 91,
+    "netDl": 6,
+    "netUl": 7,
+    "idle": 2,
+    "timestamp": 1778498222120
+  },
+  {
+    "time": "04:47 pm",
+    "cpu": 21,
+    "ram": 93,
+    "netDl": 5,
+    "netUl": 5,
+    "idle": 0,
+    "timestamp": 1778498237131
+  }
+]

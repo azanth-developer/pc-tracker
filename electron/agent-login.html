@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Tracker Agent Login</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --blue: #6366f1;
+            --text: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            -webkit-app-region: drag;
+        }
+        .login-card {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            width: 360px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            -webkit-app-region: no-drag;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: var(--blue);
+            border-radius: 0.8rem;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+        p { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 1.5rem; }
+        
+        .input-group { text-align: left; margin-bottom: 0.8rem; }
+        label { display: block; font-size: 0.7rem; color: var(--text-dim); margin-bottom: 0.3rem; text-transform: uppercase; }
+        input {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 0.6rem;
+            color: white;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.7rem;
+            border-radius: 0.6rem;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 0.8rem;
+        }
+        .btn-primary { background: var(--blue); color: white; }
+        .btn-google {
+            background: white;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .toggle-text { margin-top: 1rem; font-size: 0.8rem; color: var(--text-dim); }
+        .toggle-link { color: var(--blue); cursor: pointer; font-weight: 600; text-decoration: underline; }
+
+        .status { margin-top: 1rem; font-size: 0.8rem; min-height: 1.2rem; }
+        .status-error { color: #ef4444; }
+        .status-success { color: #10b981; }
+
+        .loader { display: none; border: 2px solid #334155; border-top: 2px solid var(--blue); border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; margin: 10px auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="logo">💻</div>
+        <h1 id="title">Agent Login</h1>
+        <p id="subtitle">Sign in to start PC monitoring</p>
+
+        <div id="loginForm">
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="email" placeholder="name@company.com">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="••••••••">
+            </div>
+
+            <button class="btn btn-primary" id="mainBtn">Sign In</button>
+            
+            <div class="toggle-text">
+                <span id="toggleMsg">Don't have an account?</span> 
+                <span class="toggle-link" id="toggleBtn">Create Account</span>
+            </div>
+
+            <div style="margin: 1rem 0; color: #334155; font-size: 0.7rem; display: flex; align-items: center; gap: 0.5rem;">
+                <hr style="flex: 1; border: 0; border-top: 1px solid #334155;"> OR <hr style="flex: 1; border: 0; border-top: 1px solid #334155;">
+            </div>
+
+            <button class="btn btn-google" id="googleBtn">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18">
+                Continue with Google
+            </button>
+        </div>
+
+        <div id="loader" class="loader"></div>
+        <div id="status" class="status"></div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        
+        const { ipcRenderer } = require('electron');
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDT_5Vf1Ti4v5SXfcuvdWmh6iCaGQc52ec",
+            authDomain: "pc-tracker-8b48c.firebaseapp.com",
+            projectId: "pc-tracker-8b48c",
+            storageBucket: "pc-tracker-8b48c.firebasestorage.app",
+            messagingSenderId: "686397860978",
+            appId: "1:686397860978:web:95fe9d01827b1e569e66eb",
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+
+        let isSignUp = false;
+
+        const emailInput = document.getElementById('email');
+        const passInput = document.getElementById('password');
+        const mainBtn = document.getElementById('mainBtn');
+        const googleBtn = document.getElementById('googleBtn');
+        const toggleBtn = document.getElementById('toggleBtn');
+        const title = document.getElementById('title');
+        const subtitle = document.getElementById('subtitle');
+        const status = document.getElementById('status');
+        const loader = document.getElementById('loader');
+
+        // Toggle Login/Signup
+        toggleBtn.onclick = () => {
+            isSignUp = !isSignUp;
+            title.textContent = isSignUp ? 'Create Account' : 'Agent Login';
+            subtitle.textContent = isSignUp ? 'Register to start monitoring' : 'Sign in to start PC monitoring';
+            mainBtn.textContent = isSignUp ? 'Sign Up' : 'Sign In';
+            toggleBtn.textContent = isSignUp ? 'Sign In' : 'Create Account';
+            document.getElementById('toggleMsg').textContent = isSignUp ? 'Already have an account?' : "Don't have an account?";
+        };
+
+        mainBtn.onclick = async () => {
+            const email = emailInput.value;
+            const password = passInput.value;
+            if (!email || !password) return showStatus('Please fill all fields', true);
+            
+            showLoading(true);
+            showStatus(isSignUp ? 'Creating account...' : 'Signing in...');
+            try {
+                let res;
+                if (isSignUp) {
+                    res = await createUserWithEmailAndPassword(auth, email, password);
+                    // Create user profile in Firestore
+                    const user = res.user;
+                    const profile = {
+                        uid: user.uid,
+                        email: user.email,
+                        displayName: email.split('@')[0],
+                        role: 'employee',
+                        status: 'active',
+                        createdAt: new Date().toISOString()
+                    };
+                    // We use a simple fetch to the REST API to avoid including more Firestore SDKs
+                    const PROJECT_ID = 'pc-tracker-8b48c';
+                    const API_KEY = 'AIzaSyDT_5Vf1Ti4v5SXfcuvdWmh6iCaGQc52ec';
+                    const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/users/${user.uid}?key=${API_KEY}`;
+                    await fetch(url, {
+                        method: 'PATCH',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            fields: {
+                                uid: { stringValue: profile.uid },
+                                email: { stringValue: profile.email },
+                                displayName: { stringValue: profile.displayName },
+                                role: { stringValue: profile.role },
+                                status: { stringValue: profile.status },
+                                createdAt: { stringValue: profile.createdAt }
+                            }
+                        })
+                    });
+                } else {
+                    res = await signInWithEmailAndPassword(auth, email, password);
+                }
+                handleSuccess(res.user);
+            } catch (err) {
+                showLoading(false);
+                showStatus(err.message, true);
+            }
+        };
+
+        googleBtn.onclick = async () => {
+            showStatus('Opening Google Login...');
+            try {
+                const res = await signInWithPopup(auth, provider);
+                handleSuccess(res.user);
+            } catch (err) {
+                console.error(err);
+                if (err.code === 'auth/popup-blocked') {
+                    showStatus('Opening login in secure window...', true);
+                    // Force Electron to handle it
+                    ipcRenderer.send('google-login-force');
+                } else {
+                    showStatus(err.message, true);
+                }
+            }
+        };
+
+        // Listen for force login success
+        ipcRenderer.on('auth-success-from-main', (e, user) => handleSuccess(user));
+
+        function handleSuccess(user) {
+            showLoading(false);
+            showStatus('Success! Monitoring active.', false, true);
+            ipcRenderer.send('auth-success-start-monitor', { uid: user.uid, email: user.email });
+        }
+
+        function showStatus(msg, isError, isSuccess) {
+            status.textContent = msg;
+            status.className = 'status' + (isError ? ' status-error' : '') + (isSuccess ? ' status-success' : '');
+        }
+
+        function showLoading(show) {
+            loader.style.display = show ? 'block' : 'none';
+        }
+
+        // Persistence
+        onAuthStateChanged(auth, (user) => {
+            if (user) handleSuccess(user);
+        });
+    </script>
+</body>
+</html>

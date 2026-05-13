@@ -1,0 +1,2 @@
+hostname,cpuModel,cpuCores,totalRamGB,platform,arch,currentApp,currentTitle,cpu_percent,ram_gb,ram_percent,keystrokes,mouseClicks,idleSeconds,uptimeMinutes,loginTime,bootTime
+Azanth-2005,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8,8.3,win32,x64,PowerShell,PC TRACKER - Antigravity - Review Changes,18,7.5,91,111,16,5,6,02:54 pm,2026-05-07T05:26:37.829Z

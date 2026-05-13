@@ -1,0 +1,30 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // TEMPORARY: Allow all reads and writes for testing the Monitoring Agent
+    // INSTRUCTIONS: Copy this content to Firebase Console -> Firestore -> Rules
+    // and click "Publish" to fix the 403 PERMISSION_DENIED error.
+    
+    match /{document=**} {
+      allow read, write: if true;
+    }
+
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    match /devices/{deviceId} {
+      allow read, write: if true;
+    }
+
+    match /runningApps/{deviceId} {
+      allow read, write: if true;
+    }
+    
+    match /activities/{docId} {
+      allow read, write: if true;
+    }
+  }
+}
