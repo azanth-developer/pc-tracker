@@ -12,7 +12,7 @@ export default function EmployeeView() {
       <div className="employee-nav">
         <div className="nav-logo">
           <div className="logo-icon"><Monitor size={20} /></div>
-          <span>PC Tracker <strong>Agent</strong></span>
+          <span>Employee Attendance <strong>Agent</strong></span>
         </div>
         <button onClick={logout} className="logout-pill">
           <LogOut size={14} /> Sign Out

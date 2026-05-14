@@ -183,17 +183,25 @@ export function useDashboardStats() {
 
     const norm = (v) => (typeof v === "string" ? v.trim().toLowerCase() : "");
 
-    return users.map((user) => {
-      const userEmailNorm = norm(user.email);
-      const userId = user.id;
+    const usersByUid = Object.fromEntries(
+      (users || []).map((u) => [u?.id, u])
+    );
 
-      // Robust matching: try device.userEmail (case-insensitive), then device.userId
-      const device = (devices || []).find((d) => {
-        const dEmailNorm = norm(d.userEmail);
-        if (userEmailNorm && dEmailNorm && dEmailNorm === userEmailNorm) return true;
-        if (userId && d.userId && String(d.userId) === String(userId)) return true;
-        return false;
-      });
+    // Build deviceId -> uid mapping defensively.
+    // uid is the single source of truth relation key.
+    const uidForDeviceId = Object.fromEntries(
+      (devices || [])
+        .map((d) => {
+          const deviceId = d?.id;
+          const uid = d?.userId ?? d?.uid ?? d?.userID ?? d?.userID?.toString?.();
+          return deviceId ? [deviceId, uid] : null;
+        })
+        .filter(Boolean)
+    );
+
+    return (users || []).map((user) => {
+      // Firestore document ID for the user (uid)
+      const uid = user.id;
 
       const displayName =
         user.displayName ||
@@ -202,23 +210,58 @@ export function useDashboardStats() {
         user.userName ||
         (user.email ? user.email.split("@")[0] : "Employee");
 
+      const employeeName =
+        user.employeeName ||
+        user.displayName ||
+        user.fullName ||
+        user.name ||
+        (user.email ? user.email.split("@")[0] : "Employee");
+
+      const employeeId = user.employeeId || user.employeeID || user.employee_id || "";
+      const email = user.email || user.userEmail || user.emailAddress;
+
+      // Prefer direct uid match (enterprise expectation), fallback to email match.
+      const device = (devices || []).find((d) => {
+        const dUid = d?.userId ?? d?.uid ?? d?.userID;
+        if (uid != null && dUid != null && String(dUid) === String(uid)) return true;
+
+        const userEmailNorm = norm(user.email);
+        const dEmailNorm = norm(d?.userEmail);
+        if (userEmailNorm && dEmailNorm && dEmailNorm === userEmailNorm) return true;
+
+        return false;
+      });
+
       return {
         ...user,
-        ...(device || {}), // Overlay live telemetry if it exists
-        id: user.id, // Keep user ID as primary
+        ...(device || {}),
 
-        // Standardized identity fields (so UI never renders blank)
-        displayName,
-        fullName: user.fullName || user.displayName || user.name || displayName,
-        userName: user.userName || user.name || user.displayName || displayName,
-        name: user.name || user.displayName || displayName,
+        // Standardized fields
+        uid,
+        id: uid,
+        employeeId,
+        employeeName,
+        email,
 
-        // Standardized presence/telemetry
+        displayName: employeeName,
+        fullName: user.fullName || user.displayName || user.name || employeeName,
+        userName: user.userName || user.name || user.displayName || employeeName,
+        name: user.name || user.displayName || employeeName,
+
+        // Standardized telemetry fields
         isOnline: device ? !!device.isOnline : false,
         lastSeen: device ? device.lastSeen : undefined,
+        deviceName: device ? (device.deviceName || device.hostname || device.host) : undefined,
         activeHours: device ? device.activeHours || 0 : 0,
-        productivityScore: device ? device.productivityScore || 0 : 0,
+        productivity: device ? device.productivityScore || device.productivity || 0 : user.productivity || 0,
+        productivityScore: device
+          ? device.productivityScore ?? device.productivity ?? 0
+          : user.productivity ?? 0,
         currentApp: device ? device.currentApp || "Idle" : "Offline",
+
+        // expose mapping helpers if consumers need them
+        usersByUid,
+        uidForDeviceId,
       };
     });
   }, [users, devices]);

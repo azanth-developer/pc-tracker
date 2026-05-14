@@ -1,240 +1,161 @@
-import { useState, useRef, useEffect } from "react";
-import { Menu, Bell, Search, Clock, Wifi, WifiOff, X, Check, LogOut, User, Settings, ChevronDown } from "lucide-react";
+import React, { useState, useRef, useEffect } from "react";
+import { 
+  Menu, Bell, Search, Clock, Wifi, WifiOff, 
+  X, Check, LogOut, User, Settings, ChevronDown, Activity, AlertTriangle
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../contexts/AuthContext";
 import { useLiveClock } from "../hooks/useLiveClock";
 import { useNotifications } from "../hooks/useNotifications";
-import { useDevices } from "../hooks/useFirestoreData";
-
-// Electron IPC helper
-const isElectron = typeof window !== 'undefined' && window.process && window.process.type === 'renderer';
-let ipcRenderer = null;
-if (isElectron) {
-  try {
-    ipcRenderer = window.require('electron').ipcRenderer;
-  } catch (e) {}
-}
+import { useConsolidatedData } from "../hooks/useConsolidatedData";
 
 const PAGE_LABELS = {
-  dashboard:   "Dashboard",
-  live:        "Live Monitoring",
-  alldevices:  "All Devices",
-  reports:     "Reports",
-  attendance:  "Attendance",
-  system:      "System Statistics",
-  analytics:   "User Analytics",
-  devices:     "Devices & Files",
-  screenshots: "Screenshots",
-  settings:    "Settings",
-};
-
-const NOTIF_ICONS = {
-  online:  <Wifi size={14} />,
-  offline: <WifiOff size={14} />,
-  idle:    <Clock size={14} />,
-  alert:   <Bell size={14} />,
-};
-
-const NOTIF_COLORS = {
-  online:  "notif-green",
-  offline: "notif-red",
-  idle:    "notif-orange",
-  alert:   "notif-red",
+  dashboard:    "Dashboard",
+  employees:    "Employees",
+  attendance:   "Attendance",
+  devices:      "Devices",
+  settings:     "Settings",
 };
 
 export default function Header({ activePage, sidebarOpen, setSidebarOpen, onSearch }) {
-  const { currentUser, logout, userProfile, isAdmin } = useAuth();
-  const { formatted, date } = useLiveClock();
-  const { notifications, unreadCount, markRead, markAllRead, clearAll } = useNotifications();
-  const { devices } = useDevices();
+  const { currentUser, logout, userProfile } = useAuth();
+  const { formatted } = useLiveClock();
+  const { notifications, unreadCount, markAllRead } = useNotifications();
+  const { enrichedDevices } = useConsolidatedData();
   const [showNotifs, setShowNotifs] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const notifRef = useRef(null);
   const profileRef = useRef(null);
 
-  // Check if current user is being monitored
-  const myDevice = (devices || []).find(d => d.userEmail === currentUser?.email);
-  const isMonitored = myDevice?.isOnline || false;
-
-  function handleStartAgent() {
-    if (ipcRenderer && currentUser) {
-      ipcRenderer.send('auth-success-start-monitor', {
-        uid: currentUser.uid,
-        email: currentUser.email
-      });
-      alert("Monitoring Agent signal sent to system.");
-    } else {
-      alert("Please run this in the PC Tracker Desktop App to enable monitoring.");
-    }
+  const totalDevices = enrichedDevices.length;
+  const onlineDevices = enrichedDevices.filter(d => d.isOnline).length;
+  
+  let telemetryStatus = { label: "Offline", class: "badge-offline", icon: <WifiOff size={14} /> };
+  if (onlineDevices > 0) {
+    telemetryStatus = { label: "Online", class: "badge-online", icon: <Wifi size={14} /> };
   }
 
-  const displayName = userProfile?.displayName || currentUser?.displayName || currentUser?.email?.split("@")[0] || "User";
-  const initials = displayName[0]?.toUpperCase() || "U";
-  const photoURL = currentUser?.photoURL;
+  const displayName = userProfile?.displayName || currentUser?.displayName || currentUser?.email?.split("@")[0] || "Administrator";
+  const initials = displayName[0]?.toUpperCase() || "A";
 
-  // Close dropdowns on outside click
   useEffect(() => {
     function handleClick(e) {
-      if (notifRef.current && !notifRef.current.contains(e.target)) {
-        setShowNotifs(false);
-      }
-      if (profileRef.current && !profileRef.current.contains(e.target)) {
-        setShowProfile(false);
-      }
+      if (notifRef.current && !notifRef.current.contains(e.target)) setShowNotifs(false);
+      if (profileRef.current && !profileRef.current.contains(e.target)) setShowProfile(false);
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  function handleSearch(e) {
-    setSearchQuery(e.target.value);
-    if (onSearch) onSearch(e.target.value);
-  }
-
   return (
     <header className="header">
-      <div className="header-left">
-        <button
-          className="header-menu-btn"
-          onClick={() => setSidebarOpen(v => !v)}
-        >
-          <Menu size={20} />
+      <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+        <button className="sidebar-toggle" onClick={() => setSidebarOpen(v => !v)}>
+          <Menu size={18} />
         </button>
-        <div className="header-breadcrumb">
-          <span className="breadcrumb-root">PC Tracker</span>
-          <span className="breadcrumb-sep">/</span>
-          <span className="breadcrumb-page">{PAGE_LABELS[activePage]}</span>
+        <div className="breadcrumb">
+          <span className="breadcrumb-current">{PAGE_LABELS[activePage] || "Platform"}</span>
         </div>
       </div>
 
-      <div className="header-right">
-        {/* Monitoring Status */}
-        <div className="header-monitor-status" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', padding: '0.4rem 0.8rem', borderRadius: '20px', background: isMonitored ? 'rgba(34, 197, 94, 0.1)' : 'rgba(239, 68, 68, 0.1)', border: `1px solid ${isMonitored ? 'rgba(34, 197, 94, 0.2)' : 'rgba(239, 68, 68, 0.2)'}` }}>
-          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: isMonitored ? '#22c55e' : '#ef4444', boxShadow: isMonitored ? '0 0 10px #22c55e' : 'none' }} />
-          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: isMonitored ? '#22c55e' : '#ef4444' }}>
-            {isMonitored ? "MONITORING ACTIVE" : "MONITORING INACTIVE"}
-          </span>
-        </div>
-
-        {/* Live Clock */}
-        <div className="header-clock">
-          <Clock size={13} />
-          <span className="clock-time">{formatted}</span>
-          <span className="clock-date">{date}</span>
-        </div>
-
-        {/* Search */}
-        <div className="header-search">
-          <Search size={14} />
+      <div className="header-actions">
+        <div className="search-input-wrap" style={{ minWidth: "240px", maxWidth: "320px" }}>
+          <Search size={16} className="search-icon" />
           <input
-            placeholder="Search users, devices..."
-            className="header-search-input"
+            placeholder="Search..."
+            className="search-input"
             value={searchQuery}
-            onChange={handleSearch}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              if (onSearch) onSearch(e.target.value);
+            }}
           />
         </div>
 
-        {/* Notifications */}
-        <div className="notif-wrap" ref={notifRef}>
-          <button
-            className="header-icon-btn"
-            title="Notifications"
-            onClick={() => setShowNotifs(v => !v)}
-          >
-            <Bell size={17} />
-            {unreadCount > 0 && (
-              <span className="notif-count">{unreadCount > 9 ? "9+" : unreadCount}</span>
-            )}
-          </button>
-
-          {showNotifs && (
-            <div className="notif-dropdown">
-              <div className="notif-header">
-                <h4>Notifications</h4>
-                <div className="notif-actions">
-                  {unreadCount > 0 && (
-                    <button onClick={markAllRead} className="notif-action-btn" title="Mark all read">
-                      <Check size={13} /> Mark all read
-                    </button>
-                  )}
-                  {notifications.length > 0 && (
-                    <button onClick={clearAll} className="notif-action-btn" title="Clear all">
-                      <X size={13} /> Clear
-                    </button>
-                  )}
-                </div>
-              </div>
-              <div className="notif-list">
-                {notifications.length === 0 ? (
-                  <p className="notif-empty">No notifications</p>
-                ) : (
-                  notifications.slice(0, 15).map((n) => (
-                    <div
-                      key={n.id}
-                      className={`notif-item ${n.read ? "" : "notif-unread"}`}
-                      onClick={() => markRead(n.id)}
-                    >
-                      <div className={`notif-icon-wrap ${NOTIF_COLORS[n.type]}`}>
-                        {NOTIF_ICONS[n.type]}
-                      </div>
-                      <div className="notif-content">
-                        <p className="notif-title">{n.title}</p>
-                        <p className="notif-msg">{n.message}</p>
-                      </div>
-                      <span className="notif-time">{n.time}</span>
-                    </div>
-                  ))
-                )}
-              </div>
-            </div>
-          )}
+        <div className={`badge-pill ${telemetryStatus.class}`}>
+          {telemetryStatus.icon}
+          <span>{telemetryStatus.label}</span>
         </div>
 
-        {/* User Avatar + Profile Dropdown */}
-        <div className="profile-wrap" ref={profileRef}>
-          <button
-            className="profile-trigger"
-            onClick={() => setShowProfile(v => !v)}
-            title={currentUser?.email || "Profile"}
-          >
-            {photoURL ? (
-              <img src={photoURL} alt="" className="profile-avatar-img" />
-            ) : (
-              <div className="header-avatar">{initials}</div>
-            )}
-            <ChevronDown size={12} className={`profile-chevron ${showProfile ? "profile-chevron-up" : ""}`} />
+        <div className="notif-wrap" ref={notifRef} style={{ position: "relative" }}>
+          <button className="header-icon-btn" onClick={() => setShowNotifs(!showNotifs)}>
+            <Bell size={18} />
+            {unreadCount > 0 && <span className="badge-dot" />}
           </button>
 
-          {showProfile && (
-            <div className="profile-dropdown">
-              <div className="profile-dd-header">
-                {photoURL ? (
-                  <img src={photoURL} alt="" className="profile-dd-img" />
-                ) : (
-                  <div className="profile-dd-avatar">{initials}</div>
-                )}
-                <div className="profile-dd-info">
-                  <p className="profile-dd-name">{displayName}</p>
-                  <p className="profile-dd-email">{currentUser?.email || ""}</p>
-                  <span className="profile-dd-role">{isAdmin ? "Admin" : "Employee"}</span>
+          <AnimatePresence>
+            {showNotifs && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                className="modal-content" 
+                style={{ position: "absolute", top: "calc(100% + 12px)", right: 0, width: "320px", zIndex: 1000, padding: "1rem" }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "1rem", alignItems: "center" }}>
+                  <h4 style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--text-main)" }}>Notifications</h4>
+                  <button onClick={markAllRead} style={{ fontSize: "0.75rem", color: "var(--primary)", border: "none", background: "none", fontWeight: 500, cursor: "pointer" }}>Mark all read</button>
                 </div>
-              </div>
-              <div className="profile-dd-divider" />
-              <button className="profile-dd-item" onClick={() => { setShowProfile(false); }}>
-                <User size={14} />
-                <span>Profile</span>
-              </button>
-              <button className="profile-dd-item" onClick={() => { setShowProfile(false); }}>
-                <Settings size={14} />
-                <span>Settings</span>
-              </button>
-              <div className="profile-dd-divider" />
-              <button className="profile-dd-item profile-dd-logout" onClick={logout}>
-                <LogOut size={14} />
-                <span>Sign Out</span>
-              </button>
+                <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                  {notifications.length === 0 ? (
+                    <div style={{ textAlign: "center", padding: "2rem 1rem" }}>
+                       <Check size={24} style={{ color: "var(--text-light)", margin: "0 auto 0.5rem" }} />
+                       <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>No new notifications</p>
+                    </div>
+                  ) : (
+                    notifications.slice(0, 5).map(n => (
+                      <div key={n.id} style={{ padding: "0.75rem", borderRadius: "8px", background: "var(--bg)", border: "1px solid var(--border)" }}>
+                        <div style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
+                           <AlertTriangle size={16} style={{ color: "var(--warning)", marginTop: "0.1rem" }} />
+                           <div>
+                             <p style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--text-main)", marginBottom: "0.25rem" }}>{n.title}</p>
+                             <p style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>{n.message}</p>
+                           </div>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        <div className="profile-wrap" ref={profileRef} style={{ position: "relative" }}>
+          <button style={{ background: "transparent", border: "none", display: "flex", alignItems: "center", cursor: "pointer" }} onClick={() => setShowProfile(!showProfile)}>
+            <div className="avatar-base" style={{ width: "36px", height: "36px", fontSize: "0.875rem" }}>
+              {initials}
             </div>
-          )}
+            <ChevronDown size={16} style={{ color: "var(--text-muted)", marginLeft: "0.5rem" }} />
+          </button>
+
+          <AnimatePresence>
+            {showProfile && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                className="modal-content" 
+                style={{ position: "absolute", top: "calc(100% + 12px)", right: 0, width: "220px", zIndex: 1000, padding: "0.5rem" }}
+              >
+                <div style={{ padding: "1rem", borderBottom: "1px solid var(--border)", marginBottom: "0.5rem" }}>
+                  <p className="truncate" style={{ fontWeight: 600, fontSize: "0.875rem", color: "var(--text-main)" }}>{displayName}</p>
+                  <p className="truncate" style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>{currentUser?.email}</p>
+                </div>
+                <button className="sidebar-nav-item" onClick={() => {}} style={{ margin: "0.25rem" }}>
+                  <User size={16} className="nav-icon" /> <span className="nav-label">Profile</span>
+                </button>
+                <button className="sidebar-nav-item" onClick={() => {}} style={{ margin: "0.25rem" }}>
+                  <Settings size={16} className="nav-icon" /> <span className="nav-label">Settings</span>
+                </button>
+                <div style={{ height: "1px", background: "var(--border)", margin: "0.5rem" }} />
+                <button className="sidebar-nav-item" onClick={logout} style={{ color: "var(--danger)", margin: "0.25rem" }}>
+                  <LogOut size={16} className="nav-icon" /> <span className="nav-label">Logout</span>
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </header>

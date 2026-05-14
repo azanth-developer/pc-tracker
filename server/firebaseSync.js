@@ -9,14 +9,74 @@ const FIRESTORE_URL = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID
 // We'll set these from monitor.js
 let USER_ID = 'unknown';
 let USER_EMAIL = 'unknown';
+let USER_DISPLAY_NAME = 'Unknown User';
+let USER_EMPLOYEE_ID = '';
+let USER_DEVICE_NAME = os.hostname();
+
+// Make device ID unique per user so multiple users on one PC don't overwrite
 let DEVICE_ID = os.hostname().replace(/[^a-zA-Z0-9_-]/g, '_');
 
-function setUserInfo(uid, email) {
-  USER_ID = uid;
-  USER_EMAIL = email;
-  // Make device ID unique per user so multiple users on one PC don't overwrite
-  DEVICE_ID = `${os.hostname().replace(/[^a-zA-Z0-9_-]/g, '_')}_${USER_ID}`;
+function setUserInfo({ uid, email, displayName, employeeId, deviceName }) {
+  USER_ID = uid || 'unknown';
+  USER_EMAIL = email || 'unknown';
+  USER_DISPLAY_NAME = displayName || 'Unknown User';
+  USER_EMPLOYEE_ID = employeeId || '';
+  USER_DEVICE_NAME = deviceName || os.hostname();
+
+  const hostNorm = os.hostname().replace(/[^a-zA-Z0-9_-]/g, '_');
+  DEVICE_ID = `${hostNorm}_${USER_ID}`;
 }
+
+function buildUsersDoc() {
+  // Identity fields required by the dashboard schema
+  const employeeName = USER_DISPLAY_NAME || 'Unknown User';
+  const employeeId = USER_EMPLOYEE_ID || `EMP-${String(USER_ID).slice(0, 6).toUpperCase()}`;
+
+  return {
+    uid: USER_ID,
+    employeeId,
+    employeeName,
+    email: USER_EMAIL,
+    deviceName: USER_DEVICE_NAME,
+    isOnline: true,
+    lastSeen: new Date().toISOString(),
+    currentApp: 'Desktop',
+    activeHours: '0',
+    productivity: 0,
+  };
+}
+
+async function upsertUserDoc() {
+  try {
+    const docFields = buildUsersDoc();
+
+    const toFirestoreFields = {
+      uid: { stringValue: docFields.uid },
+      employeeId: { stringValue: docFields.employeeId },
+      employeeName: { stringValue: docFields.employeeName },
+      email: { stringValue: docFields.email },
+      deviceName: { stringValue: docFields.deviceName },
+      isOnline: { booleanValue: docFields.isOnline },
+      lastSeen: { stringValue: docFields.lastSeen },
+      currentApp: { stringValue: docFields.currentApp },
+      activeHours: { integerValue: String(docFields.activeHours || '0') },
+      productivity: { integerValue: String(docFields.productivity || 0) },
+    };
+
+    // REST patch upsert on users/{uid}
+    const body = {
+      fields: toFirestoreFields,
+    };
+
+    // Note: this will create if missing.
+    await firebaseRequest(`${FIRESTORE_URL}/users/${USER_ID}?key=${API_KEY}`, body);
+    return true;
+  } catch (err) {
+    console.error('[Firebase User Upsert] Error:', err.message);
+    return false;
+  }
+}
+
 
 function firebaseRequest(url, body) {
   return new Promise((resolve, reject) => {
@@ -136,4 +196,4 @@ async function markOffline() {
   } catch {}
 }
 
-module.exports = { syncToFirestore, syncRunningApps, markOffline, sendHeartbeat, setUserInfo, DEVICE_ID };
+module.exports = { syncToFirestore, syncRunningApps, markOffline, sendHeartbeat, setUserInfo, upsertUserDoc, DEVICE_ID };

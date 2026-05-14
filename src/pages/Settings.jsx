@@ -1,234 +1,209 @@
-import { useState, useEffect } from "react";
-import { useAuth } from "../contexts/AuthContext";
-import { doc, updateDoc } from "firebase/firestore";
-import { updateProfile, updatePassword, EmailAuthProvider, reauthenticateWithCredential } from "firebase/auth";
-import { db, auth } from "../firebase";
-import {
-  User, Bell, Shield, Monitor, Save, RefreshCw, Check, AlertCircle,
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  Settings as SettingsIcon, Shield, Bell, 
+  Monitor, Lock, Eye, Database, 
+  Clock, Save, RefreshCcw, UserPlus,
+  Cpu, HardDrive, Layout, Fingerprint
 } from "lucide-react";
 
-function SettingSection({ title, icon, children }) {
-  return (
-    <div className="chart-card setting-section">
-      <h3 className="chart-title setting-title">
-        <span className="setting-icon">{icon}</span>
-        {title}
-      </h3>
-      <div className="setting-body">{children}</div>
-    </div>
-  );
-}
-
-function Toggle({ label, desc, defaultOn = false, onChange }) {
-  const [on, setOn] = useState(defaultOn);
-  return (
-    <div className="toggle-row">
-      <div>
-        <p className="toggle-label">{label}</p>
-        {desc && <p className="toggle-desc">{desc}</p>}
-      </div>
-      <button
-        className={`toggle-btn${on ? " toggle-on" : ""}`}
-        onClick={() => { setOn(v => !v); if (onChange) onChange(!on); }}
-      >
-        <span className="toggle-thumb" />
-      </button>
-    </div>
-  );
-}
-
 export default function Settings() {
-  const { currentUser, userProfile, isAdmin } = useAuth();
-  const [displayName, setDisplayName] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [saving, setSaving] = useState(false);
-  const [saved, setSaved] = useState(false);
-  const [error, setError] = useState("");
-  const [passwordMsg, setPasswordMsg] = useState("");
-  const [uploadInterval, setUploadInterval] = useState("5");
+  const [activeTab, setActiveTab] = useState("general");
 
-  useEffect(() => {
-    if (userProfile?.displayName) setDisplayName(userProfile.displayName);
-  }, [userProfile]);
-
-  async function handleSaveProfile() {
-    setSaving(true);
-    setError("");
-    setSaved(false);
-    try {
-      // Update Firebase Auth profile
-      if (currentUser) {
-        await updateProfile(currentUser, { displayName });
-      }
-      // Update Firestore user doc
-      if (currentUser?.uid) {
-        await updateDoc(doc(db, "users", currentUser.uid), {
-          displayName,
-          updatedAt: new Date().toISOString(),
-        });
-      }
-      setSaved(true);
-      setTimeout(() => setSaved(false), 3000);
-    } catch (err) {
-      setError("Failed to update profile: " + (err.message || "Unknown error"));
-    }
-    setSaving(false);
-  }
-
-  async function handleChangePassword() {
-    if (!newPassword || newPassword.length < 6) {
-      setPasswordMsg("Password must be at least 6 characters");
-      return;
-    }
-    setPasswordMsg("");
-    setSaving(true);
-    try {
-      // Re-authenticate first if they have a password provider
-      if (currentPassword && currentUser?.email) {
-        const credential = EmailAuthProvider.credential(currentUser.email, currentPassword);
-        await reauthenticateWithCredential(currentUser, credential);
-      }
-      await updatePassword(currentUser, newPassword);
-      setPasswordMsg("Password updated successfully!");
-      setNewPassword("");
-      setCurrentPassword("");
-    } catch (err) {
-      if (err.code === "auth/wrong-password") {
-        setPasswordMsg("Current password is incorrect");
-      } else if (err.code === "auth/requires-recent-login") {
-        setPasswordMsg("Please sign out and sign in again before changing password");
-      } else {
-        setPasswordMsg("Failed to change password: " + (err.message || ""));
-      }
-    }
-    setSaving(false);
-  }
+  const sections = [
+    { id: "general", label: "Core Identity", icon: SettingsIcon },
+    { id: "monitoring", label: "Telemetry Matrix", icon: Eye },
+    { id: "permissions", label: "Access Security", icon: Shield },
+    { id: "notifications", label: "Alert Configuration", icon: Bell },
+    { id: "storage", label: "Cloud Synchronization", icon: Database },
+  ];
 
   return (
-    <div className="page-content">
+    <div className="page-content animate-fade-in">
       <div className="page-header-row">
         <div>
-          <h2 className="page-title">Settings</h2>
-          <p className="page-desc">Manage your account and monitoring preferences</p>
+          <h2 className="page-title">Platform Configuration</h2>
+          <p className="page-desc">High-level administrative override for organizational telemetry and security protocols.</p>
+        </div>
+        <div style={{ display: "flex", gap: "1rem" }}>
+          <button className="btn-secondary">
+            <RefreshCcw size={18} /> Rollback
+          </button>
+          <button className="btn-primary">
+            <Save size={18} /> Commit Changes
+          </button>
         </div>
       </div>
 
-      <div className="settings-grid">
-        {/* Account Section - WORKING */}
-        <SettingSection title="Account" icon={<User size={16} />}>
-          <div className="field-group">
-            <label className="field-label">Email</label>
-            <input className="field-input field-readonly" value={currentUser?.email || ""} readOnly />
-          </div>
-          <div className="field-group">
-            <label className="field-label">Display Name</label>
-            <input
-              className="field-input"
-              value={displayName}
-              onChange={e => setDisplayName(e.target.value)}
-              placeholder="Enter your name"
-            />
-          </div>
-          <div className="field-group">
-            <label className="field-label">Role</label>
-            <input className="field-input field-readonly" value={isAdmin ? "Admin" : "Employee"} readOnly />
-          </div>
-          <div className="field-group">
-            <label className="field-label">Account Created</label>
-            <input className="field-input field-readonly" value={userProfile?.createdAt ? new Date(userProfile.createdAt).toLocaleDateString() : "--"} readOnly />
-          </div>
-
-          {error && (
-            <div className="settings-msg settings-error">
-              <AlertCircle size={14} /> {error}
-            </div>
-          )}
-          {saved && (
-            <div className="settings-msg settings-success">
-              <Check size={14} /> Profile updated successfully!
-            </div>
-          )}
-
-          <button
-            className="btn-primary"
-            onClick={handleSaveProfile}
-            disabled={saving}
-            style={{ marginTop: "0.75rem" }}
-          >
-            {saving ? <><RefreshCw size={14} className="spin-icon" /> Saving...</> : <><Save size={14} /> Save Profile</>}
-          </button>
-        </SettingSection>
-
-        {/* Change Password */}
-        <SettingSection title="Change Password" icon={<Shield size={16} />}>
-          <div className="field-group">
-            <label className="field-label">Current Password</label>
-            <input
-              className="field-input"
-              type="password"
-              value={currentPassword}
-              onChange={e => setCurrentPassword(e.target.value)}
-              placeholder="Enter current password"
-            />
-          </div>
-          <div className="field-group">
-            <label className="field-label">New Password</label>
-            <input
-              className="field-input"
-              type="password"
-              value={newPassword}
-              onChange={e => setNewPassword(e.target.value)}
-              placeholder="Min. 6 characters"
-            />
-          </div>
-
-          {passwordMsg && (
-            <div className={`settings-msg ${passwordMsg.includes("success") ? "settings-success" : "settings-error"}`}>
-              {passwordMsg.includes("success") ? <Check size={14} /> : <AlertCircle size={14} />}
-              {passwordMsg}
-            </div>
-          )}
-
-          <button
-            className="btn-primary"
-            onClick={handleChangePassword}
-            disabled={saving || !newPassword}
-            style={{ marginTop: "0.75rem" }}
-          >
-            <Shield size={14} /> Change Password
-          </button>
-        </SettingSection>
-
-        {/* Monitoring */}
-        <SettingSection title="Monitoring Agent" icon={<Monitor size={16} />}>
-          <div className="field-group">
-            <label className="field-label">Log Upload Interval (minutes)</label>
-            <select
-              className="field-input"
-              value={uploadInterval}
-              onChange={e => setUploadInterval(e.target.value)}
+      <div style={{ display: "grid", gridTemplateColumns: "280px 1fr", gap: "2.5rem" }}>
+        {/* Sidebar Tabs */}
+        <div className="chart-card" style={{ padding: "0.75rem", alignSelf: "start" }}>
+          {sections.map((section) => (
+            <button
+              key={section.id}
+              onClick={() => setActiveTab(section.id)}
+              className={`sidebar-nav-item ${activeTab === section.id ? "active" : ""}`}
+              style={{ marginBottom: "0.25rem", padding: "1rem" }}
             >
-              <option value="1">Every 1 minute</option>
-              <option value="5">Every 5 minutes</option>
-              <option value="10">Every 10 minutes</option>
-              <option value="30">Every 30 minutes</option>
-            </select>
-          </div>
-          <Toggle label="Track Application Usage" desc="Log active window names and durations" defaultOn />
-          <Toggle label="Track Keyboard Activity" desc="Count keystrokes (not content)" defaultOn />
-          <Toggle label="Track Mouse Activity" desc="Count mouse clicks and movements" defaultOn />
-          <Toggle label="Collect Running Processes" desc="Fetch task manager data every 30 seconds" defaultOn />
-          <Toggle label="Start on System Boot" desc="Auto-launch agent on Windows startup" defaultOn />
-        </SettingSection>
+              <div className="nav-icon"><section.icon size={20} /></div>
+              <span className="nav-label" style={{ fontWeight: 700 }}>{section.label}</span>
+            </button>
+          ))}
+        </div>
 
-        {/* Notifications */}
-        <SettingSection title="Notifications" icon={<Bell size={16} />}>
-          <Toggle label="Idle Alert" desc="Alert when system is idle for 10+ minutes" defaultOn />
-          <Toggle label="System Resource Alert" desc="Notify when CPU or RAM exceeds 90%" defaultOn />
-          <Toggle label="Device Online/Offline" desc="Alert when a device comes online or goes offline" defaultOn />
-          <Toggle label="Daily Summary" desc="Show daily summary in dashboard" defaultOn />
-        </SettingSection>
+        {/* Content Area */}
+        <div className="chart-card" style={{ padding: "2.5rem" }}>
+          <AnimatePresence mode="wait">
+            {activeTab === "general" && (
+              <motion.div 
+                key="general"
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}
+              >
+                <div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
+                    <div style={{ background: "rgba(99, 102, 241, 0.1)", padding: "0.75rem", borderRadius: "12px", color: "var(--blue)" }}>
+                      <Layout size={24} />
+                    </div>
+                    <div>
+                      <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#fff" }}>Organization DNA</h3>
+                      <p style={{ fontSize: "0.85rem", color: "var(--text3)" }}>Global branding and structural identity markers.</p>
+                    </div>
+                  </div>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+                    <div className="search-input-wrap">
+                      <p className="stat-label" style={{ marginBottom: "0.5rem" }}>Platform Alias</p>
+                      <input className="search-input" style={{ paddingLeft: "1rem" }} defaultValue="Employee Attendance" />
+                    </div>
+                    <div className="search-input-wrap">
+                      <p className="stat-label" style={{ marginBottom: "0.5rem" }}>Root URL</p>
+                      <input className="search-input" style={{ paddingLeft: "1rem" }} defaultValue="https://enterprise.nexus.com" />
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ paddingTop: "2.5rem", borderTop: "1px solid var(--border)" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
+                    <div style={{ background: "rgba(34, 197, 94, 0.1)", padding: "0.75rem", borderRadius: "12px", color: "var(--success)" }}>
+                      <Clock size={24} />
+                    </div>
+                    <div>
+                      <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#fff" }}>Operational Temporal Range</h3>
+                      <p style={{ fontSize: "0.85rem", color: "var(--text3)" }}>Standard shift parameters for automated attendance calculation.</p>
+                    </div>
+                  </div>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+                    <div className="search-input-wrap">
+                      <p className="stat-label" style={{ marginBottom: "0.5rem" }}>Primary Shift Start</p>
+                      <input className="search-input" style={{ paddingLeft: "1.25rem" }} defaultValue="09:00:00" />
+                    </div>
+                    <div className="search-input-wrap">
+                      <p className="stat-label" style={{ marginBottom: "0.5rem" }}>Primary Shift End</p>
+                      <input className="search-input" style={{ paddingLeft: "1.25rem" }} defaultValue="18:00:00" />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === "monitoring" && (
+              <motion.div 
+                key="monitoring"
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
+                  <div style={{ background: "rgba(245, 158, 11, 0.1)", padding: "0.75rem", borderRadius: "12px", color: "var(--warning)" }}>
+                    <Cpu size={24} />
+                  </div>
+                  <div>
+                    <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#fff" }}>Telemetry Resolution</h3>
+                    <p style={{ fontSize: "0.85rem", color: "var(--text3)" }}>Control the granularity of endpoint data extraction.</p>
+                  </div>
+                </div>
+                
+                <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                  {[
+                    { label: "Intense Process Tracking", desc: "Log application window transitions with sub-second precision.", enabled: true, icon: Activity },
+                    { label: "Predictive Screen Capture", desc: "Automated high-res snapshots based on behavioral anomalies.", enabled: false, icon: Monitor },
+                    { label: "Input Vector Analysis", desc: "Aggregate keystroke cadence and mouse interaction patterns.", enabled: true, icon: Fingerprint },
+                    { label: "System Health Telemetry", desc: "Continuous monitoring of CPU, RAM, and storage health.", enabled: true, icon: HardDrive },
+                  ].map((item, i) => (
+                    <div key={i} className="chart-card" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1.5rem", background: "rgba(255,255,255,0.01)" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
+                        <div style={{ color: "var(--text3)" }}><item.icon size={22} /></div>
+                        <div>
+                          <p style={{ fontSize: "1rem", fontWeight: 800, color: "#fff" }}>{item.label}</p>
+                          <p style={{ fontSize: "0.8rem", color: "var(--text3)" }}>{item.desc}</p>
+                        </div>
+                      </div>
+                      <div style={{ 
+                        width: "52px", 
+                        height: "28px", 
+                        background: item.enabled ? "var(--blue)" : "var(--bg3)", 
+                        borderRadius: "20px", 
+                        position: "relative",
+                        cursor: "pointer",
+                        boxShadow: item.enabled ? "0 0 15px var(--blue-glow)" : "none"
+                      }}>
+                        <div style={{ 
+                          width: "20px", 
+                          height: "20px", 
+                          background: "#fff", 
+                          borderRadius: "50%", 
+                          position: "absolute", 
+                          top: "4px", 
+                          left: item.enabled ? "28px" : "4px",
+                          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+                        }} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === "permissions" && (
+              <motion.div 
+                key="permissions"
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
+                  <div style={{ background: "rgba(168, 85, 247, 0.1)", padding: "0.75rem", borderRadius: "12px", color: "#a855f7" }}>
+                    <Lock size={24} />
+                  </div>
+                  <div>
+                    <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#fff" }}>Access & Authorization</h3>
+                    <p style={{ fontSize: "0.85rem", color: "var(--text3)" }}>Manage administrative clearance levels and security tokens.</p>
+                  </div>
+                </div>
+                
+                <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+                  <button className="btn-primary" style={{ alignSelf: "flex-start", padding: "1rem 2rem" }}>
+                    <UserPlus size={18} /> Provision Admin Clearances
+                  </button>
+                  
+                  <div className="chart-card" style={{ background: "rgba(239, 68, 68, 0.05)", border: "1px solid rgba(239, 68, 68, 0.2)", padding: "1.5rem" }}>
+                    <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+                      <Shield size={24} style={{ color: "var(--danger)" }} />
+                      <div>
+                        <p style={{ fontWeight: 800, color: "var(--danger)", fontSize: "0.95rem" }}>Security Alert: Multi-Factor Authentication (MFA) Standby</p>
+                        <p style={{ fontSize: "0.8rem", color: "rgba(239, 68, 68, 0.8)", marginTop: "0.25rem" }}>Biometric and hardware security tokens are currently deactivated for this cluster.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );

@@ -4,19 +4,37 @@ const os = require('os');
 const fs = require('fs');
 const path = require('path');
 const { exec, execSync } = require('child_process');
-const { syncToFirestore, syncRunningApps, markOffline, setUserInfo, DEVICE_ID } = require('./firebaseSync');
+const { syncToFirestore, syncRunningApps, markOffline, setUserInfo, upsertUserDoc, DEVICE_ID } = require('./firebaseSync');
 
 // Parse CLI Arguments for User Info
 const args = process.argv.slice(2);
 const uidArg = args.indexOf('--uid');
 const emailArg = args.indexOf('--email');
+const displayNameArg = args.indexOf('--displayName');
+const employeeIdArg = args.indexOf('--employeeId');
+
+function getArgValue(flag) {
+  const idx = args.indexOf(flag);
+  if (idx !== -1 && args[idx + 1]) return args[idx + 1];
+  return undefined;
+}
 
 if (uidArg !== -1 && args[uidArg + 1]) {
   const uid = args[uidArg + 1];
   const email = emailArg !== -1 ? args[emailArg + 1] : 'unknown';
-  setUserInfo(uid, email);
+  const displayName = getArgValue('--displayName') || (email ? email.split('@')[0] : 'Unknown User');
+  const employeeId = getArgValue('--employeeId') || `EMP-${String(uid).slice(0, 6).toUpperCase()}`;
+
+  setUserInfo({
+    uid,
+    email,
+    displayName,
+    employeeId,
+    deviceName: os.hostname(),
+  });
   console.log(`[Monitor] Tracking User: ${email} (${uid})`);
 }
+
 
 const app = express();
 const PORT = 4000;
@@ -271,11 +289,13 @@ setInterval(async () => {
 
 // Every 5s: Heartbeat (High Priority)
 setInterval(async () => {
+  // Keep presence + identity synced
   const ok = await require('./firebaseSync').sendHeartbeat();
   if (ok) {
     // console.log(`[Heartbeat] Pulled -> ${DEVICE_ID}`);
   }
 }, 5000);
+
 
 // Every 10s: Detailed system data + app usage + sync to Firebase
 setInterval(async () => {
@@ -449,6 +469,11 @@ app.use('/screenshots', express.static(SCREENSHOT_DIR));
 
 // ── Start ────────────────────────────────────────────────────────────────
 app.listen(PORT, async () => {
+  // Ensure standardized user identity exists in Firestore before telemetry starts
+  try {
+    await upsertUserDoc();
+  } catch {}
+
   console.log('');
   console.log('======================================================');
   console.log('  PC Tracker Enterprise -- Live Monitor');

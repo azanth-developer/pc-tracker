@@ -1,9 +1,9 @@
 {
-  "name": "pc-tracker",
+  "name": "employee-attendance",
   "private": true,
   "version": "1.0.0",
-  "description": "Smart System Activity Tracker & Monitoring Dashboard",
-  "author": "PC Tracker Team",
+  "description": "Enterprise-grade Workforce Monitoring & Attendance Management Platform",
+  "author": "Employee Attendance Team",
   "main": "electron/main.js",
   "scripts": {
     "dev": "vite --port 3000",
@@ -23,7 +23,7 @@
   },
   "build": {
     "appId": "com.pctracker.app",
-    "productName": "PC Tracker",
+    "productName": "Employee Attendance",
     "directories": {
       "output": "dist"
     },

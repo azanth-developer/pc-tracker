@@ -102,8 +102,8 @@ export default function Login() {
             <Monitor size={28} />
           </div>
           <div>
-            <h1 className="login-brand">PC Tracker</h1>
-            <p className="login-subtitle">Employee Monitoring Platform</p>
+            <h1 className="login-brand">Employee Attendance</h1>
+            <p className="login-subtitle">Smart Workforce Monitoring & Attendance Management</p>
           </div>
         </div>
 
@@ -112,8 +112,8 @@ export default function Login() {
         <h2 className="login-heading">{isSignUp ? "Create Account" : "Welcome back"}</h2>
         <p className="login-desc">
           {isSignUp
-            ? "Sign up to start monitoring your system"
-            : "Sign in to access your monitoring dashboard"}
+            ? "Sign up to access the workforce management platform"
+            : "Sign in to manage your organization's attendance"}
         </p>
 
         {error && (
@@ -266,7 +266,7 @@ export default function Login() {
         </div>
 
         <p className="login-footer">
-          PC Tracker 2026 -- Enterprise Monitoring Platform
+          Employee Attendance © 2026 — Enterprise Workforce Management
         </p>
       </div>
     </div>

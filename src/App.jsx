@@ -4,7 +4,7 @@ import Login        from "./pages/Login";
 import AppShell     from "./pages/AppShell";
 import EmployeeView from "./pages/EmployeeView";
 
-const ADMIN_EMAIL = "admin@pctracker.com";
+const ADMIN_EMAILS = ["admin@attendance.com", "admin@pctracker.com"];
 const DEMO_MODE = import.meta.env.VITE_DEMO_MODE === 'true';
 
 const isElectron = typeof window !== 'undefined' && window.process && window.process.type === 'renderer';
@@ -38,8 +38,8 @@ function Inner() {
 
   if (!currentUser) return <Login />;
 
-  // Only allow admin@pctracker.com to see the dashboard
-  if (currentUser.email === ADMIN_EMAIL) {
+  // Allow both emails to see the dashboard
+  if (ADMIN_EMAILS.includes(currentUser.email)) {
     return <AppShell />;
   }
 
