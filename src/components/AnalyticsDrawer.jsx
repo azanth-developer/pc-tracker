@@ -60,7 +60,7 @@ export default function AnalyticsDrawer({ user, onClose }) {
             <div className="drawer-avatar">{user.displayName?.[0]}</div>
             <div>
               <h3>Employee Analytics</h3>
-              <p>{user.displayName} • {user.employeeId || "EMP-9821"}</p>
+              <p>{user.displayName}</p>
             </div>
           </div>
           <button className="drawer-close" onClick={onClose}><X size={24} /></button>

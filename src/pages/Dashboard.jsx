@@ -151,7 +151,7 @@ export default function Dashboard() {
                     </div>
                     <div>
                       <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#f1f5f9' }}>{user.displayName || user.fullName || user.userName || user.name || user.userEmail}</h4>
-                      <p style={{ fontSize: '0.7rem', color: '#94a3b8' }}>{user.userEmail || user.email}</p>
+                      <p style={{ fontSize: '0.7rem', color: '#94a3b8' }}>{user.deviceName || user.hostname || "—"}</p>
                     </div>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.7rem', fontWeight: 700, color: isOnline ? '#22c55e' : '#64748b' }}>

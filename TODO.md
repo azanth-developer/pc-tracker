@@ -1,26 +1,53 @@
-# TODO - Fix Windows build/packaging so installer works
+# TODO — Employee Monitoring Fixes (PC TRACKER)
 
-## Step 1: Inspect current Electron Builder config
-- [x] Read package.json to see existing electron-builder settings
+## Phase 1: UI cleanup (no employeeId on cards)
+- [ ] Remove Employee ID display from employee cards in `src/pages/Dashboard.jsx`
+- [ ] Remove any Employee ID display from summary/drawer header in `src/components/AnalyticsDrawer.jsx`
+- [ ] Remove summary preview UI blocks on cards; keep only `[Summary]` button to open drawer
 
-## Step 2: Update packaging script/config
-- [ ] Modify package.json:
-  - Ensure `build.win.icon` points to an actual .ico or use an existing icon format correctly
-  - Add/confirm `build.win.target` = `nsis`
-  - Add `build.win.target` to produce both Setup.exe (installer) and portable exe if desired
-  - Add/adjust `files`/`directories` if needed
+## Phase 2: Monitoring status logic (heartbeat + keyboard/mouse)
+- [ ] Add keyboard/mouse activity markers to agent writes into standardized fields
+- [ ] Update React hooks to compute monitoringStatus from:
+  - keyboard activity exists
+  - mouse activity exists
+  - heartbeat active
+- [ ] Update admin dashboard text to show `Monitoring Active`/`Monitoring Inactive` based on computed status
 
-## Step 3: Add proper build command(s)
-- [ ] Update scripts so `npm run dist` / `npm run electron-builder` builds NSIS installer and portable
+## Phase 3: Firebase schema + realtime paths alignment (critical)
+Standard schema/paths to align across agent + hooks + pages:
+- [ ] Update agent Firestore writes to:
+  - [ ] `users/{uid}/deviceStatus/{deviceId}`
+  - [ ] `users/{uid}/sessions/{sessionId}`
+  - [ ] `users/{uid}/activities/{deviceId}`
+- [ ] Update `server/firebaseSync.js` and `server/monitor.js` to write standardized fields:
+  - [ ] uid
+  - [ ] employeeName
+  - [ ] employeeId
+  - [ ] deviceName
+  - [ ] isOnline
+  - [ ] lastSeen
+  - [ ] currentApp
+  - [ ] activeHours
+  - [ ] productivity
+- [ ] Update `src/hooks/useFirestoreData.js` to read new collections and join deviceStatus with user profiles
 
-## Step 4: Build for correct CPU architectures
-- [ ] Run electron-builder for both x64 and ia32 (recommended):
-  - `npx electron-builder --win --x64 --ia32`
+## Phase 4: All Devices page mapping fix
+- [ ] Fix `src/pages/AllDevices.jsx` to correctly display:
+  - Employee name
+  - deviceName (hostname)
+  - online status
+  - currentApp
+  - activeHours
+  - productivity
+- [ ] Ensure realtime sync uses the same schema and listeners as admin pages
 
-## Step 5: Verify output
-- [ ] Confirm `dist/` contains `Setup.exe` and/or `Portable.exe`
+## Phase 5: Auto-start / heartbeat reliability
+- [ ] Ensure EXE auto-starts monitoring and begins heartbeat immediately
+- [ ] Ensure heartbeat interval every 5 seconds updates `lastSeen` + `isOnline`
+- [ ] Ensure admin flips to active instantly upon agent start
 
-## Step 6: Test on target PC
-- [ ] Copy via ZIP/upload method (avoid WhatsApp raw EXE)
-- [ ] Install using `Setup.exe`
+## Phase 6: Testing/verification
+- [ ] Run locally: launch dashboard, start agent, confirm UI flips to Active
+- [ ] Validate All Devices page data presence and correctness
+- [ ] Validate summary drawer opens only on click and contains correct data
 
