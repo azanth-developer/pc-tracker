@@ -60,14 +60,18 @@ function createWindow() {
 
   // In dev we load the Vite server.
   // In production we load the bundled React app from /dist.
-  const startUrl = isDev
-    ? 'http://localhost:3000/login'
-    : `file://${path.join(__dirname, '../dist/index.html')}#/login`;
-
-  mainWindow.loadURL(startUrl);
-
-
-  if (isDev) mainWindow.webContents.openDevTools({ mode: 'detach' });
+  // Load the React app
+  if (isDev) {
+    mainWindow.loadURL('http://localhost:3000/login');
+    mainWindow.webContents.openDevTools({ mode: 'detach' });
+  } else {
+    // In production, we MUST use loadFile to avoid absolute path protocol issues
+    // Append hash directly to the file path if using HashRouter (which we aren't, we are using state routing, so just index.html)
+    mainWindow.loadFile(path.join(__dirname, '../dist/index.html'));
+    
+    // Temporarily enable DevTools in production for debugging the blank screen
+    // mainWindow.webContents.openDevTools({ mode: 'detach' });
+  }
 
   mainWindow.on('closed', () => { mainWindow = null; });
 }

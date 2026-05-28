@@ -23,13 +23,14 @@
     "appId": "com.pctracker.app",
     "productName": "Employee Attendance",
     "directories": {
-      "output": "dist"
+      "output": "release"
     },
     "files": [
       "dist/**/*",
       "electron/**/*",
       "server/**/*",
-      "public/**/*"
+      "public/**/*",
+      "package.json"
     ],
     "win": {
       "target": [
