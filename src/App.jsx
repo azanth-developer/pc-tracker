@@ -10,7 +10,7 @@ const DEMO_MODE = import.meta.env.VITE_DEMO_MODE === 'true';
 const isElectron = typeof window !== 'undefined' && window.electronAPI !== undefined;
 
 function Inner() {
-  const { currentUser, isAdmin, profileLoading } = useAuth();
+  const { currentUser, userProfile, isAdmin, profileLoading } = useAuth();
 
   // Auto-start monitor signal for Electron
   useEffect(() => {
