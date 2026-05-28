@@ -14,17 +14,19 @@ function Inner() {
 
   // Auto-start monitor signal for Electron
   useEffect(() => {
-    if (currentUser && isElectron) {
+    // Only send the signal once both the auth user and their Firestore profile (for RBAC) are fully loaded
+    if (currentUser && userProfile && !profileLoading && isElectron) {
       // Start monitor engine in Electron main process.
       currentUser.getIdToken().then((token) => {
         window.electronAPI.sendLoginSuccess({
           uid: currentUser.uid,
           email: currentUser.email,
+          role: userProfile.role,
           token,
         });
       });
     }
-  }, [currentUser]);
+  }, [currentUser, userProfile, profileLoading]);
 
   if (DEMO_MODE) return <AppShell />;
 

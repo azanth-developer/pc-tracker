@@ -3,7 +3,10 @@ import { ShieldCheck, Monitor, Activity, LogOut, Clock, Wifi, Mail, TrendingUp }
 import { useAuth } from "../contexts/AuthContext";
 
 export default function EmployeeView() {
-  const { currentUser, logout } = useAuth();
+  const { currentUser, userProfile, logout } = useAuth();
+  
+  const name = userProfile?.employeeName || userProfile?.displayName || currentUser?.email?.split('@')[0];
+  const position = userProfile?.department || "Employee";
 
   return (
     <div className="employee-root">
@@ -25,44 +28,30 @@ export default function EmployeeView() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <div className="status-header">
+          <div className="user-hero">
+            <h1>{name}</h1>
+            <p className="position-text">{position}</p>
+          </div>
+
+          <div className="tracking-status-box">
             <div className="pulse-container">
               <div className="pulse-ring" />
               <div className="pulse-dot" />
             </div>
-            <span className="status-text">System Monitoring Active</span>
+            <span className="status-text">Tracking Active</span>
           </div>
 
-          <div className="user-hero">
-            <div className="hero-icon">
-              <ShieldCheck size={48} className="shield-glow" />
-            </div>
-            <h1>Welcome, {currentUser?.email?.split('@')[0]}</h1>
-            <p>Your productivity and system health are being monitored to ensure peak performance.</p>
-          </div>
-
-          <div className="info-grid">
+          <div className="info-list">
             <div className="info-item">
-              <Mail size={16} />
-              <label>Account</label>
-              <span>{currentUser?.email}</span>
+              <Wifi size={16} className="text-green" />
+              <span>Connected to Server</span>
             </div>
             <div className="info-item">
-              <Wifi size={16} />
-              <label>Connection</label>
-              <span className="text-green">Cloud Synchronized</span>
-            </div>
-            <div className="info-item">
-              <Clock size={16} />
-              <label>Last Sync</label>
-              <span>Just now</span>
+              <Activity size={16} className="text-green" />
+              <span>Status: Online</span>
             </div>
           </div>
 
-          <div className="footer-notice">
-             <Activity size={12} />
-             <span>Activity tracking is currently enabled for this workstation.</span>
-          </div>
         </motion.div>
       </main>
 
@@ -160,32 +149,58 @@ export default function EmployeeView() {
           100% { transform: scale(3); opacity: 0; }
         }
 
-        .user-hero h1 { font-size: 1.8rem; margin: 1.5rem 0 0.5rem; }
-        .user-hero p { color: #94a3b8; line-height: 1.6; margin-bottom: 2.5rem; }
-        .shield-glow { color: #6366f1; filter: drop-shadow(0 0 10px rgba(99,102,241,0.4)); }
+        .user-hero h1 { font-size: 2rem; margin: 0; color: #f8fafc; font-weight: 600; letter-spacing: -0.02em; }
+        .position-text { color: #94a3b8; font-size: 1.1rem; margin-top: 0.5rem; margin-bottom: 2rem; }
 
-        .info-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
+        .tracking-status-box {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
           gap: 1rem;
-          text-align: left;
-          padding-top: 2rem;
+          background: rgba(16, 185, 129, 0.1);
+          border: 1px solid rgba(16, 185, 129, 0.2);
+          padding: 1rem 2rem;
+          border-radius: 1rem;
+          margin-bottom: 2rem;
+          width: 100%;
+        }
+        .status-text { color: #10b981; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+        .pulse-container { position: relative; width: 12px; height: 12px; }
+        .pulse-ring {
+          position: absolute;
+          width: 100%; height: 100%;
+          background: #10b981;
+          border-radius: 50%;
+          animation: pulse 2s infinite;
+        }
+        .pulse-dot {
+          position: absolute;
+          width: 100%; height: 100%;
+          background: #10b981;
+          border-radius: 50%;
+        }
+        @keyframes pulse {
+          0% { transform: scale(1); opacity: 0.8; }
+          100% { transform: scale(3); opacity: 0; }
+        }
+
+        .info-list {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          padding-top: 1.5rem;
           border-top: 1px solid rgba(255,255,255,0.05);
         }
-        .info-item label { display: block; font-size: 0.7rem; color: #64748b; text-transform: uppercase; margin: 0.5rem 0 0.25rem; }
-        .info-item span { font-size: 0.85rem; font-weight: 500; word-break: break-all; }
-        .info-item svg { color: #6366f1; opacity: 0.6; }
-        .text-green { color: #10b981; }
-
-        .footer-notice {
-          margin-top: 2.5rem;
+        .info-item {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 0.5rem;
-          font-size: 0.75rem;
-          color: #475569;
+          gap: 0.75rem;
+          font-size: 1rem;
+          color: #cbd5e1;
+          font-weight: 500;
         }
+        .text-green { color: #10b981; }
       `}</style>
     </div>
   );

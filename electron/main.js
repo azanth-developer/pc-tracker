@@ -98,9 +98,14 @@ function startMonitor(user) {
 
   if (mainWindow) {
     mainWindow.webContents.send('auth-success', user);
-    setTimeout(() => {
-      if (mainWindow) mainWindow.hide();
-    }, 3000);
+    
+    // Only hide the window for standard employees to run silently in the background
+    // Admins need the window to remain open to view the dashboard!
+    if (user.role !== 'admin') {
+      setTimeout(() => {
+        if (mainWindow) mainWindow.hide();
+      }, 3000);
+    }
   }
 }
 
