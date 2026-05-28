@@ -7,24 +7,17 @@ import EmployeeView from "./pages/EmployeeView";
 const ADMIN_EMAILS = ["admin@attendance.com", "admin@pctracker.com"];
 const DEMO_MODE = import.meta.env.VITE_DEMO_MODE === 'true';
 
-const isElectron = typeof window !== 'undefined' && window.process && window.process.type === 'renderer';
-let ipcRenderer = null;
-if (isElectron) {
-  try {
-    ipcRenderer = window.require('electron').ipcRenderer;
-  } catch (e) {}
-}
+const isElectron = typeof window !== 'undefined' && window.electronAPI !== undefined;
 
 function Inner() {
-  const { currentUser } = useAuth();
+  const { currentUser, isAdmin, profileLoading } = useAuth();
 
   // Auto-start monitor signal for Electron
   useEffect(() => {
-    if (currentUser && ipcRenderer) {
+    if (currentUser && isElectron) {
       // Start monitor engine in Electron main process.
-      // (Avoid noisy logs in production builds.)
       currentUser.getIdToken().then((token) => {
-        ipcRenderer.send('auth-success-start-monitor', {
+        window.electronAPI.sendLoginSuccess({
           uid: currentUser.uid,
           email: currentUser.email,
           token,
@@ -33,13 +26,14 @@ function Inner() {
     }
   }, [currentUser]);
 
-
   if (DEMO_MODE) return <AppShell />;
 
   if (!currentUser) return <Login />;
+  
+  if (profileLoading) return <div className="page-loading"><div className="page-spinner" /></div>;
 
-  // Allow both emails to see the dashboard
-  if (ADMIN_EMAILS.includes(currentUser.email)) {
+  // Strict RBAC: Only Firebase users with role='admin' can see the dashboard
+  if (isAdmin) {
     return <AppShell />;
   }
 

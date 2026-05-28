@@ -35,7 +35,13 @@ export default function AppShell() {
     <div className={`shell${sidebarOpen ? "" : " sidebar-collapsed"}`}>
       <Sidebar activePage={activePage} setActivePage={setActivePage} open={sidebarOpen} setOpen={setSidebarOpen} />
       <div className="shell-main">
-        <Header activePage={activePage} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} onSearch={() => {}} />
+        <Header 
+          activePage={activePage} 
+          sidebarOpen={sidebarOpen} 
+          setSidebarOpen={setSidebarOpen} 
+          onSearch={() => {}} 
+          setActivePage={setActivePage}
+        />
         <main className="shell-content">
           <Suspense fallback={<PageLoader />}>
             {Object.keys(pages).includes(activePage) 

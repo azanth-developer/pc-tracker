@@ -94,37 +94,32 @@ export function useConsolidatedData() {
     const enrichedDevs = devices.map(dev => {
       const uid = dev.uid || dev.userId;
       const user = uid ? uMap[uid] : null;
-      
-      // Seed demo data for "Empty Data Feel" fix
-      const demoApps = ["VS Code", "Chrome", "Slack", "Excel", "Terminal", "Zoom"];
-      const randomApp = demoApps[Math.floor(Math.random() * demoApps.length)];
-      const randomTitle = `${randomApp} - Active Project Alpha`;
-
       return {
         ...dev,
         user: user || null,
         uid: uid || null,
         employeeName: user?.employeeName || user?.displayName || "Unassigned",
         employeeId: user?.employeeId || "--",
-        // Enhanced demo fields
-        currentApp: dev.currentApp || (dev.isOnline ? randomApp : "System Idle"),
-        windowTitle: dev.windowTitle || (dev.isOnline ? randomTitle : "Matrix Standby..."),
-        productivityScore: user?.productivityScore || dev.productivityScore || Math.floor(Math.random() * 20) + 75,
-        activeHours: dev.activeHours || (dev.isOnline ? (Math.random() * 4 + 2).toFixed(1) : "0.0"),
-        ramUsage: dev.ramUsage || (dev.isOnline ? Math.floor(Math.random() * 40) + 30 : 0),
-        cpuUsage: dev.cpuUsage || (dev.isOnline ? Math.floor(Math.random() * 15) + 5 : 0),
-        ipAddress: dev.ipAddress || `192.168.1.${Math.floor(Math.random() * 254)}`,
+        currentApp: dev.currentApp || (dev.isOnline ? "Desktop" : "Offline"),
+        windowTitle: dev.windowTitle || "",
+        productivityScore: dev.productivityScore || user?.productivityScore || 0,
+        activeHours: dev.activeHours || "0.0",
+        ramUsage: dev.ramUsage || 0,
+        cpuUsage: dev.cpuUsage || 0,
+        ipAddress: dev.ipAddress || "--",
         lastActive: dev.lastSeen || dev.updatedAt || new Date().toISOString(),
       };
     });
 
+    const employeesOnly = users.filter(u => u.role !== "admin");
+    const employeeDevices = enrichedDevs.filter(d => d.user?.role !== "admin");
+
     const onlineUids = new Set(
-      devices.filter(d => d.isOnline).map(d => d.uid || d.userId).filter(Boolean)
+      employeeDevices.filter(d => d.isOnline).map(d => d.uid || d.userId).filter(Boolean)
     );
     
-    const totalCount = users.length;
+    const totalCount = employeesOnly.length;
     const onlineCount = onlineUids.size;
-    // ABSENT COUNT FIX: Explicitly calculated to avoid negative values
     const absentCount = Math.max(0, totalCount - onlineCount);
 
     const stats = {
@@ -132,17 +127,19 @@ export function useConsolidatedData() {
       onlineUsers: onlineCount,
       offlineUsers: absentCount,
       avgProductivity: totalCount > 0
-        ? Math.round(users.reduce((sum, u) => sum + (u.productivityScore || 82), 0) / totalCount)
-        : 82,
-      totalActiveHours: enrichedDevs.reduce((sum, d) => sum + parseFloat(d.activeHours || 0), 0).toFixed(1),
-      totalKeystrokes: devices.reduce((sum, d) => sum + (d.keystrokes || 1250), 0),
-      totalClicks: devices.reduce((sum, d) => sum + (d.mouseClicks || 450), 0),
+        ? Math.round(employeesOnly.reduce((sum, u) => sum + (u.productivityScore || 0), 0) / totalCount)
+        : 0,
+      totalActiveHours: employeeDevices.reduce((sum, d) => sum + parseFloat(d.activeHours || 0), 0).toFixed(1),
+      totalKeystrokes: employeeDevices.reduce((sum, d) => sum + (d.keystrokes || 0), 0),
+      totalClicks: employeeDevices.reduce((sum, d) => sum + (d.mouseClicks || 0), 0),
     };
 
     return {
       usersMap: uMap,
       devicesMap: dMap,
-      enrichedDevices: enrichedDevs,
+      enrichedDevices: enrichedDevs, // Keep all for debugging if needed
+      employeeDevices: employeeDevices, // For devices list
+      employees: employeesOnly, // Excludes admins
       aggregated: stats,
     };
   }, [users, devices, sessions, activities]);

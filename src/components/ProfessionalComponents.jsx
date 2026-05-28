@@ -33,30 +33,23 @@ export function UserAvatar({ user, size = 40 }) {
 
   return (
     <div style={{ position: "relative", width: size, height: size, flexShrink: 0 }}>
-      <div style={{ 
+      <div className="avatar-base" style={{ 
         width: size, 
         height: size, 
-        borderRadius: "50%", 
-        background: "var(--blue)", 
-        display: "flex", 
-        alignItems: "center", 
-        justifyContent: "center", 
-        color: "#fff", 
-        fontWeight: 600,
         fontSize: size * 0.4 
       }}>
         {initials}
       </div>
-      <div style={{ 
-        position: "absolute", 
-        bottom: 0, 
-        right: 0, 
-        width: size * 0.3, 
-        height: size * 0.3, 
-        borderRadius: "50%", 
-        background: isOnline ? "var(--success)" : "var(--text3)", 
-        border: "2px solid var(--bg2)"
-      }} />
+      {isOnline && (
+        <div className="status-dot online" style={{ 
+          position: "absolute", 
+          bottom: 0, 
+          right: 0, 
+          width: size * 0.3, 
+          height: size * 0.3,
+          border: "2px solid var(--bg)"
+        }} />
+      )}
     </div>
   );
 }

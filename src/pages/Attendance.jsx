@@ -12,7 +12,7 @@ import { exportToCSV } from "../utils/csvExport";
 import AnalyticsDrawer from "../components/AnalyticsDrawer";
 
 export default function Attendance({ setActivePage }) {
-  const { users, enrichedDevices, loading, aggregated } = useConsolidatedData();
+  const { employees, employeeDevices, loading, aggregated } = useConsolidatedData();
   const [searchQuery, setSearchQuery] = useState("");
   const [filterDept, setFilterDept] = useState("All");
   const [filterStatus, setFilterStatus] = useState("All");
@@ -28,24 +28,24 @@ export default function Attendance({ setActivePage }) {
   };
 
   const filteredAttendance = useMemo(() => {
-    return users.filter(u => {
+    return employees.filter(u => {
       const matchesSearch = 
         (u.employeeName || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
         (u.employeeId || "").toLowerCase().includes(searchQuery.toLowerCase());
       const matchesDept = filterDept === "All" || u.department === filterDept;
-      const device = enrichedDevices.find(d => d.uid === u.uid);
+      const device = employeeDevices.find(d => d.uid === u.uid);
       const isOnline = device?.isOnline;
       const status = isOnline ? "Present" : "Absent";
       const matchesStatus = filterStatus === "All" || status === filterStatus;
       return matchesSearch && matchesDept && matchesStatus;
     });
-  }, [users, enrichedDevices, searchQuery, filterDept, filterStatus]);
+  }, [employees, employeeDevices, searchQuery, filterDept, filterStatus]);
 
   const handleDelete = async () => {
     if (!deletingUser) return;
     setIsDeleting(true);
     try {
-      const device = enrichedDevices.find(d => d.uid === deletingUser.uid);
+      const device = employeeDevices.find(d => d.uid === deletingUser.uid);
       await deleteEmployeeCompletely({ uid: deletingUser.uid, deviceId: device?.deviceId });
     } catch (err) {
       console.error("Delete error:", err);
@@ -57,7 +57,7 @@ export default function Attendance({ setActivePage }) {
 
   const handleExport = () => {
     const dataToExport = filteredAttendance.map(user => {
-      const device = enrichedDevices.find(d => d.uid === user.uid);
+      const device = employeeDevices.find(d => d.uid === user.uid);
       return {
         "Employee ID": user.employeeId || "EMP-000",
         "Full Name": user.employeeName || user.displayName || user.name || user.email?.split('@')[0] || "Unknown",
@@ -85,10 +85,10 @@ export default function Attendance({ setActivePage }) {
 
   return (
     <div className="page-content animate-fade-in">
-      <div className="page-header-row">
+      <div className="page-header-row" style={{ paddingLeft: "0.25rem" }}>
         <div>
           <h2 className="page-title">Attendance</h2>
-          <p className="page-desc">Manage employee presence and daily working hours.</p>
+          <p className="page-desc" style={{ color: "var(--text-light)", fontWeight: 500 }}>Manage employee presence and daily working hours.</p>
         </div>
         <div style={{ display: "flex", gap: "0.75rem" }}>
           <button className="btn-secondary" onClick={handleExport}>
@@ -171,12 +171,12 @@ export default function Attendance({ setActivePage }) {
             </thead>
             <tbody>
               {filteredAttendance.map((user) => {
-                const device = enrichedDevices.find(d => d.uid === user.uid);
+                const device = employeeDevices.find(d => d.uid === user.uid);
                 const isOnline = device?.isOnline;
                 const activeHours = parseFloat(device?.activeHours || 0);
                 
                 return (
-                  <tr key={user.uid}>
+                  <tr className="tr-hover" key={user.uid}>
                     <td>
                       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
                         <UserAvatar user={user} size={36} />
@@ -197,17 +197,23 @@ export default function Attendance({ setActivePage }) {
                     </td>
                     <td style={{ minWidth: "140px" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                        <span style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--text-main)" }}>
+                        <span style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--text-main)", width: "40px" }}>
                           {activeHours.toFixed(1)}h
                         </span>
-                        <div style={{ width: "60px", height: "6px", background: "var(--bg)", borderRadius: "3px", overflow: "hidden" }}>
-                          <div style={{ width: `${Math.min(100, activeHours * 10)}%`, height: "100%", background: "var(--primary)", borderRadius: "3px" }} />
+                        <div className="progress-bar-wrap" style={{ flex: 1, minWidth: "80px" }}>
+                          <div className="progress-bar-fill" style={{ 
+                            width: `${Math.min(100, activeHours * 10)}%`, 
+                            background: "linear-gradient(to right, #3b82f6, #22c55e)",
+                            boxShadow: "0 0 10px rgba(59,130,246,0.3)" 
+                          }} />
                         </div>
                       </div>
                     </td>
-                    <td>
-                      <span className={`badge-pill ${isOnline ? 'badge-online' : 'badge-offline'}`}>
-                        {isOnline ? "Present" : "Absent"}
+                    <td style={{ minWidth: "150px" }}>
+                      <span className={`badge-pill ${device?.isOnline ? 'badge-online' : 'badge-offline'}`} style={{ display: "inline-flex", gap: "0.5rem" }}>
+                        {device?.isOnline ? (
+                          <><span className="status-dot online animate-pulse" /> Present</>
+                        ) : "Absent"}
                       </span>
                     </td>
                     <td style={{ textAlign: "right" }}>
@@ -253,6 +259,28 @@ export default function Attendance({ setActivePage }) {
               })}
             </tbody>
           </table>
+        </div>
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginTop: "1.5rem" }}>
+        <div className="data-table-container">
+          <div style={{ padding: "1.25rem", borderBottom: "1px solid var(--border)", background: "var(--bg-card)" }}>
+            <h3 style={{ fontSize: "1rem", fontWeight: 600, color: "var(--text-main)", marginBottom: "0.25rem" }}>Recent Clock-ins</h3>
+            <p className="page-desc" style={{ color: "var(--text-light)" }}>Live feed of latest attendance events.</p>
+          </div>
+          <div style={{ padding: "2rem", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(15, 23, 42, 0.4)" }}>
+            <p style={{ color: "var(--text-muted)", fontSize: "0.875rem", fontWeight: 500, fontStyle: "italic" }}>Awaiting attendance events...</p>
+          </div>
+        </div>
+
+        <div className="data-table-container">
+          <div style={{ padding: "1.25rem", borderBottom: "1px solid var(--border)", background: "var(--bg-card)" }}>
+            <h3 style={{ fontSize: "1rem", fontWeight: 600, color: "var(--text-main)", marginBottom: "0.25rem" }}>Attendance Trends</h3>
+            <p className="page-desc" style={{ color: "var(--text-light)" }}>Weekly working hours overview.</p>
+          </div>
+          <div style={{ padding: "2rem", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(15, 23, 42, 0.4)" }}>
+            <p style={{ color: "var(--text-muted)", fontSize: "0.875rem", fontWeight: 500, fontStyle: "italic" }}>Insufficient data to generate trends.</p>
+          </div>
         </div>
       </div>
 

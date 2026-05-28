@@ -10,15 +10,23 @@ let monitorProcess;
 let currentUser = null;
 
 function createWindow() {
+  // Enable run at startup for seamless monitoring
+  app.setLoginItemSettings({
+    openAtLogin: true,
+    openAsHidden: true,
+  });
+
   mainWindow = new BrowserWindow({
     width: 400,
     height: 600,
     resizable: false,
     frame: false,
+    show: false, // Start hidden for silent initialization
     backgroundColor: '#0f172a',
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
+      nodeIntegration: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, 'preload.js'),
     },
     icon: path.join(__dirname, '../public/icon.png'),
   });
@@ -70,52 +78,17 @@ function startMonitor(user) {
     return;
   }
 
-  console.log(`[Main] Attempting to start monitor for: ${user.email}`);
+  console.log(`[Main] Starting secure tracker for: ${user.email}`);
   currentUser = user;
   
-  const monitorScript = path.join(__dirname, '../server/monitor.js');
-  
-  if (!fs.existsSync(monitorScript)) {
-    console.error(`[Main Error] Monitor script not found at: ${monitorScript}`);
+  try {
+    const startTracker = require('./tracker');
+    monitorProcess = startTracker(user);
+  } catch (error) {
+    console.error(`[Main Error] Failed to start tracker:`, error);
     if (mainWindow) mainWindow.webContents.send('auth-error', 'System Error: Monitor engine missing.');
     return;
   }
-
-  // Start the monitor.js as a background process
-  monitorProcess = spawn('node', [
-    monitorScript,
-    '--uid', user.uid,
-    '--email', user.email,
-    '--token', user.token || ''
-  ], {
-    cwd: path.join(__dirname, '..'),
-    env: { ...process.env, NODE_ENV: 'production' },
-
-    // Keep it hidden/silent
-    detached: true,
-    stdio: 'ignore'
-  });
-
-
-  monitorProcess.stdout.on('data', (data) => {
-    const msg = data.toString();
-    console.log(`[Monitor]: ${msg}`);
-  });
-
-  monitorProcess.stderr.on('data', (data) => {
-    console.error(`[Monitor Error]: ${data}`);
-  });
-
-  monitorProcess.on('exit', (code) => {
-    console.log(`[Main] Monitor process exited with code ${code}`);
-    monitorProcess = null;
-    
-    // Auto-reconnect/restart if not intentionally quitting
-    if (!app.isQuitting && currentUser) {
-      console.log("[Main] Monitor crashed or exited. Restarting in 5s...");
-      setTimeout(() => startMonitor(currentUser), 5000);
-    }
-  });
 
   createTray();
 
@@ -141,13 +114,13 @@ function createTray() {
     { type: 'separator' },
     { label: 'Show Login Window', click: () => { mainWindow?.show(); } },
     { label: 'Restart Monitor', click: () => {
-      if (monitorProcess) monitorProcess.kill();
+      if (monitorProcess) monitorProcess.stop();
       monitorProcess = null;
       if (currentUser) startMonitor(currentUser);
     }},
     { type: 'separator' },
     { label: 'Quit', click: () => { 
-      if (monitorProcess) monitorProcess.kill();
+      if (monitorProcess) monitorProcess.stop();
       app.isQuitting = true; 
       app.quit(); 
     }},
@@ -160,6 +133,13 @@ function createTray() {
 // IPC Listener for Login Success
 ipcMain.on('auth-success-start-monitor', (event, user) => {
   startMonitor(user);
+});
+
+// IPC Listener to show login window if unauthenticated
+ipcMain.on('show-login', () => {
+  if (mainWindow && !mainWindow.isVisible()) {
+    mainWindow.show();
+  }
 });
 
 // Forced Google Login (System Fallback)

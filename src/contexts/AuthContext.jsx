@@ -18,9 +18,10 @@ export function AuthProvider({ children }) {
   const [userRole, setUserRole] = useState(null);
   const [userProfile, setUserProfile] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [profileLoading, setProfileLoading] = useState(true);
 
   async function fetchUserProfile(user) {
-    if (!user) { setUserRole(null); setUserProfile(null); return; }
+    if (!user) { setUserRole(null); setUserProfile(null); setProfileLoading(false); return; }
     try {
       const snap = await getDoc(doc(db, "users", user.uid));
       if (snap.exists()) {
@@ -28,12 +29,12 @@ export function AuthProvider({ children }) {
         setUserRole(data.role || "employee");
         setUserProfile(data);
       } else {
-        // First-time user setup (usually handled in register, but fallback here)
+        // First-time user setup
         const profile = {
           uid: user.uid,
           email: user.email,
           displayName: user.displayName || user.email?.split("@")[0] || "Employee",
-          role: user.email === "admin@pctracker.com" ? "admin" : "employee",
+          role: "employee", // Default to employee, admin must be granted via Firestore
           status: "active",
           createdAt: new Date().toISOString(),
           totalWorkHours: 0,
@@ -44,6 +45,8 @@ export function AuthProvider({ children }) {
       }
     } catch (err) {
       console.error("Profile sync error:", err);
+    } finally {
+      setProfileLoading(false);
     }
   }
 
@@ -55,13 +58,12 @@ export function AuthProvider({ children }) {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
     
-    // Create professional enterprise profile
     const profile = {
       uid: user.uid,
       email: email,
       displayName: fullName,
       employeeId: employeeId || `EMP-${Math.floor(1000 + Math.random() * 9000)}`,
-      role: email === "admin@pctracker.com" ? "admin" : "employee",
+      role: "employee", // Strict RBAC default
       deviceName: window.navigator.platform || "Windows PC",
       status: "active",
       createdAt: new Date().toISOString(),
@@ -91,13 +93,18 @@ export function AuthProvider({ children }) {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
       setLoading(false); // Clear loading immediately so UI can render
-      if (user) fetchUserProfile(user); // Fetch profile in background
+      if (user) {
+        setProfileLoading(true);
+        fetchUserProfile(user); // Fetch profile in background
+      } else {
+        setProfileLoading(false);
+      }
     });
     return unsubscribe;
   }, []);
 
   const value = {
-    currentUser, userRole, userProfile, isAdmin,
+    currentUser, userRole, userProfile, isAdmin, profileLoading,
     login, register, loginWithGoogle, logout,
   };
 

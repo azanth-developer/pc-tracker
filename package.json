@@ -11,12 +11,10 @@
     "preview": "vite preview",
     "electron": "electron .",
     "electron:dev": "concurrently \"cross-env BROWSER=none npm run dev\" \"wait-on http://localhost:3000; electron .\"",
-
     "electron:build": "npm run build && electron-builder",
     "dist:win:nsis:both": "npm run build && electron-builder --win nsis --x64 --ia32",
-    "dist:win:portable:both": "npm run build; electron-builder --win portable --x64 --ia32",
-    "dist:win:all:both": "npm run build; electron-builder --win nsis portable --x64 --ia32",
-
+    "dist:win:portable:both": "npm run build && electron-builder --win portable --x64 --ia32",
+    "dist:win:all:both": "npm run build && electron-builder --win nsis portable --x64 --ia32",
     "agent": "node agent/tracker.js",
     "monitor": "node server/monitor.js",
     "export": "node agent/export_csv.js"
@@ -33,23 +31,31 @@
       "server/**/*",
       "public/**/*"
     ],
-
     "win": {
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64", "ia32"]
+          "arch": [
+            "x64",
+            "ia32"
+          ]
         },
         {
           "target": "portable",
-          "arch": ["x64", "ia32"]
+          "arch": [
+            "x64",
+            "ia32"
+          ]
         }
       ],
       "icon": "public/icon.png"
     },
     "nsis": {
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Employee Attendance"
     }
   },
   "dependencies": {
@@ -58,6 +64,7 @@
     "cors": "^2.8.6",
     "cross-env": "^10.1.0",
     "electron-is-dev": "^3.0.1",
+    "electron-store": "^11.0.2",
     "express": "^5.2.1",
     "firebase": "^12.13.0",
     "framer-motion": "^12.38.0",
@@ -67,7 +74,8 @@
     "react-router-dom": "^7.15.0",
     "recharts": "^3.8.1",
     "screenshot-desktop": "^1.15.4",
-    "systeminformation": "^5.31.6"
+    "systeminformation": "^5.31.6",
+    "uiohook-napi": "^1.5.5"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

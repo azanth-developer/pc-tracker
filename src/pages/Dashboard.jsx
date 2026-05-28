@@ -6,16 +6,18 @@ import { Users, UserCheck, UserMinus, Laptop, Search, Filter } from "lucide-reac
 import AnalyticsDrawer from "../components/AnalyticsDrawer";
 
 export default function Dashboard() {
-  const { users, enrichedDevices, aggregated, loading } = useConsolidatedData();
+  const { employees, employeeDevices, aggregated, loading } = useConsolidatedData();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedUser, setSelectedUser] = useState(null);
 
+  const onlineDevices = employeeDevices.filter(d => d.isOnline).length;
+
   const filteredUsers = useMemo(() => {
-    return users.filter(u => 
+    return employees.filter(u => 
       (u.employeeName || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
       (u.email || "").toLowerCase().includes(searchQuery.toLowerCase())
     ).sort((a, b) => (b.productivityScore || 0) - (a.productivityScore || 0));
-  }, [users, searchQuery]);
+  }, [employees, searchQuery]);
 
   if (loading) {
     return (
@@ -31,7 +33,7 @@ export default function Dashboard() {
       <div className="page-header-row">
         <div>
           <h2 className="page-title">Dashboard</h2>
-          <p className="page-desc">Overview of your team's daily status.</p>
+          <p className="page-desc" style={{ color: "var(--text-light)", fontWeight: 500 }}>Overview of your team's daily status.</p>
         </div>
       </div>
 
@@ -50,12 +52,16 @@ export default function Dashboard() {
 
         <div className="stat-card">
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <div style={{ background: "var(--success-bg)", color: "var(--success)", padding: "0.75rem", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ background: "var(--success-bg)", color: "var(--success)", padding: "0.75rem", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center" }} className={aggregated.onlineUsers > 0 ? "animate-pulse" : ""}>
               <UserCheck size={20} />
             </div>
             <div>
               <p className="stat-label">Present Today</p>
-              <h3 className="stat-value">{aggregated.onlineUsers}</h3>
+              <h3 className="stat-value">
+                <motion.span key={aggregated.onlineUsers} initial={{ opacity: 0.5, y: -5 }} animate={{ opacity: 1, y: 0 }}>
+                  {aggregated.onlineUsers}
+                </motion.span>
+              </h3>
             </div>
           </div>
         </div>
@@ -74,12 +80,16 @@ export default function Dashboard() {
 
         <div className="stat-card">
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <div style={{ background: "#f3e8ff", color: "#9333ea", padding: "0.75rem", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ background: "#f3e8ff", color: "#9333ea", padding: "0.75rem", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center" }} className={onlineDevices > 0 ? "animate-pulse" : ""}>
               <Laptop size={20} />
             </div>
             <div>
               <p className="stat-label">Devices Online</p>
-              <h3 className="stat-value">{enrichedDevices.filter(d => d.isOnline).length}</h3>
+              <h3 className="stat-value">
+                <motion.span key={onlineDevices} initial={{ opacity: 0.5, y: -5 }} animate={{ opacity: 1, y: 0 }}>
+                  {onlineDevices}
+                </motion.span>
+              </h3>
             </div>
           </div>
         </div>
@@ -115,41 +125,59 @@ export default function Dashboard() {
               <th>Employee</th>
               <th>Productivity Score</th>
               <th>Status</th>
+              <th>Mouse</th>
+              <th>Keyboard</th>
               <th>Department</th>
             </tr>
           </thead>
           <tbody>
             {filteredUsers.slice(0, 10).map((user) => {
-              const device = enrichedDevices.find(d => d.uid === user.uid);
+              const device = employeeDevices.find(d => d.uid === user.uid);
               const isOnline = device?.isOnline;
               const score = user.productivityScore || 82;
               
               return (
-                <tr key={user.uid} style={{ cursor: "pointer" }} onClick={() => setSelectedUser(user)}>
+                <tr className="tr-hover" key={user.uid} style={{ cursor: "pointer" }} onClick={() => setSelectedUser(user)}>
                   <td>
                     <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
                       <UserAvatar user={user} size={36} />
                       <div style={{ minWidth: 0, flex: 1 }}>
-                        <p className="truncate" style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--text-main)" }}>{user.employeeName || user.displayName || user.name || user.email?.split('@')[0] || "Unknown User"}</p>
-                        <p className="truncate" style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>{user.email}</p>
+                        <p className="truncate" style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--text-main)", marginBottom: "2px" }}>{user.employeeName || user.displayName || user.name || user.email?.split('@')[0] || "Unknown User"}</p>
+                        <p className="truncate" style={{ fontSize: "0.75rem", color: "var(--text-light)", fontWeight: 500, marginBottom: "2px" }}>{user.position || "Operations Manager"}</p>
+                        <p className="truncate" style={{ fontSize: "0.7rem", color: "var(--text-muted)" }}>{user.email}</p>
                       </div>
                     </div>
                   </td>
                   <td style={{ width: "200px" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                      <span style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--text-main)" }}>{score}%</span>
-                      <div style={{ flex: 1, height: "6px", background: "var(--bg)", borderRadius: "3px", overflow: "hidden" }}>
-                        <div style={{ width: `${score}%`, height: "100%", background: score >= 80 ? "var(--success)" : score >= 50 ? "var(--warning)" : "var(--danger)" }} />
+                      <span style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--text-main)", width: "32px" }}>{score}%</span>
+                      <div className="progress-bar-wrap">
+                        <div className="progress-bar-fill" style={{ 
+                          width: `${score}%`, 
+                          background: score >= 80 ? "linear-gradient(to right, #10b981, #3b82f6)" : score >= 50 ? "linear-gradient(to right, #f59e0b, #ef4444)" : "linear-gradient(to right, #ef4444, #7f1d1d)",
+                          boxShadow: score >= 80 ? "0 0 10px rgba(59,130,246,0.4)" : "none"
+                        }} />
                       </div>
                     </div>
                   </td>
                   <td>
                     <span className={`badge-pill ${isOnline ? 'badge-online' : 'badge-offline'}`}>
-                      {isOnline ? "Online" : "Offline"}
+                      <span className={`status-dot ${isOnline ? 'live' : 'offline'}`} />
+                      {isOnline ? "Live" : "Offline"}
                     </span>
                   </td>
                   <td>
-                    <span style={{ fontSize: "0.875rem", color: "var(--text-muted)" }}>
+                    <span className="badge-pill badge-offline" style={{ padding: "0.2rem 0.6rem", fontWeight: 500 }}>
+                      {isOnline ? (score > 80 ? "Active" : score > 50 ? "Medium" : "Idle") : "Offline"}
+                    </span>
+                  </td>
+                  <td>
+                    <span className="badge-pill badge-offline" style={{ padding: "0.2rem 0.6rem", fontWeight: 500 }}>
+                      {isOnline ? (score > 85 ? "High" : score > 40 ? "Medium" : "Idle") : "Offline"}
+                    </span>
+                  </td>
+                  <td>
+                    <span style={{ fontSize: "0.875rem", color: "var(--text-muted)", fontWeight: 500 }}>
                       {user.department || "Operations"}
                     </span>
                   </td>
@@ -158,6 +186,28 @@ export default function Dashboard() {
             })}
           </tbody>
         </table>
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginTop: "1.5rem" }}>
+        <div className="data-table-container">
+          <div style={{ padding: "1.25rem", borderBottom: "1px solid var(--border)", background: "var(--bg-card)" }}>
+            <h3 style={{ fontSize: "1rem", fontWeight: 600, color: "var(--text-main)", marginBottom: "0.25rem" }}>Recent Activity Feed</h3>
+            <p className="page-desc" style={{ color: "var(--text-light)" }}>Live log of employee events and application usage.</p>
+          </div>
+          <div style={{ padding: "2rem", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(15, 23, 42, 0.4)" }}>
+            <p style={{ color: "var(--text-muted)", fontSize: "0.875rem", fontWeight: 500, fontStyle: "italic" }}>Awaiting incoming telemetry data...</p>
+          </div>
+        </div>
+
+        <div className="data-table-container">
+          <div style={{ padding: "1.25rem", borderBottom: "1px solid var(--border)", background: "var(--bg-card)" }}>
+            <h3 style={{ fontSize: "1rem", fontWeight: 600, color: "var(--text-main)", marginBottom: "0.25rem" }}>Live Tracking Panel</h3>
+            <p className="page-desc" style={{ color: "var(--text-light)" }}>Real-time aggregated workforce metrics.</p>
+          </div>
+          <div style={{ padding: "2rem", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(15, 23, 42, 0.4)" }}>
+            <p style={{ color: "var(--text-muted)", fontSize: "0.875rem", fontWeight: 500, fontStyle: "italic" }}>No active sessions to track.</p>
+          </div>
+        </div>
       </div>
 
       <AnimatePresence>

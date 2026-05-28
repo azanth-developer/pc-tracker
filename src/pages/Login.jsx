@@ -3,15 +3,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Monitor, Lock, Mail, Eye, EyeOff, Activity, UserPlus, LogIn } from "lucide-react";
 
 // Electron IPC helper
-const isElectron = typeof window !== 'undefined' && window.process && window.process.type === 'renderer';
-let ipcRenderer = null;
-if (isElectron) {
-  try {
-    ipcRenderer = window.require('electron').ipcRenderer;
-  } catch (e) {
-    console.warn("Electron IPC not available");
-  }
-}
+const isElectron = typeof window !== 'undefined' && window.electronAPI !== undefined;
 
 export default function Login() {
   const { login, register, loginWithGoogle, currentUser } = useAuth();
@@ -20,12 +12,20 @@ export default function Login() {
 
   // Signal Electron to start monitor if we just logged in
   useEffect(() => {
-    if (currentUser && ipcRenderer) {
-      console.log("[Login] Signaling Electron to start monitor...");
-      ipcRenderer.send('auth-success-start-monitor', { 
-        uid: currentUser.uid, 
-        email: currentUser.email 
-      });
+    if (isElectron) {
+      if (currentUser) {
+        console.log("[Login] Signaling Electron to start monitor...");
+        currentUser.getIdToken().then(token => {
+          window.electronAPI.sendLoginSuccess({ 
+            uid: currentUser.uid, 
+            email: currentUser.email,
+            token
+          });
+        }).catch(err => console.error("Failed to get token:", err));
+      } else {
+        // Unauthenticated, show login window
+        window.electronAPI.showLogin();
+      }
     }
   }, [currentUser]);
   const [email,      setEmail]      = useState("");
@@ -87,6 +87,113 @@ export default function Login() {
   }
 
   return (
+    <>
+      <style>{`
+        .login-root {
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+          background: #030712;
+          color: #f8fafc;
+        }
+        .login-bg-grid {
+          position: absolute;
+          inset: 0;
+          background-image: 
+            linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+          background-size: 4rem 4rem;
+          z-index: 0;
+        }
+        .orb {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(80px);
+          z-index: 0;
+          opacity: 0.4;
+        }
+        .orb-1 { width: 400px; height: 400px; background: #3b82f6; top: -100px; left: -100px; }
+        .orb-2 { width: 300px; height: 300px; background: #8b5cf6; bottom: -50px; right: -50px; }
+        .orb-3 { width: 250px; height: 250px; background: #10b981; bottom: 20%; left: 20%; opacity: 0.2; }
+
+        .login-card {
+          position: relative;
+          z-index: 10;
+          width: 100%;
+          max-width: 440px;
+          background: rgba(15, 23, 42, 0.7);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 1.5rem;
+          padding: 2.5rem;
+          box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0,0,0,0.5);
+        }
+
+        .login-logo-wrap { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .login-logo-icon {
+          width: 48px; height: 48px;
+          background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+          border-radius: 12px;
+          display: flex; align-items: center; justify-content: center;
+          color: #fff; box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+        .login-brand { font-size: 1.25rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; margin: 0; }
+        .login-subtitle { font-size: 0.8rem; color: #94a3b8; margin-top: 0.25rem; }
+
+        .login-divider { height: 1px; background: rgba(255, 255, 255, 0.08); margin: 1.5rem 0; }
+
+        .login-heading { font-size: 1.5rem; font-weight: 700; color: #fff; margin: 0 0 0.5rem 0; letter-spacing: -0.02em; }
+        .login-desc { font-size: 0.875rem; color: #94a3b8; margin: 0 0 2rem 0; }
+
+        .login-error { background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.2); color: #ef4444; padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .login-success { background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.2); color: #22c55e; padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+
+        .btn-google {
+          width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+          background: rgba(255,255,255,0.03); border: 1px solid rgba(255, 255, 255, 0.08);
+          color: #f8fafc; font-weight: 600; font-size: 0.95rem;
+          padding: 0.875rem; border-radius: 10px; cursor: pointer; transition: all 0.2s;
+        }
+        .btn-google:hover { background: rgba(255,255,255,0.08); border-color: rgba(255, 255, 255, 0.15); }
+
+        .login-or { display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0; }
+        .login-or-line { flex: 1; height: 1px; background: rgba(255, 255, 255, 0.08); }
+        .login-or-text { font-size: 0.75rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; }
+
+        .login-form { display: flex; flex-direction: column; gap: 1.25rem; margin: 0; }
+        .field-group { display: flex; flex-direction: column; gap: 0.5rem; }
+        .field-label { font-size: 0.8rem; font-weight: 600; color: #cbd5e1; display: block; margin: 0; }
+        .field-wrap { position: relative; display: flex; align-items: center; }
+        .field-icon { position: absolute; left: 1rem; color: #94a3b8; pointer-events: none; }
+        .field-input {
+          width: 100%; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.08);
+          color: #fff; font-size: 0.95rem; padding: 0.875rem 1rem 0.875rem 2.75rem;
+          border-radius: 10px; transition: all 0.2s; box-sizing: border-box;
+        }
+        .field-input:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 0 1px #3b82f6, 0 0 15px rgba(59, 130, 246, 0.4); background: rgba(15, 23, 42, 0.8); }
+        .field-eye { position: absolute; right: 1rem; background: none; border: none; color: #94a3b8; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: color 0.2s; }
+        .field-eye:hover { color: #cbd5e1; }
+
+        .btn-primary {
+          background: linear-gradient(135deg, #3b82f6, #2563eb); 
+          color: #fff; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; 
+          font-weight: 500; cursor: pointer; transition: all 0.2s; 
+          display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+        }
+        .btn-primary:hover { filter: brightness(1.1); }
+        .btn-full { width: 100%; padding: 0.875rem; font-size: 0.95rem; justify-content: center; margin-top: 0.5rem; }
+
+        .login-toggle { margin-top: 1.5rem; text-align: center; font-size: 0.875rem; color: #94a3b8; }
+        .login-toggle p { margin: 0; }
+        .login-toggle-btn { background: none; border: none; color: #3b82f6; font-weight: 600; cursor: pointer; margin-left: 0.5rem; font-size: 0.875rem; transition: color 0.2s; }
+        .login-toggle-btn:hover { color: #60a5fa; text-decoration: underline; }
+
+        .login-footer { margin-top: 2rem; text-align: center; font-size: 0.7rem; color: rgba(148, 163, 184, 0.5); }
+      `}</style>
     <div className="login-root">
       <div className="login-bg-grid" />
 
@@ -270,5 +377,6 @@ export default function Login() {
         </p>
       </div>
     </div>
+    </>
   );
 }

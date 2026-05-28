@@ -17,14 +17,16 @@ const PAGE_LABELS = {
   settings:     "Settings",
 };
 
-export default function Header({ activePage, sidebarOpen, setSidebarOpen, onSearch }) {
+export default function Header({ activePage, sidebarOpen, setSidebarOpen, onSearch, setActivePage }) {
   const { currentUser, logout, userProfile } = useAuth();
   const { formatted } = useLiveClock();
   const { notifications, unreadCount, markAllRead } = useNotifications();
-  const { enrichedDevices } = useConsolidatedData();
+  const { enrichedDevices, users } = useConsolidatedData();
   const [showNotifs, setShowNotifs] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showSearch, setShowSearch] = useState(false);
+  const searchRef = useRef(null);
   const notifRef = useRef(null);
   const profileRef = useRef(null);
 
@@ -39,10 +41,22 @@ export default function Header({ activePage, sidebarOpen, setSidebarOpen, onSear
   const displayName = userProfile?.displayName || currentUser?.displayName || currentUser?.email?.split("@")[0] || "Administrator";
   const initials = displayName[0]?.toUpperCase() || "A";
 
+  const searchResults = React.useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    const q = searchQuery.toLowerCase();
+    const matchedUsers = (users || []).filter(u => 
+      (u.employeeName || u.displayName || u.name || "").toLowerCase().includes(q) ||
+      (u.email || "").toLowerCase().includes(q) ||
+      (u.employeeId || "").toLowerCase().includes(q)
+    );
+    return matchedUsers.slice(0, 5); // top 5 results
+  }, [searchQuery, users]);
+
   useEffect(() => {
     function handleClick(e) {
       if (notifRef.current && !notifRef.current.contains(e.target)) setShowNotifs(false);
       if (profileRef.current && !profileRef.current.contains(e.target)) setShowProfile(false);
+      if (searchRef.current && !searchRef.current.contains(e.target)) setShowSearch(false);
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
@@ -59,18 +73,73 @@ export default function Header({ activePage, sidebarOpen, setSidebarOpen, onSear
         </div>
       </div>
 
+      <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
+        <div style={{ textAlign: "center" }}>
+          <p style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--text-main)", letterSpacing: "0.5px" }}>Welcome back, {displayName}</p>
+          <p style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginTop: "2px" }}>{formatted}</p>
+        </div>
+      </div>
+
       <div className="header-actions">
-        <div className="search-input-wrap" style={{ minWidth: "240px", maxWidth: "320px" }}>
+        <div className="search-input-wrap" style={{ minWidth: "240px", maxWidth: "320px", position: "relative" }} ref={searchRef}>
           <Search size={16} className="search-icon" />
           <input
-            placeholder="Search..."
+            placeholder="Search employees..."
             className="search-input"
             value={searchQuery}
+            onFocus={() => setShowSearch(true)}
             onChange={(e) => {
               setSearchQuery(e.target.value);
-              if (onSearch) onSearch(e.target.value);
+              setShowSearch(true);
             }}
           />
+          <AnimatePresence>
+            {showSearch && searchQuery.trim() && (
+              <motion.div
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 5 }}
+                style={{
+                  position: "absolute", top: "110%", left: 0, right: 0,
+                  background: "var(--bg-card)", border: "1px solid var(--border)",
+                  borderRadius: "8px", boxShadow: "var(--shadow)", zIndex: 3000,
+                  overflow: "hidden"
+                }}
+              >
+                {searchResults.length > 0 ? (
+                  <div style={{ padding: "0.5rem 0" }}>
+                    {searchResults.map(user => (
+                      <div 
+                        key={user.uid}
+                        style={{ padding: "0.5rem 1rem", display: "flex", alignItems: "center", gap: "0.75rem", cursor: "pointer", transition: "all 0.2s" }}
+                        onMouseEnter={(e) => e.currentTarget.style.background = "var(--bg-card-hover)"}
+                        onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+                        onClick={() => {
+                          setShowSearch(false);
+                          setSearchQuery("");
+                          if (setActivePage) setActivePage("employees");
+                        }}
+                      >
+                        <User size={16} style={{ color: "var(--primary)" }} />
+                        <div style={{ minWidth: 0 }}>
+                          <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-main)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                            {user.employeeName || user.displayName || user.name || "Unknown"}
+                          </p>
+                          <p style={{ fontSize: "0.7rem", color: "var(--text-muted)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                            {user.email || user.employeeId}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div style={{ padding: "1rem", textAlign: "center", color: "var(--text-muted)", fontSize: "0.85rem" }}>
+                    No employees found.
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         <div className={`badge-pill ${telemetryStatus.class}`}>

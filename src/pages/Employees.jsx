@@ -14,7 +14,7 @@ import { deleteEmployeeCompletely } from "../utils/firebaseUtils";
 import { exportToCSV } from "../utils/csvExport";
 
 export default function Employees() {
-  const { users, enrichedDevices, loading } = useConsolidatedData();
+  const { employees, employeeDevices, loading } = useConsolidatedData();
   const [viewMode, setViewMode] = useState("list");
   const [searchQuery, setSearchQuery] = useState("");
   const [filterDept, setFilterDept] = useState("All");
@@ -29,7 +29,7 @@ export default function Employees() {
   };
 
   const filteredUsers = useMemo(() => {
-    return users.filter(u => {
+    return employees.filter(u => {
       const name = u.employeeName || u.displayName || u.name || u.email || "";
       const matchesSearch = 
         name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -38,13 +38,13 @@ export default function Employees() {
       const matchesDept = filterDept === "All" || u.department === filterDept;
       return matchesSearch && matchesDept;
     });
-  }, [users, searchQuery, filterDept]);
+  }, [employees, searchQuery, filterDept]);
 
   const handleDelete = async () => {
     if (!deletingUser) return;
     setIsDeleting(true);
     try {
-      const device = enrichedDevices.find(d => d.uid === deletingUser.uid);
+      const device = employeeDevices.find(d => d.uid === deletingUser.uid);
       await deleteEmployeeCompletely({ uid: deletingUser.uid, deviceId: device?.deviceId });
     } catch (err) {
       console.error("Delete error:", err);

@@ -12,16 +12,18 @@ let USER_EMAIL = 'unknown';
 let USER_DISPLAY_NAME = 'Unknown User';
 let USER_EMPLOYEE_ID = '';
 let USER_DEVICE_NAME = os.hostname();
+let AUTH_TOKEN = '';
 
 // Make device ID unique per user so multiple users on one PC don't overwrite
 let DEVICE_ID = os.hostname().replace(/[^a-zA-Z0-9_-]/g, '_');
 
-function setUserInfo({ uid, email, displayName, employeeId, deviceName }) {
+function setUserInfo({ uid, email, displayName, employeeId, deviceName, token }) {
   USER_ID = uid || 'unknown';
   USER_EMAIL = email || 'unknown';
   USER_DISPLAY_NAME = displayName || 'Unknown User';
   USER_EMPLOYEE_ID = employeeId || '';
   USER_DEVICE_NAME = deviceName || os.hostname();
+  AUTH_TOKEN = token || '';
 
   const hostNorm = os.hostname().replace(/[^a-zA-Z0-9_-]/g, '_');
   DEVICE_ID = `${hostNorm}_${USER_ID}`;
@@ -63,13 +65,13 @@ async function upsertUserDoc() {
       productivity: { integerValue: String(docFields.productivity || 0) },
     };
 
-    // REST patch upsert on users/{uid}
     const body = {
       fields: toFirestoreFields,
     };
 
-    // Note: this will create if missing.
-    await firebaseRequest(`${FIRESTORE_URL}/users/${USER_ID}?key=${API_KEY}`, body);
+    // Use updateMask to ensure we only update these specific fields and DO NOT overwrite 'role'
+    const maskParams = Object.keys(toFirestoreFields).map(k => `updateMask.fieldPaths=${k}`).join('&');
+    await firebaseRequest(`${FIRESTORE_URL}/users/${USER_ID}?${maskParams}&key=${API_KEY}`, body);
     return true;
   } catch (err) {
     console.error('[Firebase User Upsert] Error:', err.message);
@@ -81,9 +83,14 @@ async function upsertUserDoc() {
 function firebaseRequest(url, body) {
   return new Promise((resolve, reject) => {
     const data = JSON.stringify(body);
+    const headers = { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(data) };
+    if (AUTH_TOKEN) {
+      headers['Authorization'] = `Bearer ${AUTH_TOKEN}`;
+    }
+    
     const req = https.request(url, {
       method: 'PATCH',
-      headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(data) },
+      headers,
     }, res => {
       let out = '';
       res.on('data', c => out += c);
@@ -127,6 +134,7 @@ async function syncToFirestore(data) {
         activeHours:    { stringValue: data.activeHours || '0' },
         productivityScore: { integerValue: String(data.productivityScore || 0) },
         isOnline:       { booleanValue: true },
+        isIdle:         { booleanValue: (data.idleSeconds || 0) > 300 },
         lastSeen:       { stringValue: new Date().toISOString() },
       }
     };
